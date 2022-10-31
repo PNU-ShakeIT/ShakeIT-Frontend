@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!---두개의 배열을 만든다.
+    1. 메뉴 아이콘을 위한 배열
+    2. 아이콘 색을 위한 배열-->
+    <array name = "icons">
+        <item>@drawable/assemblylogo_right</item>
+        <item>@drawable/assemblylogo_right</item>
+        <item>@drawable/assemblylogo_right</item>
+        <item>@drawable/assemblylogo_right</item>
+        <item>@drawable/assemblylogo_right</item>
+    </array>
+    <array name = "colors">
+        <item>@android:color/holo_blue_bright</item>
+        <item>@android:color/holo_blue_bright</item>
+        <item>@android:color/holo_green_dark</item>
+        <item>@android:color/holo_blue_bright</item>
+        <item>@android:color/holo_blue_bright</item>
+    </array>
+
+
+</resources>
