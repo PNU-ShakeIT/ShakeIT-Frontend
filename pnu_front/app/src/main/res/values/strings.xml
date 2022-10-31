@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">pnu_front</string>
+    <string name="petition">검색하고 싶은 청원을 입력해주세요.</string>
 </resources>
