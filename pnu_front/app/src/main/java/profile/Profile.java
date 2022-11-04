@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package profile;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pnu_front.R;
 
 public class Profile extends AppCompatActivity {
 
