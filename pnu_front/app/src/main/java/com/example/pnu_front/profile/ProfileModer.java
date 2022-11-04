@@ -1,4 +1,4 @@
-package profile;
+package com.example.pnu_front.profile;
 
 
 import com.google.gson.annotations.Expose;

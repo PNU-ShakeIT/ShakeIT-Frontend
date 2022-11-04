@@ -22,54 +22,5 @@ public class Calender extends AppCompatActivity {
                 Log.d("W","1:"+ i + "2:" + i1 + "3:" + i2);
             }
         });
-        final CircleMenuView menu = findViewById(R.id.circle_menu);
-
-        menu.setEventListener(new CircleMenuView.EventListener(){
-            @Override
-            public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
-                Log.d("D","onMenuOpenAnimationStart");
-            }
-
-            @Override
-            public void onMenuOpenAnimationEnd(@NonNull CircleMenuView view) {
-                Log.d("D","onMenuOpenAnimationEnd");
-            }
-
-            @Override
-            public void onMenuCloseAnimationStart(@NonNull CircleMenuView view) {
-                Log.d("D","onMenuCloseAnimationStart");
-            }
-
-            @Override
-            public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
-                Log.d("D","onMenuCloseAnimationEnd");
-            }
-
-            @Override
-            public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                Log.d("D","onButtonClickAnimationStart|index : "+index);
-            }
-
-            @Override
-            public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                Log.d("D","onButtonClickAnimationEnd|index : "+index);
-            }
-
-            @Override
-            public boolean onButtonLongClick(@NonNull CircleMenuView view, int buttonIndex) {
-                Log.d("D","onButtonLongClick|index : "+buttonIndex );
-                return false;
-            }
-
-            @Override
-            public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
-                Log.d("D","onButtonLongClickAnimationStart|index : "+buttonIndex );
-            }
-
-            @Override
-            public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int buttonIndex) {
-                Log.d("D","onButtonLongClickAnimationEnd|index : "+buttonIndex );
-            }
-        });
     }
 }

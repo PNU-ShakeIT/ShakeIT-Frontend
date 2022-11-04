@@ -1,4 +1,4 @@
-package profile;
+package com.example.pnu_front.profile;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;

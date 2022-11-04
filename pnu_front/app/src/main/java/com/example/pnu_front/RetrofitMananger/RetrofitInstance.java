@@ -1,12 +1,8 @@
-package RetrofitMananger;
+package com.example.pnu_front.RetrofitMananger;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import profile.ProfileModer;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

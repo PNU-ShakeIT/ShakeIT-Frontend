@@ -11,7 +11,7 @@ import me.relex.circleindicator.CircleIndicator3;
 public class LawMakingActivity extends AppCompatActivity {
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
-    private int num_page = 3;
+    private int num_page = 2;
     private CircleIndicator3 mIndicator;
 
     @Override
@@ -42,7 +42,7 @@ public class LawMakingActivity extends AppCompatActivity {
          */
 
         mPager.setCurrentItem(1000); //시작 지점
-        mPager.setOffscreenPageLimit(3); //최대 이미지 수
+        mPager.setOffscreenPageLimit(2); //최대 이미지 수
 
         mPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
