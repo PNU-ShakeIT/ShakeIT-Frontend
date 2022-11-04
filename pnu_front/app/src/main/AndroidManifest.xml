@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Pnu_front"
         tools:targetApi="31" >
         <activity
+            android:name=".LawMakingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Petition"
             android:exported="false">
             <meta-data

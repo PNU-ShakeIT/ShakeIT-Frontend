@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,10 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <View
+    <View
             android:id="@+id/view3"
             android:layout_width="447dp"
             android:layout_height="319dp"
@@ -25,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.388" />
 
-        <FrameLayout
+    <FrameLayout
 
             android:id="@+id/view4"
             android:layout_width="447dp"
@@ -40,22 +37,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.821">
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="실시간 핫이슈"
                 android:textSize="20sp"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/black"/>
 
-            <ListView
+        <ListView
                 android:layout_width="445dp"
                 android:layout_height="268dp"
                 android:layout_gravity="bottom" />
-        </FrameLayout>
+    </FrameLayout>
 
 
-        <View
+    <View
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:background="@drawable/congress_symbol_blue"
@@ -65,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.081" />
 
-        <View
+    <View
             android:layout_width="480dp"
             android:layout_height="2dp"
             android:background="#F4F4F4"
@@ -75,7 +73,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.148" />
 
-        <View
+    <View
             android:id="@+id/view2"
             android:layout_width="458dp"
             android:layout_height="84dp"
@@ -90,7 +88,7 @@
 
 
 
-        <View
+    <View
             android:id="@+id/search2"
             android:layout_width="5dp"
             android:layout_height="8dp"
@@ -103,7 +101,7 @@
             app:layout_constraintTop_toTopOf="@+id/search1"
             app:layout_constraintVertical_bias="1.0" />
 
-        <View
+    <View
             android:id="@+id/search1"
             android:layout_width="29dp"
             android:layout_height="29dp"
@@ -116,7 +114,7 @@
             app:layout_constraintTop_toTopOf="@+id/view2"
             app:layout_constraintVertical_bias="0.472" />
 
-        <View
+    <View
             android:id="@+id/menu_bar"
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -129,7 +127,7 @@
             app:layout_constraintVertical_bias="0.102" />
 
 
-        <View
+    <View
             android:id="@+id/location"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -142,7 +140,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.319" />
 
-        <EditText
+    <EditText
             android:id="@+id/search_text"
             android:layout_width="367dp"
             android:layout_height="59dp"
@@ -158,7 +156,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.201" />
 
-        <TextView
+    <TextView
             android:layout_marginStart="20dp"
             android:id="@+id/search_text2"
             android:layout_width="367dp"
@@ -176,53 +174,224 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.316" />
 
-        <TextView
-            android:id="@+id/calbtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/layout_background"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:text="Calenderactivity"
+    <LinearLayout
+        android:id="@+id/sliding_page"
+        android:layout_width="147dp"
+        android:layout_height="800dp"
+        android:background="@drawable/congress_main_search"
+        android:elevation="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.638"
+            app:layout_constraintHorizontal_bias="0.167"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.974" />
+            app:layout_constraintVertical_bias="0.217">
 
         <TextView
-            android:id="@+id/petitionbtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="28dp"
-            android:background="@drawable/layout_background"
-            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_gravity="bottom"
             android:gravity="center"
-            android:text="Petition"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/calbtn"
-            app:layout_constraintHorizontal_bias="0.561"
-            app:layout_constraintStart_toEndOf="@+id/profbtn" />
+            android:paddingStart="1dp"
+            android:text="일정"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/profbtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/layout_background"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:text="Profile"
+            <View
+                android:id="@+id/calbtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/calendar"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="90dp"
+            android:layout_height="105dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintHorizontal_bias="0.167"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976" />
+            app:layout_constraintVertical_bias="0.217">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingStart="1dp"
+                android:text="뉴스"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
+            <View
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/news"
+                android:layout_gravity="center_horizontal"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
 
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="90dp"
+            android:layout_height="105dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingStart="1dp"
+                android:text="입법"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
-</androidx.drawerlayout.widget.DrawerLayout>
+            <View
+                android:id="@+id/lawmakingbtn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ip_bub"
+                android:layout_gravity="center_horizontal"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingStart="1dp"
+                android:text="국회의원"
+                android:textColor="@color/black"
+                android:textSize="27dp" />
+
+            <View
+                android:id="@+id/profbtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/user"
+                android:layout_gravity="center_horizontal"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="90dp"
+            android:layout_height="105dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingStart="1dp"
+                android:text="도서관"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <View
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/library"
+                android:layout_gravity="center_horizontal"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="90dp"
+            android:layout_height="105dp"
+            android:layout_margin="10dp"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingStart="1dp"
+                android:text="청원"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <View
+                android:id="@+id/petitionbtn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/chungwon"
+                android:elevation="6dp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="240dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
