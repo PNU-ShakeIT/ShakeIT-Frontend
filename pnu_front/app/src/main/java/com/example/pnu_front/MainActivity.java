@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.pnu_front.peititon.Petition;
 
-import profile.Profile;
+import com.example.pnu_front.profile.Profile;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;

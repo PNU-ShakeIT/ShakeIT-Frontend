@@ -1,13 +1,10 @@
-package RetrofitMananger;
+package com.example.pnu_front.RetrofitMananger;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import profile.ProfileModer;
+import com.example.pnu_front.profile.ProfileModer;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RetrofitService {
