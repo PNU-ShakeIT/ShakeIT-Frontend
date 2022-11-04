@@ -5,11 +5,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.pnu_front.databinding.ActivityMainBinding;
+import com.example.pnu_front.peititon.Petition;
+
+import profile.Profile;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
