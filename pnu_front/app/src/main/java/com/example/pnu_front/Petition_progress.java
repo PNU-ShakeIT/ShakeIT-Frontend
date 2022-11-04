@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Petition extends AppCompatActivity {
+public class Petition_progress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
