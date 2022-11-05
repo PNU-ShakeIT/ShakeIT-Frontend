@@ -16,20 +16,22 @@ public class progressadapter extends RecyclerView.Adapter<progressadapter.MyView
     public progressadapter(String[] testtext) {
         this.testtext = testtext;
     }
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
-        public MyViewHolder(View view)
-        {
+
+        public MyViewHolder(View view) {
             super(view);
             this.textView = view.findViewById(R.id.title);
         }
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         Context context = parent.getContext();
-        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent , false);
+        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(holderView);
 
         return myViewHolder;
