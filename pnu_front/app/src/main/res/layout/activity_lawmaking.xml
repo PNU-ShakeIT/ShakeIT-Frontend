@@ -31,8 +31,9 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <FrameLayout
-        android:layout_width="342dp"
-        android:layout_height="679dp"
+        android:id="@+id/frameLayout"
+        android:layout_width="335dp"
+        android:layout_height="593dp"
         android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,8 +51,8 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
-            android:layout_width="335dp"
-            android:layout_height="506dp"
+            android:layout_width="313dp"
+            android:layout_height="540dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:clipChildren="false"
@@ -59,5 +60,17 @@
             android:scaleType="fitXY" />
 
     </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="입법"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

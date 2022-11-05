@@ -1,6 +1,9 @@
 package com.example.pnu_front;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +16,7 @@ import com.example.pnu_front.peititon.Petition;
 
 import com.example.pnu_front.profile.Profile;
 
-import com.example.pnu_front.Calender.Calender;
+import kotlin.collections.SlidingWindowKt;
 
 public class MainActivity extends AppCompatActivity {
     boolean isPageOpen = false;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Animation translateRightAnim;
     LinearLayout slidingPage01;
     View view1;
+    RecyclerView recyclerView;
+    MainAdapter adapter;
 
     //github push and pull
 
@@ -86,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        recyclerView = (RecyclerView)findViewById(R.id.news_notion);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+        adapter = new MainAdapter();
+
+        for(int i = 0; i < 100; i++){
+            adapter.setItem("김세훈 sexmachine 김세훈 sexmachine 김세훈 sexmachine 김세훈 sexmachine");
+        }
+
+        recyclerView.setAdapter(adapter);
     }
 
     private class SlidingPageAnimationListener implements Animation.AnimationListener {
@@ -110,4 +124,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }

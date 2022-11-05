@@ -1,8 +1,11 @@
 package com.example.pnu_front;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -13,11 +16,15 @@ public class LawMakingActivity extends AppCompatActivity {
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 2;
     private CircleIndicator3 mIndicator;
+    RecyclerView recyclerView;
+    LawmakingAdapter adapter;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lawmaking);
+
 
         /**
          * 가로 슬라이드 뷰 Fragment
@@ -59,5 +66,6 @@ public class LawMakingActivity extends AppCompatActivity {
                 mIndicator.animatePageSelected(position%num_page);
             }
         });
+
     }
 }
