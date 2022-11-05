@@ -8,9 +8,6 @@ import android.os.Bundle;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
-import com.example.pnu_front.expirationadapter;
-import com.example.pnu_front.profile.ProfileModel;
-import com.example.pnu_front.profileadapter;
 
 import java.util.ArrayList;
 import java.util.List;

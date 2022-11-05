@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pnu_front.R;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;

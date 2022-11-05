@@ -9,6 +9,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <FrameLayout
+        android:id="@+id/Chatbotbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:elevation="9dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hope_right"
+            tools:layout_editor_absoluteX="327dp"
+            tools:layout_editor_absoluteY="822dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:text="챗봇"
+            android:textStyle="bold">
+
+        </TextView>
+    </FrameLayout>
+    <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:background="@drawable/round_edge"

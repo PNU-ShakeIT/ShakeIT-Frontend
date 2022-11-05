@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.RetrofitMananger.RetrofitService;
-import com.example.pnu_front.expirationadapter;
-import com.example.pnu_front.profileadapter;
 import com.example.pnu_front.adapter.profileadapter;
 
 import java.util.ArrayList;
