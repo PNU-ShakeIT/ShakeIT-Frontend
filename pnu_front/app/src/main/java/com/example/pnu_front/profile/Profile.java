@@ -15,11 +15,18 @@ import android.widget.Spinner;
 
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
+import com.example.pnu_front.expirationadapter;
 
 public class Profile extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +73,19 @@ public class Profile extends AppCompatActivity {
                     Log.d("msg",spinner_field.getSelectedItem().toString()+"selected");
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-
         spinner_field.setAdapter(adapter);
+
+        RecyclerView profile = findViewById(R.id.congress_member_list);
+        layoutManager = new LinearLayoutManager(this);
+        profile.setLayoutManager(layoutManager);
+        String[] testtext = {"이주환","박수영","박재호","신종민","한성익","김세훈","김효준","심유성","모영민"};
+        String[] testmember = {"국민의힘" , "국민의힘" , "더불어민주당" , "국민의힘","sexking" , "sexmachine","sex당" , "이제","뭐함",};
+//        adapter= new expirationadapter(testtext,testmember);
+//        profile.setAdapter(adapter);
 
     }
 }
