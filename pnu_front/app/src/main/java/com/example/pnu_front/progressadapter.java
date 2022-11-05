@@ -1,35 +1,27 @@
 package com.example.pnu_front;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
+public class progressadapter extends RecyclerView.Adapter<progressadapter.MyViewHolder> {
 
     private final String[] testtext;
-    private final String[] testmember;
 
-    public expirationadapter(String[] testtext,String[] testmember) {
+    public progressadapter(String[] testtext) {
         this.testtext = testtext;
-        this.testmember = testmember;
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        public TextView title;
-        public TextView member;
-        public ProgressBar bar;
+        public TextView textView;
         public MyViewHolder(View view)
         {
             super(view);
-            this.title = view.findViewById(R.id.title);
-            this.member = view.findViewById(R.id.petition_amount);
-            this.bar = view.findViewById(R.id.progressBar);
+            this.textView = view.findViewById(R.id.title);
         }
     }
     @NonNull
@@ -39,21 +31,14 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
         Context context = parent.getContext();
         View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent , false);
         MyViewHolder myViewHolder = new MyViewHolder(holderView);
+
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        holder.title.setText(this.testtext[i]);
-        String[] tmpname = new String[3];
-        int num =0;
-        int tmp =0;
-        tmpname = testmember[i].split(" ");
-        Log.d("name","발인자 이름:"+tmpname[0]);
-        holder.member.setText(this.testmember[i]);
-        num = Integer.parseInt(tmpname[2].replace("명",""));
-        holder.bar.setProgress(num/500);
-        }
+        holder.textView.setText(this.testtext[i]);
+    }
 
     @Override
     public int getItemCount() {
