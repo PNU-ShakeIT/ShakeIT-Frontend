@@ -8,8 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pnu_front.Petition_expiration;
-import com.example.pnu_front.Petition_progress;
+import com.example.pnu_front.peititon.*;
 import com.example.pnu_front.R;
 //import com.example.pnu_front.RetrofitManager.ApiClient;
 //import com.example.pnu_front.RetrofitManager.ApiInterface;
@@ -19,7 +18,7 @@ import com.example.pnu_front.R;
 import java.util.List;
 
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
-import com.example.pnu_front.profile.ProfileModer;
+import com.example.pnu_front.profile.ProfileModel;
 
 import org.w3c.dom.Text;
 
@@ -28,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Petition extends AppCompatActivity {
-    Call<List<ProfileModer>> call;
+    Call<List<ProfileModel>> call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +35,16 @@ public class Petition extends AppCompatActivity {
         setContentView(R.layout.activity_petition);
 
         call = RetrofitInstance.getApiService().getPosts("황희");
-        call.enqueue(new Callback<List<ProfileModer>>() {
+        call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
-            public void onResponse(Call<List<ProfileModer>> call, Response<List<ProfileModer>> response) {
-<<<<<<<<< Temporary merge branch 1
-                List<ProfileModer> result = response.body();
-                String str = result.get(1).toString();
-=========
+            public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
 //                List<ProfileModer> result = response.body();
 //                String str = result.get(1).toString();
->>>>>>>>> Temporary merge branch 2
                 //textView.setText(str);
             }
 
             @Override
-            public void onFailure(Call<List<ProfileModer>> call, Throwable t) {
+            public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
 
             }
         });

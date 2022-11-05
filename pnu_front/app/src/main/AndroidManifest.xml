@@ -56,14 +56,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Petition_progress"
+            android:name=".peititon.Petition_expiration"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Petition_expiration"
+            android:name=".peititon.Petition_progress"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
