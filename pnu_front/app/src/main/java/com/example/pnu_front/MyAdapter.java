@@ -19,8 +19,7 @@ public class MyAdapter extends FragmentStateAdapter {
         int index = getRealPosition(position);
 
         if(index==0) return new Fragment_1();
-        else if(index==1) return new Fragment_2();
-        else return new Fragment_3();
+        else return new Fragment_2();
     }
 
     @Override

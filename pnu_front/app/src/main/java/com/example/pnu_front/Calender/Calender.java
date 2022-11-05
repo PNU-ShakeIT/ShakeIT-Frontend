@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package com.example.pnu_front.Calender;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +7,7 @@ import android.widget.CalendarView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pnu_front.R;
 import com.ramotion.circlemenu.CircleMenuView;
 
 public class Calender extends AppCompatActivity {
