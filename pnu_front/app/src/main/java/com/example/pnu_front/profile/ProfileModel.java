@@ -1,10 +1,9 @@
 package com.example.pnu_front.profile;
 
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ProfileModer {
+public class ProfileModel {
     @SerializedName("elect_GBN_NM")
     private String elect_GBN_NM;
 

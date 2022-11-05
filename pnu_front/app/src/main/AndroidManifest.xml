@@ -15,21 +15,21 @@
         android:theme="@style/Theme.Pnu_front"
         tools:targetApi="31" >
         <activity
-            android:name=".Petition"
+            android:name=".peititon.Petition"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Profile"
+            android:name=".profile.Profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Calender"
+            android:name=".Calender.Calender"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
