@@ -9,18 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pnu_front.R;
+import com.example.pnu_front.profile.ProfileModel;
+
+import java.util.List;
 
 public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHolder> {
+    List<ProfileModel> profileData;
 
-    private final String[] testmember;
-    private final String[] testparty;
-
-    public profileadapter(String[] testmember,String[] testparty) {
-
-        this.testmember = testmember;
-        this.testparty = testparty;
+    public profileadapter(Context applicationContext, List<ProfileModel> profileData) {
+        this.profileData = profileData;
     }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView member;
         public TextView party;
@@ -43,13 +42,13 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        holder.member.setText(this.testmember[i]);
-        holder.party.setText(this.testparty[i]);
+        holder.member.setText(this.profileData.get(i).getHg_NM());
+        holder.party.setText(this.profileData.get(i).getPoly_NM());
     }
 
     @Override
     public int getItemCount() {
 
-        return testmember.length;
+        return profileData.size();
     }
 }

@@ -6,7 +6,7 @@ public class CalenderModer {
     @SerializedName("code")
     private String code;
 
-        @SerializedName("title")
+    @SerializedName("title")
     private String title;
 
     @SerializedName("elect_GBN_NM")
@@ -23,6 +23,17 @@ public class CalenderModer {
 
     @SerializedName("url")
     private String url;
+
+    @SerializedName("id")
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCode() {
         return code;

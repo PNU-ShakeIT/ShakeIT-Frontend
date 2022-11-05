@@ -7,6 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.pnu_front.R;
+import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
+import com.example.pnu_front.expirationadapter;
+import com.example.pnu_front.profile.ProfileModel;
+import com.example.pnu_front.profileadapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import com.example.pnu_front.adapter.expirationadapter;
 
 public class    Petition_progress extends AppCompatActivity {
@@ -14,6 +25,9 @@ public class    Petition_progress extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
+    Call<List<PendingPetitionModel>> call;
+    List<PendingPetitionModel> result = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +35,20 @@ public class    Petition_progress extends AppCompatActivity {
         RecyclerView progress = findViewById(R.id.progresspt);
         layoutManager = new LinearLayoutManager(this);
         progress.setLayoutManager(layoutManager);
-        String[] testtext = {"테","스","트","씨@발련아","발련아","T발련아","q발련아","rtr발련아"};
-        String[] testmember = {"모영민 외 30000명 동의" , "김효준 외 40000명 동의" , "심유성 외 1500명 동의" , "한성익 외 150명 동의","김효준 외 40000명 동의" , "심유성 외 1500명 동의","모영민 외 30000명 동의" , "김효준 외 40000명 동의"};
-        adapter= new expirationadapter(testtext,testmember);
-        progress.setAdapter(adapter);
+
+        call = RetrofitInstance.getApiService().getPendingPetition();
+        call.enqueue(new Callback<List<PendingPetitionModel>>() {
+            @Override
+            public void onResponse(Call<List<PendingPetitionModel>> call, Response<List<PendingPetitionModel>> response) {
+                result = response.body();
+                adapter = new expirationadapter(getApplicationContext(), result);
+                progress.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
+
+            }
+        });
     }
 }

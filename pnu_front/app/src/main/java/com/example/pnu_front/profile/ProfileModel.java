@@ -25,8 +25,8 @@ public class ProfileModel {
     @SerializedName("eng_NM")
     private String eng_NM;
 
-    @SerializedName("ploy_NM")
-    private String ploy_NM;
+    @SerializedName("poly_NM")
+    private String poly_NM;
 
     @SerializedName("orig_NM")
     private String orig_NM;
@@ -138,12 +138,12 @@ public class ProfileModel {
         this.eng_NM = eng_NM;
     }
 
-    public String getPloy_NM() {
-        return ploy_NM;
+    public String getPoly_NM() {
+        return poly_NM;
     }
 
-    public void setPloy_NM(String ploy_NM) {
-        this.ploy_NM = ploy_NM;
+    public void setPoly_NM(String ploy_NM) {
+        this.poly_NM = ploy_NM;
     }
 
     public String getOrig_NM() {
@@ -300,7 +300,7 @@ public class ProfileModel {
                 ", update_date='" + update_date + '\'' +
                 ", hj_NM='" + hj_NM + '\'' +
                 ", eng_NM='" + eng_NM + '\'' +
-                ", ploy_NM='" + ploy_NM + '\'' +
+                ", ploy_NM='" + poly_NM + '\'' +
                 ", orig_NM='" + orig_NM + '\'' +
                 ", cmit_NM='" + cmit_NM + '\'' +
                 ", cmits='" + cmits + '\'' +
