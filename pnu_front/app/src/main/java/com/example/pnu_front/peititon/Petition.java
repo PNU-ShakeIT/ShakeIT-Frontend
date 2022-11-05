@@ -1,6 +1,5 @@
 package com.example.pnu_front.peititon;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pnu_front.Petition_expiration;
-import com.example.pnu_front.Petition_progress;
+import com.example.pnu_front.peititon.*;
 import com.example.pnu_front.R;
 //import com.example.pnu_front.RetrofitManager.ApiClient;
 //import com.example.pnu_front.RetrofitManager.ApiInterface;
@@ -20,7 +18,6 @@ import java.util.List;
 
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.profile.ProfileModel;
-import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
