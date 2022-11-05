@@ -19,8 +19,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
+import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
+import com.example.pnu_front.RetrofitMananger.RetrofitService;
 import com.example.pnu_front.expirationadapter;
 import com.example.pnu_front.profileadapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Profile extends AppCompatActivity {
 
@@ -28,6 +37,8 @@ public class Profile extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     RecyclerView.Adapter myadapter;
     RecyclerView.LayoutManager layoutManager;
+    Call<List<ProfileModel>> call;
+    List<ProfileModel> result = new ArrayList<>();
 
 
     @Override
@@ -82,10 +93,20 @@ public class Profile extends AppCompatActivity {
         spinner_field.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(this);
         congressmember.setLayoutManager(layoutManager);
-        String[] testmember = {"이주환","박수영","박재호","신종민","한성익","김세훈","김효준","심유성","모영민"};
-        String[] testparty = {"국민의힘" , "국민의힘" , "더불어민주당" , "국민의힘","sexking" , "sexmachine","sex당" , "이제","뭐함",};
-        myadapter = new profileadapter(testmember , testparty);
-        congressmember.setAdapter(myadapter);
 
+        call = RetrofitInstance.getApiService().getPosts();
+        call.enqueue(new Callback<List<ProfileModel>>() {
+            @Override
+            public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
+                result = response.body();
+                myadapter = new profileadapter(getApplicationContext(), result);
+                congressmember.setAdapter(myadapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
+
+            }
+        });
     }
 }

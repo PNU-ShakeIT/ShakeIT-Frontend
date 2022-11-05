@@ -11,15 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pnu_front.peititon.PendingPetitionModel;
+import com.example.pnu_front.profile.ProfileModel;
+
+import java.util.List;
+
 public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
 
-    private final String[] testtext;
-    private final String[] testmember;
+    List<PendingPetitionModel> pendingPetitionData;
 
-    public expirationadapter(String[] testtext,String[] testmember) {
-        this.testtext = testtext;
-        this.testmember = testmember;
+    public expirationadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData) {
+        this.pendingPetitionData = pendingPetitionData;
     }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title;
         public TextView member;
@@ -44,20 +48,28 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        holder.title.setText(this.testtext[i]);
-        String[] tmpname = new String[3];
+        holder.title.setText(this.pendingPetitionData.get(i).getName());
+        String[] tmpname = new String[2];
         int num =0;
         int tmp =0;
-        tmpname = testmember[i].split(" ");
-        Log.d("name","발인자 이름:"+tmpname[0]);
-        holder.member.setText(this.testmember[i]);
-        num = Integer.parseInt(tmpname[2].replace("명",""));
-        holder.bar.setProgress(num/500);
+        String numString;
+        tmpname = pendingPetitionData.get(i).getProposer().split(" ");
+        if(tmpname.length == 1){
+            holder.member.setText(this.pendingPetitionData.get(i).getProposer());
+            holder.bar.setProgress(0);
         }
+        else{
+            holder.member.setText(this.pendingPetitionData.get(i).getProposer());
+            numString = tmpname[1].replace("인","");
+            num = Integer.parseInt(numString.replace(",", ""));
+            Log.d("num", ""+num);
+            holder.bar.setProgress(num/500);
+        }
+    }
 
     @Override
     public int getItemCount() {
 
-        return testtext.length;
+        return pendingPetitionData.size();
     }
 }
