@@ -1,10 +1,7 @@
 package com.example.pnu_front.profile;
 
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,14 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
-import com.example.pnu_front.expirationadapter;
-import com.example.pnu_front.profileadapter;
+import com.example.pnu_front.adapter.profileadapter;
 
 public class Profile extends AppCompatActivity {
 

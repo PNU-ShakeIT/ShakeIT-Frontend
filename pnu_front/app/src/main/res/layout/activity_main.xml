@@ -8,6 +8,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/round_edge"
+        android:elevation="10dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/assemblymark_right"
+            >
+
+        </ImageView>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <FrameLayout
@@ -53,8 +79,8 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <View
-        android:layout_width="480dp"
-        android:layout_height="2dp"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
         android:background="#F4F4F4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

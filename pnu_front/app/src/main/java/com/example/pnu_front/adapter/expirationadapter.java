@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package com.example.pnu_front.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pnu_front.R;
 
 public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
 

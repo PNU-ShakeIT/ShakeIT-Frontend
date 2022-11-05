@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.pnu_front.R;
-import com.example.pnu_front.expirationadapter;
+import com.example.pnu_front.adapter.expirationadapter;
 
 public class    Petition_progress extends AppCompatActivity {
 

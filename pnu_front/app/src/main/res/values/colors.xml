@@ -8,4 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="line_color">#CFCFCF</color>
+    <color name="code1">#4f9468</color>
+    <color name="code2">#c0522b</color>
+    <color name="code3">#3b768e</color>
+    <color name="code4">#b78333</color>
+    <color name="code5">#555c6a</color>
+
 </resources>

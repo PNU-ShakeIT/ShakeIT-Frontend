@@ -1,15 +1,15 @@
-package com.example.pnu_front;
+package com.example.pnu_front.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pnu_front.R;
 
 public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHolder> {
 
