@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package com.example.pnu_front.peititon;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-public class    Petition_progress extends AppCompatActivity {
+import com.example.pnu_front.R;
+import com.example.pnu_front.expirationadapter;
+
+public class Petition_progress extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
