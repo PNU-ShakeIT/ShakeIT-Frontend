@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-public class Petition_progress extends AppCompatActivity {
+public class    Petition_progress extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
