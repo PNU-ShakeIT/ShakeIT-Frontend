@@ -6,37 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Calender">
 
-
-<!--    <com.ramotion.circlemenu.CircleMenuView-->
-<!--        android:id="@+id/circle_menu"-->
-<!--        android:layout_width="400dp"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:elevation="20dp"-->
-<!--        app:button_colors="@array/colors"-->
-<!--        app:button_icons="@array/icons"-->
-<!--        app:icon_menu="@drawable/assemblylogo_right"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
-
-<!--    </com.ramotion.circlemenu.CircleMenuView>-->
-
-
     <View
         android:id="@+id/view"
         android:background="@color/line_color"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="1dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="162dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="55dp"
+        android:layout_width="170dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/assemblylogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,9 +30,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="27dp"
         android:text="국회 일정"
-        android:textSize="20sp"
+        android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +40,9 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="470dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="363dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="19dp"
         android:background="@drawable/layout_background"
         android:translationZ="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +51,8 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="470dp"
+        android:id="@+id/recyclerview_calendar"
+        android:layout_width="363dp"
         android:layout_height="300dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/layout_background"

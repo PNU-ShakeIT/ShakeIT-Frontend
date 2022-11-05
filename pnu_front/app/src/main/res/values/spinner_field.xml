@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="spinnerArray">
+
+        <item> 22대 국회의원 </item>
+
+        <item> 21대 국회의원 </item>
+
+        <item> 20대 국회의원 </item>
+
+        <item> 19대 국회의원 </item>
+
+    </string-array>
+
+</resources>

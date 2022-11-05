@@ -8,7 +8,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="1dp"
         android:layout_marginTop="21dp"
         android:background="@color/line_color"
@@ -18,9 +18,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="151dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="55dp"
+        android:layout_width="170dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/assemblylogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,35 +30,34 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="청원"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
-    <SearchView
+    <android.widget.SearchView
         android:id="@+id/petition_searchview"
-        android:layout_width="400dp"
-        android:layout_height="60dp"
+        android:layout_width="304dp"
+        android:layout_height="42dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/oval_edge"
         android:elevation="10dp"
         android:iconifiedByDefault="false"
-        android:paddingLeft="10dp"
         android:queryHint="@string/petition"
         android:searchIcon="@drawable/serachicon_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    </SearchView>
+    </android.widget.SearchView>
 
     <FrameLayout
-        android:layout_width="470dp"
-        android:layout_height="650dp"
+        android:layout_width="343dp"
+        android:layout_height="496dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
@@ -78,8 +77,11 @@
 
         </TextView>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/progresspt"
             android:layout_width="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="244dp" />

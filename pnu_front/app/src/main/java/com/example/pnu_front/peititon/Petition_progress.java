@@ -1,16 +1,14 @@
-package com.example.pnu_front.peititon;
-
-import android.os.Bundle;
+package com.example.pnu_front;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pnu_front.R;
+import android.os.Bundle;
 
 public class Petition_progress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_petition);
+        setContentView(R.layout.activity_petition_progress);
     }
 }
