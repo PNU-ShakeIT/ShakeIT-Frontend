@@ -6,23 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".LawMakingActivity">
 
-    <android.widget.SearchView
-        android:id="@+id/main_searchview"
-        android:layout_width="300dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/oval_edge"
+    <View
+        android:id="@+id/view6"
+        android:layout_width="343dp"
+        android:layout_height="56dp"
+        android:background="@drawable/congress_main_search"
         android:elevation="5dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="찾는 입법 검색"
-        android:searchIcon="@drawable/serachicon_right"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179">
+        app:layout_constraintVertical_bias="0.174" />
 
-    </android.widget.SearchView>
+    <View
+        android:id="@+id/search4"
+        android:layout_width="5dp"
+        android:layout_height="8dp"
+        android:background="@drawable/congress_main_searcg_icon2"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search5"
+        app:layout_constraintEnd_toEndOf="@+id/search5"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="@+id/search5"
+        app:layout_constraintTop_toTopOf="@+id/search5"
+        app:layout_constraintVertical_bias="0.952" />
+
+    <EditText
+        android:id="@+id/search_lawmake_text"
+        android:layout_width="255dp"
+        android:layout_height="29dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        android:hint="검색"
+        android:textColor="#A89E9E"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <View
+        android:id="@+id/search5"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:background="@drawable/congress_main_search_icon"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.444" />
 
     <View
         android:id="@+id/view3"
