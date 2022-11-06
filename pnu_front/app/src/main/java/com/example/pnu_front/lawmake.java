@@ -6,12 +6,14 @@ public class lawmake {
         private String title;
         private String day;
         private String user;
+        private String association;
 
-        public lawmake(String title,String num,String user,String day){
+        public lawmake(String title,String num,String user,String day, String association){
             this.title = title;
             this.num = num;
             this.user = user;
             this.day = day;
+            this.association = association;
         }
         public String getTitle(){
             return this.title;
@@ -25,11 +27,11 @@ public class lawmake {
         public String getUser(){
             return this.user;
         }
+        public String getAssociation(){return this.association;}
 
     public void setTitle(String title) {
         this.title = title;
     }
-
     public void setNum(String num) {
         this.num = num;
     }
@@ -39,4 +41,5 @@ public class lawmake {
     public void setDay(String day){
             this.day = day;
     }
+    public void setAssociation(String association) {this.association = association;}
 }
