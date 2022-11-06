@@ -9,6 +9,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/Chatbotbtn"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:background="@drawable/hope_right"
+        android:elevation="10dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginRight="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/round_edge"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/assemblymark_right">
+
+        </ImageView>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
     <FrameLayout
 
