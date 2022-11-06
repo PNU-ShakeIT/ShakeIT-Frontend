@@ -9,7 +9,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <FrameLayout
-        android:id="@+id/Chatbotbtn"
         android:layout_width="wrap_content"
         android:layout_height="83dp"
         android:elevation="9dp"
@@ -18,6 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/Chatbotbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/hope_right"

@@ -46,7 +46,6 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
         holder.member.setText(this.profileData.get(i).getHg_NM());
         holder.party.setText(this.profileData.get(i).getPoly_NM());
     }
-
     @Override
     public int getItemCount() {
 

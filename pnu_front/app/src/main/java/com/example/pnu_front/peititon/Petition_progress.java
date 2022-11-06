@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
@@ -17,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.pnu_front.adapter.expirationadapter;
 
-public class    Petition_progress extends AppCompatActivity {
+public class Petition_progress extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -44,6 +45,7 @@ public class    Petition_progress extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
+                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
 
             }
         });

@@ -10,15 +10,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
+import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.calendarAdapter;
 import com.example.pnu_front.adapter.expirationadapter;
+import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.ramotion.circlemenu.CircleMenuView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Calender extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+    Call<List<CalenderModer>> call;
+    List<CalenderModer> result = new ArrayList<>();
+    List<CalenderModer> tmp = new ArrayList<>();// 정렬할때 임시 저장소
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +39,39 @@ public class Calender extends AppCompatActivity {
 
 
         CalendarView calendarView = findViewById(R.id.calendarView);
-        String[] title = {"과학기술정보방송통신위원회","외교통일위원회","공청회","본회의","국회의장","세미나"};
-        String[] mainschedule = {"제400회 국회(정기회) 제5차 전체회의" , "제400회 국회(정기회) 제2차 예산, 결산, 기금심사 소위원회" , "제400회 국회(정기회) 제4차 공청회" , "제400회 국회(정기회) 제400-10차(의사일정)","2023년도 예산안 토론회(의정관 3층 중앙홀)","오늘의 세미나" };
-        String[] time = {"9:00" , "10:00" , "10:30" , "11:30" , "12:00" , "1:00"};
         int[] code = {3,3,5,2,4,1};
 //         code 1 -> 세미나
 //         code 2 -> 본회의
 //         code 3 -> 위원회
 //         code 4 -> 국회의장
-//         code 5 -> 공청회     => 코드 따로 받아서(종민이가 준다고 했음) 이걸로 title text 색상 변경
+//         code 5 -> 공청회
+        call = RetrofitInstance.getApiService().getCalendar();
+        call.enqueue(new Callback<List<CalenderModer>>() {
+            @Override
+            public void onResponse(Call<List<CalenderModer>> call, Response<List<CalenderModer>> response) {
+                result = response.body();
+            }
+            @Override
+            public void onFailure(Call<List<CalenderModer>> call, Throwable t) {
+                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
+            }
+        });
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 Log.d("W","1:"+ i + " 2:" + i1 + " 3:" + i2);
-                int[] tmp = new int[3];
-                tmp[0] = i;
-                tmp[1] = i1;
-                tmp[2] = i2;
+                int tmp = 0;
+                tmp = tmp + i*1000000;
+                tmp = tmp +  (i1+1)*1000;
+                tmp = tmp + i2;
+                Log.d("Tag",""+result);
+                String today = Integer.toString(tmp);
+
+                Log.d("Tag",""+today);
                 RecyclerView recyclerview_cal = findViewById(R.id.recyclerview_calendar);
                 recyclerview_cal.setLayoutManager(layoutManager);
-                adapter= new calendarAdapter(title,mainschedule,time,code);
+                adapter= new calendarAdapter(result);
+
                 recyclerview_cal.setAdapter(adapter);
             }
         });

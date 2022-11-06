@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.pnu_front.Calender.Calender;
@@ -101,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         recyclerView.setAdapter(adapter);
+        ImageView chatbot = findViewById(R.id.Chatbotbtn);
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , Chatbot.class);
+                startActivity(i);
+            }
+        });
     }
 
     private class SlidingPageAnimationListener implements Animation.AnimationListener {
@@ -125,5 +135,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 
 }

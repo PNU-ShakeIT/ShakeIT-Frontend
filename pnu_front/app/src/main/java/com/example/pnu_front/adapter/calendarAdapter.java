@@ -4,35 +4,24 @@ package com.example.pnu_front.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pnu_front.Calender.Calender;
+import com.example.pnu_front.Calender.CalenderModer;
 import com.example.pnu_front.R;
 
+import java.util.List;
+
 public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyViewHolder> {
+    List<CalenderModer> calenderData;
 
-    private final String[] title;
-    private final String[] mainschedule;
-    private final String[] time;
-    private final int[] code;
-
-    public calendarAdapter(String[] title,String[] mainschedule, String[] time , int[] code) {
-        this.title = title;
-        this.mainschedule = mainschedule;
-        this.time = time;
-        this.code = code;
+    public calendarAdapter(List<CalenderModer> calenderData) {
+        this.calenderData = calenderData;
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title;
@@ -59,22 +48,22 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyView
     @SuppressLint({"ResourceAsColor", "RestrictedApi"})
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        switch(code[i])
+        switch(this.calenderData.get(i).getCode())
         {
-            case 1 : {holder.title.setTextColor(Color.parseColor("#4f9468")); break;}
-            case 2 : {holder.title.setTextColor(Color.parseColor("#c0522b")); break;}
-            case 3 : {holder.title.setTextColor(Color.parseColor("#3b768e")); break;}
-            case 4 : {holder.title.setTextColor(Color.parseColor("#b78333")); break;}
-            case 5 : {holder.title.setTextColor(Color.parseColor("#555c6a")); break;}
+            case "1" : {holder.title.setTextColor(Color.parseColor("#4f9468")); break;}
+            case "2" : {holder.title.setTextColor(Color.parseColor("#c0522b")); break;}
+            case "3" : {holder.title.setTextColor(Color.parseColor("#3b768e")); break;}
+            case "4" : {holder.title.setTextColor(Color.parseColor("#b78333")); break;}
+            case "5" : {holder.title.setTextColor(Color.parseColor("#555c6a")); break;}
         }
-        holder.title.setText(title[i]);
-        holder.mainschedule.setText(mainschedule[i]);
-        holder.time.setText(time[i]);
+        holder.title.setText(this.calenderData.get(i).getCommittee_name());
+        holder.mainschedule.setText(this.calenderData.get(i).getTitle());
+        holder.time.setText(this.calenderData.get(i).getTime());
     }
 
     @Override
     public int getItemCount() {
 
-        return title.length;
+        return calenderData.size();
     }
 }

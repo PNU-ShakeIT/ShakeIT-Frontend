@@ -5,6 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".peititon.Petition">
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/round_edge"
+        android:elevation="10dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/assemblymark_right"
+            >
+
+        </ImageView>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/expiration_btn"
@@ -86,8 +112,8 @@
 
     </android.widget.SearchView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/progress_hot_recyclerview"
+    <FrameLayout
+        android:id="@+id/proceed_petition"
         android:layout_width="340dp"
         android:layout_height="210dp"
         android:layout_marginTop="30dp"
@@ -95,17 +121,132 @@
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expiration_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/expiration_btn"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="실시간 진행중인 청원"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="19dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/proceed_realtime_1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="58dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/proceed_realtime_2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="누어나예누어나예누어나예누어"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="91dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/proceed_realtime_3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="누어나예누어"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="124dp"
+            >
+        </TextView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/petition_notice"
+        <TextView
+            android:id="@+id/proceed_realtime_4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="160dp"
+            >
+        </TextView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/pending_petition"
         android:layout_width="340dp"
         android:layout_height="210dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/layout_background"
         android:elevation="10dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview" />
+        app:layout_constraintTop_toBottomOf="@+id/proceed_petition"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="실시간 진행중인 청원"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="19dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/pending_realtime_1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="58dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/pending_realtime_2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="누어나예누어나예누어나예누어"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="91dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/pending_realtime_3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="누어나예누어"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="124dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/pending_realtime_4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="160dp"
+            >
+        </TextView>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

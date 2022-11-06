@@ -1,5 +1,6 @@
 package com.example.pnu_front.profile;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,7 +44,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
-        RecyclerView memberprofile = findViewById(R.id.congress_member_profile);
+        FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         FrameLayout frameLayout = findViewById(R.id.frame_layout);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,11 +89,11 @@ public class Profile extends AppCompatActivity {
         spinner_field.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(this);
         congressmember.setLayoutManager(layoutManager);
-
-        call = RetrofitInstance.getApiService().getPosts();
+        call = RetrofitInstance.getApiService().getCongressMember();
         call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
             public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
+                System.out.println("약약;약여기ㅕㅇ기역이ㅕ기여기@$^IUYTWHTHT$RHGNDHGDSBNJRU$YERFBNGMJRTERGSFBNMKYURGSFBGNMJTEFBNM");
                 result = response.body();
                 myadapter = new profileadapter(getApplicationContext(), result);
                 congressmember.setAdapter(myadapter);
@@ -100,6 +101,7 @@ public class Profile extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
+                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
 
             }
         });
