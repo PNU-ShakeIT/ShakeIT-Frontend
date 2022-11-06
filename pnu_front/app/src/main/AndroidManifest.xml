@@ -16,14 +16,16 @@
         tools:targetApi="31" >
         <activity
             android:name=".peititon.Petition"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".profile.Profile"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -37,14 +39,16 @@
         </activity>
         <activity
             android:name=".LawMakingActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,7 +61,8 @@
         </activity>
         <activity
             android:name=".Petition_progress"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

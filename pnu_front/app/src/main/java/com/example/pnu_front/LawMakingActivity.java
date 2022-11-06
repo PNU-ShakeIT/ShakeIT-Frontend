@@ -1,7 +1,9 @@
 package com.example.pnu_front;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,8 +18,7 @@ public class LawMakingActivity extends AppCompatActivity {
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 2;
     private CircleIndicator3 mIndicator;
-    RecyclerView recyclerView;
-    LawmakingAdapter adapter;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -25,6 +26,7 @@ public class LawMakingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lawmaking);
 
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         /**
          * 가로 슬라이드 뷰 Fragment

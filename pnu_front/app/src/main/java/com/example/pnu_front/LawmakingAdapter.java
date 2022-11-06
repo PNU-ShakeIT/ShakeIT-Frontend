@@ -59,5 +59,9 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             arrayList.add(item);
         }
 
+    public void setItems(ArrayList<lawmake> list){
+        arrayList = list;
+        notifyDataSetChanged();
+    }
 }
 
