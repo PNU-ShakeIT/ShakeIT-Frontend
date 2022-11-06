@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".LawMakingActivity">
 
+    <android.widget.SearchView
+        android:id="@+id/main_searchview"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/oval_edge"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="찾는 입법 검색"
+        android:searchIcon="@drawable/serachicon_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179">
+
+    </android.widget.SearchView>
+
     <View
         android:id="@+id/view3"
         android:layout_width="170dp"
@@ -20,7 +38,7 @@
 
     <View
         android:id="@+id/view9"
-        android:layout_width="480dp"
+        android:layout_width="350dp"
         android:layout_height="2dp"
         android:background="#F4F4F4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +50,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="335dp"
-        android:layout_height="593dp"
+        android:layout_width="331dp"
+        android:layout_height="550dp"
         android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +70,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
             android:layout_width="313dp"
-            android:layout_height="540dp"
+            android:layout_height="506dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:clipChildren="false"
@@ -68,9 +86,8 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.134" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
