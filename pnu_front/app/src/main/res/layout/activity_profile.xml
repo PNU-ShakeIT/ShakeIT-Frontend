@@ -226,10 +226,10 @@
             android:textSize="13sp"
             android:layout_marginStart="270dp"
             >
-            
+
         </TextView>
         <TextView
-            android:id="@+id/text_profile_name_hanja"
+            android:id="@+id/text_profile_hj_NM"
             android:layout_width="48dp"
             android:layout_height="18dp"
             android:layout_marginTop="18dp"
@@ -240,7 +240,7 @@
             >
         </TextView>
         <TextView
-            android:id="@+id/text_profile_name_eng"
+            android:id="@+id/text_profile_eng_NM"
             android:layout_width="82dp"
             android:layout_height="18dp"
             android:text="PARK JAEHO"
@@ -260,6 +260,103 @@
             android:layout_marginTop="38dp"
             >
 
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_orig"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:text="소속위원회	국회 2030 부산세계박람회 유치지원"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="70dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_cmits"
+            android:layout_width="213dp"
+            android:layout_height="28dp"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:text=" 특별위원회, 정무위원회"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="84dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_units"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="선거구	부산 남구을"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="112dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_telNum"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="선거구	부산 남구을"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="126dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_homepage"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="홈페이지 http://blog.naver.com/dulipapa"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="140dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_profile_email"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="apwemfow@gmail.com"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="170dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_secretary"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="비서관"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="184dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_profile_secretary2"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="선거구	부산 남구을"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="198dp"
+            >
         </TextView>
 
 

@@ -21,7 +21,7 @@ public interface RetrofitService {
     @GET("getPendingPetition")
     Call<List<PendingPetitionModel>> getPendingPetition();
 
-//    @GET("getProcessedPetition")
-//    Call<List<ProcessedPetitionModer>> getProcessedPetition();
+    @GET("getProcessedPetition")
+    Call<List<ProcessedPetitionModer>> getProcessedPetition();
 
 }

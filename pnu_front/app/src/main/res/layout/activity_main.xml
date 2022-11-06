@@ -8,6 +8,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/Chatbotbtn"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:background="@drawable/hope_right"
+        android:elevation="10dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginRight="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <FrameLayout

@@ -79,6 +79,24 @@ public class Petition extends AppCompatActivity {
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
             }
         });
+        callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
+        callprocessed.enqueue(new Callback<List<ProcessedPetitionModer>>() {
+            @Override
+            public void onResponse(Call<List<ProcessedPetitionModer>> call, Response<List<ProcessedPetitionModer>> response) {
+                processedresult = response.body();
+                Log.d("testetstetstsetst",""+processedresult);
+                pending1.setText(processedresult.get(0).getName());
+                pending2.setText(processedresult.get(1).getName());
+                pending3.setText(processedresult.get(2).getName());
+                pending4.setText(processedresult.get(3).getName());
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ProcessedPetitionModer>> call, Throwable t) {
+
+            }
+        });
 
 }
 }

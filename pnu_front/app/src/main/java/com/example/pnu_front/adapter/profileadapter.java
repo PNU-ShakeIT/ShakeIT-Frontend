@@ -45,6 +45,7 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         holder.member.setText(this.profileData.get(i).getHg_NM());
         holder.party.setText(this.profileData.get(i).getPoly_NM());
+        //recyclerview item click
     }
     @Override
     public int getItemCount() {

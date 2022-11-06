@@ -93,15 +93,14 @@ public class Profile extends AppCompatActivity {
         call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
             public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
-                System.out.println("약약;약여기ㅕㅇ기역이ㅕ기여기@$^IUYTWHTHT$RHGNDHGDSBNJRU$YERFBNGMJRTERGSFBNMKYURGSFBGNMJTEFBNM");
                 result = response.body();
+                Log.d("profile","0"+result);
                 myadapter = new profileadapter(getApplicationContext(), result);
                 congressmember.setAdapter(myadapter);
             }
 
             @Override
             public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
-                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
 
             }
         });
