@@ -83,6 +83,7 @@ public class Petition extends AppCompatActivity {
                 pending1.setText(ps_result.get(0).getName());
                 pending2.setText(ps_result.get(1).getName());
                 pending3.setText(ps_result.get(2).getName());
+
                 pending4.setText(ps_result.get(3).getName());
             }
             @Override
