@@ -1,6 +1,5 @@
-package com.example.pnu_front;
+package com.example.pnu_front.LawMaking;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.sql.Struct;
+import com.example.pnu_front.R;
+
 import java.util.ArrayList;
 
 public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.ViewHolder>{

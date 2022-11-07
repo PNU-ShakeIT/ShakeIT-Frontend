@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package com.example.pnu_front.LawMaking;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pnu_front.R;
 
 import java.util.ArrayList;
 

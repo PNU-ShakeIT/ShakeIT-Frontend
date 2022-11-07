@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.profile.ProfileModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHolder> {
@@ -49,7 +50,10 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
     }
     @Override
     public int getItemCount() {
-
         return profileData.size();
+    }
+    public void setItems(List<ProfileModel> list){
+        profileData = list;
+        notifyDataSetChanged();
     }
 }

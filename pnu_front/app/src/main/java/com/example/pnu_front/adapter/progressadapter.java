@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
+import com.example.pnu_front.profile.ProfileModel;
+
+import java.util.List;
 
 public class progressadapter extends RecyclerView.Adapter<progressadapter.MyViewHolder> {
 
@@ -48,5 +51,8 @@ public class progressadapter extends RecyclerView.Adapter<progressadapter.MyView
     public int getItemCount() {
 
         return testtext.length;
+    }
+    public void setItems(String list){
+        notifyDataSetChanged();
     }
 }

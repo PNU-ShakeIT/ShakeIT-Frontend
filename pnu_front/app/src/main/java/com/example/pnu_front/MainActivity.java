@@ -1,12 +1,10 @@
 package com.example.pnu_front;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,8 +14,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.example.pnu_front.Calender.Calender;
 import com.example.pnu_front.peititon.Petition;
@@ -26,7 +22,7 @@ import com.example.pnu_front.profile.Profile;
 
 import java.util.ArrayList;
 
-import kotlin.collections.SlidingWindowKt;
+import com.example.pnu_front.LawMaking.LawMakingActivity;
 
 public class MainActivity extends AppCompatActivity {
     boolean isPageOpen = false;

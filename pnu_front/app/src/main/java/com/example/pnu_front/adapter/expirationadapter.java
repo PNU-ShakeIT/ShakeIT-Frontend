@@ -15,6 +15,7 @@ import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.profile.ProfileModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
@@ -72,5 +73,9 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
     public int getItemCount() {
 
         return pendingPetitionData.size();
+    }
+    public void setItems(List<PendingPetitionModel> list){
+        pendingPetitionData = list;
+        notifyDataSetChanged();
     }
 }

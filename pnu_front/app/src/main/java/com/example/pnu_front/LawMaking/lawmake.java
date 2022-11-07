@@ -1,4 +1,4 @@
-package com.example.pnu_front;
+package com.example.pnu_front.LawMaking;
 
 public class lawmake {
 
