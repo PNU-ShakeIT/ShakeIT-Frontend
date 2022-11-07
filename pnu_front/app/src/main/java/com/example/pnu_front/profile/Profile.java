@@ -20,6 +20,9 @@ import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.RetrofitMananger.RetrofitService;
 import com.example.pnu_front.adapter.profileadapter;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +96,6 @@ public class Profile extends AppCompatActivity {
         call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
             public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
-                System.out.println("약약;약여기ㅕㅇ기역이ㅕ기여기@$^IUYTWHTHT$RHGNDHGDSBNJRU$YERFBNGMJRTERGSFBNMKYURGSFBGNMJTEFBNM");
                 result = response.body();
                 myadapter = new profileadapter(getApplicationContext(), result);
                 congressmember.setAdapter(myadapter);
