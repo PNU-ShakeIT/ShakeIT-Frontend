@@ -23,7 +23,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import com.example.pnu_front.adapter.expirationadapter;
+import com.example.pnu_front.adapter.pendingadapter;
 import com.example.pnu_front.profile.OnitemClick;
 
 public class Petition_progress extends AppCompatActivity implements OnitemClick {
@@ -79,7 +79,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             @Override
             public void onResponse(Call<List<PendingPetitionModel>> call, Response<List<PendingPetitionModel>> response) {
                 result = response.body();
-                adapter = new expirationadapter(getApplicationContext(), result,Petition_progress.this);
+                adapter = new pendingadapter(getApplicationContext(), result,Petition_progress.this);
                 progress.setAdapter(adapter);
             }
 
@@ -92,6 +92,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
 
     @Override
     public void onClick(int value) {
+
         FrameLayout proceed_list = findViewById(R.id.proceed_list);
         CardView list_detail = findViewById(R.id.proceed_list_detail);
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);

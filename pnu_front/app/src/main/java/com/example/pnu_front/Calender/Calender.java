@@ -13,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.calendarAdapter;
-import com.example.pnu_front.adapter.expirationadapter;
-import com.example.pnu_front.peititon.PendingPetitionModel;
-import com.ramotion.circlemenu.CircleMenuView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +28,10 @@ public class Calender extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-    Call<List<CalenderModer>> call;
-    List<CalenderModer> result = new ArrayList<>();
-    List<CalenderModer> tmp = new ArrayList<>();// 오늘 일정만 뺀 후의 리스트
-    List<CalenderModer> cal_data = new ArrayList<>();//시간 순서로 정렬한 후의 리스트
+    Call<List<CalenderModel>> call;
+    List<CalenderModel> result = new ArrayList<>();
+    List<CalenderModel> tmp = new ArrayList<>();// 오늘 일정만 뺀 후의 리스트
+    List<CalenderModel> cal_data = new ArrayList<>();//시간 순서로 정렬한 후의 리스트
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +50,15 @@ public class Calender extends AppCompatActivity {
 
         call = RetrofitInstance.getApiService().getCalendar();
         //데이터 요청(날짜별로)
-        call.enqueue(new Callback<List<CalenderModer>>() {
+        call.enqueue(new Callback<List<CalenderModel>>() {
             @Headers({"Content-Type: application/json"})
             @POST("/user/signup")
             @Override
-            public void onResponse(Call<List<CalenderModer>> call, Response<List<CalenderModer>> response) {
+            public void onResponse(Call<List<CalenderModel>> call, Response<List<CalenderModel>> response) {
                 result = response.body();
             }
             @Override
-            public void onFailure(Call<List<CalenderModer>> call, Throwable t) {
+            public void onFailure(Call<List<CalenderModel>> call, Throwable t) {
                 Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
             }
         });

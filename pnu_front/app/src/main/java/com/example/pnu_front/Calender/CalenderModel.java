@@ -2,7 +2,7 @@ package com.example.pnu_front.Calender;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CalenderModer {
+public class CalenderModel {
     @SerializedName("code")
     private String code;
 
