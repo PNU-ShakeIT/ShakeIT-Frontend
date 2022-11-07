@@ -1,5 +1,6 @@
 package com.example.pnu_front.peititon;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,27 +75,20 @@ public class Petition extends AppCompatActivity {
             }
         });
 
-        Log.d("Test","2번째");
-
-
         callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
         callprocessed.enqueue(new Callback<List<ProcessedPetitionModel>>() {
             @Override
             public void onResponse(Call<List<ProcessedPetitionModel>> call, Response<List<ProcessedPetitionModel>> response) {
-                Log.d("Test","여기있어요여기있어요여기있어요여기있어요여기있어요");
                 ps_result = response.body();
-                Log.d("qwerqwerqwerqwer","여기여기여기여기"+ps_result);
-
                 pending1.setText(ps_result.get(0).getName());
                 pending2.setText(ps_result.get(1).getName());
                 pending3.setText(ps_result.get(2).getName());
+
                 pending4.setText(ps_result.get(3).getName());
-
             }
-
             @Override
             public void onFailure(Call<List<ProcessedPetitionModel>> call, Throwable t) {
-                Log.d("Tergsdfst","여기에요여기에요여기에요여기에요여기에요여기에요여기에요여기에요여기에요여기에요여기에요");
+
             }
         });
 

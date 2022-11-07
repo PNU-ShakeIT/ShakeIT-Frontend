@@ -13,7 +13,7 @@ import retrofit2.http.Header;
 
 public class RetrofitInstance {
 
-    private static final String BASE_URL = "https://1485-164-125-221-236.jp.ngrok.io";
+    private static final String BASE_URL = "https://1485-164-125-221-236.jp.ngrok.io/";
 
     public static RetrofitService getApiService(){
 

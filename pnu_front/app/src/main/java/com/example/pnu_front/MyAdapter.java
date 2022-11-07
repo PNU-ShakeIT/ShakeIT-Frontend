@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.pnu_front.LawMaking.Fragment_1;
+import com.example.pnu_front.ProcessedBill.Fragment_2;
+
 public class MyAdapter extends FragmentStateAdapter {
 
     public int mCount;

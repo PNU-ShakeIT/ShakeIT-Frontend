@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.pnu_front.MyAdapter;
+import com.example.pnu_front.R;
+
 import me.relex.circleindicator.CircleIndicator3;
 
 public class LawMakingActivity extends AppCompatActivity {
