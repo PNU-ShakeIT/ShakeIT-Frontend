@@ -130,52 +130,56 @@
             android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="15dp"
             >
         </TextView>
         <TextView
             android:id="@+id/proceed_realtime_1"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
             android:textSize="13sp"
+            android:gravity="center"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="55dp"
             >
         </TextView>
         <TextView
             android:id="@+id/proceed_realtime_2"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:text="누어나예누어나예누어나예누어"
             android:textSize="13sp"
+            android:gravity="center"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="91dp"
+            android:layout_marginTop="85dp"
             >
         </TextView>
         <TextView
             android:id="@+id/proceed_realtime_3"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:textStyle="bold"
             android:text="누어나예누어"
+            android:gravity="center"
             android:textSize="13sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="115dp"
             >
         </TextView>
 
         <TextView
             android:id="@+id/proceed_realtime_4"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:textStyle="bold"
             android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
             android:textSize="13sp"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="145dp"
             >
         </TextView>
 
@@ -196,56 +200,60 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="실시간 진행중인 청원"
+            android:text="실시간 만료된 청원"
             android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="15dp"
             >
         </TextView>
         <TextView
             android:id="@+id/pending_realtime_1"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
             android:textSize="13sp"
             android:textStyle="bold"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="55dp"
             >
         </TextView>
         <TextView
             android:id="@+id/pending_realtime_2"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:text="누어나예누어나예누어나예누어"
             android:textSize="13sp"
             android:textStyle="bold"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="91dp"
+            android:layout_marginTop="85dp"
             >
         </TextView>
         <TextView
             android:id="@+id/pending_realtime_3"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:textStyle="bold"
             android:text="누어나예누어"
             android:textSize="13sp"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="115dp"
             >
         </TextView>
 
         <TextView
             android:id="@+id/pending_realtime_4"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:textStyle="bold"
             android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
             android:textSize="13sp"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="145dp"
             >
         </TextView>
     </FrameLayout>

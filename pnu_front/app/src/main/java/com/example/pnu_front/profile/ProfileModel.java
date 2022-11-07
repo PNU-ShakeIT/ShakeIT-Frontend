@@ -40,6 +40,9 @@ public class ProfileModel {
     @SerializedName("units")
     private String units;
 
+    @SerializedName("tel_NO")
+    private String tel_NO;
+
     @SerializedName("e_MAIL")
     private String e_MAIL;
 
@@ -130,9 +133,7 @@ public class ProfileModel {
         this.hj_NM = hj_NM;
     }
 
-    public String getEng_NM() {
-        return eng_NM;
-    }
+    public String getEng_NM() {return eng_NM;}
 
     public void setEng_NM(String eng_NM) {
         this.eng_NM = eng_NM;
@@ -177,6 +178,10 @@ public class ProfileModel {
     public void setUnits(String units) {
         this.units = units;
     }
+
+    public String getTel_NO(){ return tel_NO;}
+
+    public void setTel_NO(String units){this.tel_NO = units;}
 
     public String getE_MAIL() {
         return e_MAIL;
@@ -305,6 +310,7 @@ public class ProfileModel {
                 ", cmit_NM='" + cmit_NM + '\'' +
                 ", cmits='" + cmits + '\'' +
                 ", units='" + units + '\'' +
+                ", tel_NO'" + tel_NO + '\'' +
                 ", e_MAIL='" + e_MAIL + '\'' +
                 ", staff='" + staff + '\'' +
                 ", mona_CD='" + mona_CD + '\'' +

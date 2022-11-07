@@ -8,7 +8,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-
     <ImageView
         android:id="@+id/Chatbotbtn"
         android:layout_width="45dp"
@@ -19,6 +18,7 @@
         android:layout_marginRight="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <FrameLayout
         android:layout_width="75dp"
@@ -88,7 +88,6 @@
     </FrameLayout>
 
     <View
-        android:id="@+id/view2"
         android:layout_width="170dp"
         android:layout_height="30dp"
         android:background="@drawable/congress_symbol_blue"
@@ -101,7 +100,7 @@
 
     <View
         android:layout_width="350dp"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="#F4F4F4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +108,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.116" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="343dp"
+        android:layout_height="56dp"
+        android:background="@drawable/congress_main_search"
+        android:elevation="5dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <View
+        android:id="@+id/search1"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:background="@drawable/congress_main_search_icon"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <EditText
+        android:id="@+id/search_text"
+        android:layout_width="255dp"
+        android:layout_height="29dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        android:textColor="#A89E9E"
+        android:hint="검색"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318" />
+
+    <View
+        android:id="@+id/search2"
+        android:layout_width="5dp"
+        android:layout_height="8dp"
+        android:background="@drawable/congress_main_searcg_icon2"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search1"
+        app:layout_constraintEnd_toEndOf="@+id/search1"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="@+id/search1"
+        app:layout_constraintTop_toTopOf="@+id/search1"
+        app:layout_constraintVertical_bias="0.952" />
 
 
     <View

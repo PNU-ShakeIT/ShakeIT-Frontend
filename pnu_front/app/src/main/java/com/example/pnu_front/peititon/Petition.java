@@ -32,7 +32,7 @@ import retrofit2.Response;
 public class Petition extends AppCompatActivity {
 
     Call<List<ProcessedPetitionModer>> callprocessed;
-    List<ProcessedPetitionModer> processedresult = new ArrayList<>();
+    List<ProcessedPetitionModer> ps_result = new ArrayList<>();
 
     Call<List<PendingPetitionModel>> call;
     List<PendingPetitionModel> result = new ArrayList<>();
@@ -77,6 +77,30 @@ public class Petition extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
+            }
+        });
+
+        Log.d("Test","2번째");
+
+
+        callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
+        callprocessed.enqueue(new Callback<List<ProcessedPetitionModer>>() {
+            @Override
+            public void onResponse(Call<List<ProcessedPetitionModer>> call,Response<List<ProcessedPetitionModer>> response) {
+                Log.d("Test","여기있어요여기있어요여기있어요여기있어요여기있어요");
+                ps_result = response.body();
+                Log.d("qwerqwerqwerqwer","여기여기여기여기"+ps_result);
+
+                pending1.setText(ps_result.get(0).getName());
+                pending2.setText(ps_result.get(1).getName());
+                pending3.setText(ps_result.get(2).getName());
+                pending4.setText(ps_result.get(3).getName());
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ProcessedPetitionModer>> call, Throwable t) {
+
             }
         });
 
