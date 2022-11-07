@@ -30,8 +30,8 @@ public class PendingPetitionModel {
     @SerializedName("url")
     private String url;
 
-    @SerializedName("bill_id")
-    private String bill_id;
+    @SerializedName("billid")
+    private String billid;
 
     @SerializedName("committee_id")
     private String committee_id;
@@ -112,12 +112,12 @@ public class PendingPetitionModel {
         this.url = url;
     }
 
-    public String getBill_id() {
-        return bill_id;
+    public String getBillid() {
+        return billid;
     }
 
-    public void setBill_id(String bill_id) {
-        this.bill_id = bill_id;
+    public void setBillid(String billid) {
+        this.billid = billid;
     }
 
     public String getCommittee_id() {
@@ -148,7 +148,7 @@ public class PendingPetitionModel {
                 ", pro_dt='" + pro_dt + '\'' +
                 ", curr_committee='" + curr_committee + '\'' +
                 ", url='" + url + '\'' +
-                ", bill_id='" + bill_id + '\'' +
+                ", billid='" + billid + '\'' +
                 ", committee_id='" + committee_id + '\'' +
                 ", committee_dt='" + committee_dt + '\'' +
                 '}';

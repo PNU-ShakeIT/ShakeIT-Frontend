@@ -49,8 +49,8 @@ public class ProfileModel {
     @SerializedName("staff")
     private String staff;
 
-    @SerializedName("mona_CD")
-    private String mona_CD;
+    @SerializedName("monaCD")
+    private String monaCD;
 
     @SerializedName("hg_NM")
     private String hg_NM;
@@ -199,12 +199,12 @@ public class ProfileModel {
         this.staff = staff;
     }
 
-    public String getMona_CD() {
-        return mona_CD;
+    public String getMonaCD() {
+        return monaCD;
     }
 
-    public void setMona_CD(String mona_CD) {
-        this.mona_CD = mona_CD;
+    public void setMonaCD(String monaCD) {
+        this.monaCD = monaCD;
     }
 
     public String getHg_NM() {
@@ -313,7 +313,7 @@ public class ProfileModel {
                 ", tel_NO'" + tel_NO + '\'' +
                 ", e_MAIL='" + e_MAIL + '\'' +
                 ", staff='" + staff + '\'' +
-                ", mona_CD='" + mona_CD + '\'' +
+                ", monaCD='" + monaCD + '\'' +
                 ", hg_NM='" + hg_NM + '\'' +
                 ", bth_GBN_NM='" + bth_GBN_NM + '\'' +
                 ", bth_DATE='" + bth_DATE + '\'' +

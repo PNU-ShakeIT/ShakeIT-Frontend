@@ -33,8 +33,8 @@ public class ProcessedPetitionModer {
     @SerializedName("url")
     private String url;
 
-    @SerializedName("bill_id")
-    private int bill_id;
+    @SerializedName("billid")
+    private int billid;
 
     @SerializedName("committee_id")
     private int committee_id;
@@ -119,12 +119,12 @@ public class ProcessedPetitionModer {
         this.url = url;
     }
 
-    public int getBill_id() {
-        return bill_id;
+    public int getBillid() {
+        return billid;
     }
 
-    public void setBill_id(int bill_id) {
-        this.bill_id = bill_id;
+    public void setBillid(int bill_id) {
+        this.billid = bill_id;
     }
 
     public int getCommittee_id() {
@@ -148,7 +148,7 @@ public class ProcessedPetitionModer {
                 ", pro_result='" + pro_result + '\'' +
                 ", curr_committee='" + curr_committee + '\'' +
                 ", url='" + url + '\'' +
-                ", bill_id=" + bill_id + '\'' +
+                ", billid=" + billid + '\'' +
                 ", committee_id=" + committee_id + '\'' +
                 '}';
     }
