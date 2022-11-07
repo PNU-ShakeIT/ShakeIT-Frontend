@@ -10,16 +10,22 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.RetrofitMananger.RetrofitService;
 import com.example.pnu_front.adapter.profileadapter;
 
+import org.w3c.dom.Text;
+
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements OnitemClick {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -40,23 +46,23 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final int[] tmp = {0}; //0일때 평소 상태 1일때 확대 상태
+
         setContentView(R.layout.activity_profile);
         ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
-        FrameLayout frameLayout = findViewById(R.id.frame_layout);
+        TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tmp[0] == 0) {
+                if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = congressmember.getLayoutParams();
                     params.width = 950;
                     params.height = 1400;
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.GONE);
                     imageView.setBackgroundResource(R.drawable.up_right);
-                    tmp[0] = 1;
+                    status.setText("1");
                 }
                 else
                 {
@@ -65,7 +71,7 @@ public class Profile extends AppCompatActivity {
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
-                    tmp[0] = 0 ;
+                    status.setText("0");
 
                 }
             }
@@ -94,8 +100,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ProfileModel>> call, Response<List<ProfileModel>> response) {
                 result = response.body();
-                Log.d("profile","0"+result);
-                myadapter = new profileadapter(getApplicationContext(), result);
+                myadapter = new profileadapter(getApplicationContext(), result, Profile.this);
                 congressmember.setAdapter(myadapter);
             }
 
@@ -104,5 +109,47 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(int value) {
+        RecyclerView congressmember = findViewById(R.id.congress_member_list);
+        FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
+        ViewGroup.LayoutParams params = congressmember.getLayoutParams();
+        params.height = 600;
+        ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
+        congressmember.setLayoutParams(params);
+        memberprofile.setVisibility(View.VISIBLE);
+        imageView.setBackgroundResource(R.drawable.down_right);
+        TextView status = findViewById(R.id.status);
+        status.setText("0");
+        ImageView img = findViewById(R.id.image_profile);
+        String url = result.get(value).getImg_URL();
+        Log.d("urll",""+url);
+        Glide.with(this).load(url).override(200,300).into(img);
+        TextView name = findViewById(R.id.text_profile_name);
+        TextView hj_name = findViewById(R.id.text_profile_hj_NM);
+        TextView eng_name = findViewById(R.id.text_profile_eng_NM_birth);
+        TextView orig = findViewById(R.id.text_profile_orig);
+        TextView cmits = findViewById(R.id.text_profile_cmits);
+        TextView units = findViewById(R.id.text_profile_units);
+        TextView tel_Num = findViewById(R.id.text_profile_telNum);
+        TextView homepage = findViewById(R.id.text_profile_homepage);
+        TextView email = findViewById(R.id.text_profile_email);
+        TextView secretary1 = findViewById(R.id.text_profile_secretary);
+        TextView secretary2 = findViewById(R.id.text_profile_secretary2);
+        name.setText(result.get(value).getHg_NM());
+        hj_name.setText(result.get(value).getHj_NM());
+        eng_name.setText(result.get(value).getEng_NM()+" "+result.get(value).getBth_DATE());
+        orig.setText(result.get(value).getOrig_NM());
+        cmits.setText(result.get(value).getCmits());
+        units.setText(result.get(value).getUnits());
+        tel_Num.setText(result.get(value).getTel_NO());
+        homepage.setText(result.get(value).getHomepage());
+        email.setText(result.get(value).getE_MAIL());
+        secretary1.setText(result.get(value).getSecretary());
+        secretary2.setText(result.get(value).getSecretary2());
+
+
     }
 }

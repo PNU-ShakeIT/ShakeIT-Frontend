@@ -148,8 +148,8 @@ public class ProcessedPetitionModer {
                 ", pro_result='" + pro_result + '\'' +
                 ", curr_committee='" + curr_committee + '\'' +
                 ", url='" + url + '\'' +
-                ", bill_id=" + bill_id +
-                ", committee_id=" + committee_id +
+                ", bill_id=" + bill_id + '\'' +
+                ", committee_id=" + committee_id + '\'' +
                 '}';
     }
 }

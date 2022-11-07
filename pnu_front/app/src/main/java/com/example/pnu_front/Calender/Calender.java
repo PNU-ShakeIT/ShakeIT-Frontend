@@ -129,7 +129,6 @@ public class Calender extends AppCompatActivity {
                         tmp.set(p,cal_data.get(0));
                         cal_data.clear();
                     }
-                    k=p;
                     for(k=p; 0<k; k--) {
                         if(tmp.get(k).getTime().contains("~")) {
                             time1 = tmp.get(k).getTime().substring(0, 5);
