@@ -32,7 +32,7 @@ import retrofit2.Response;
 public class Petition extends AppCompatActivity {
 
     Call<List<ProcessedPetitionModer>> callprocessed;
-    List<ProcessedPetitionModer> processedresult = new ArrayList<>();
+    List<ProcessedPetitionModer> ps_result = new ArrayList<>();
 
     Call<List<PendingPetitionModel>> call;
     List<PendingPetitionModel> result = new ArrayList<>();
@@ -79,16 +79,23 @@ public class Petition extends AppCompatActivity {
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
             }
         });
+
+        Log.d("Test","2번째");
+
+
         callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
+
         callprocessed.enqueue(new Callback<List<ProcessedPetitionModer>>() {
             @Override
-            public void onResponse(Call<List<ProcessedPetitionModer>> call, Response<List<ProcessedPetitionModer>> response) {
-                processedresult = response.body();
-                Log.d("testetstetstsetst",""+processedresult);
-                pending1.setText(processedresult.get(0).getName());
-                pending2.setText(processedresult.get(1).getName());
-                pending3.setText(processedresult.get(2).getName());
-                pending4.setText(processedresult.get(3).getName());
+            public void onResponse(Call<List<ProcessedPetitionModer>> call,Response<List<ProcessedPetitionModer>> response) {
+                Log.d("Test","여기있어요여기있어요여기있어요여기있어요여기있어요");
+                ps_result = response.body();
+                Log.d("Test","여기여기여기여기");
+
+                pending1.setText(ps_result.get(0).getName());
+                pending2.setText(ps_result.get(1).getName());
+                pending3.setText(ps_result.get(2).getName());
+                pending4.setText(ps_result.get(3).getName());
 
             }
 
