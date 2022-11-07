@@ -9,10 +9,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.PendingPetitionModel;
+import com.example.pnu_front.profile.OnitemClick;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;
@@ -20,21 +22,37 @@ import java.util.List;
 public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
 
     List<PendingPetitionModel> pendingPetitionData;
+    private static OnitemClick mCallback;
 
-    public expirationadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData) {
+    public expirationadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData,OnitemClick listener) {
         this.pendingPetitionData = pendingPetitionData;
+        this.mCallback = listener;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title;
         public TextView member;
         public ProgressBar bar;
+        public CardView cardView;
         public MyViewHolder(View view)
         {
             super(view);
             this.title = view.findViewById(R.id.title);
             this.member = view.findViewById(R.id.petition_amount);
             this.bar = view.findViewById(R.id.progressBar);
+            this.cardView = view.findViewById(R.id.cardView_petition);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if(pos != RecyclerView.NO_POSITION)
+                    {
+                        mCallback.onClick(pos);
+                        Log.d("1:37","pos:"+pos);
+                    }
+
+                }
+            });
         }
     }
     @NonNull

@@ -84,13 +84,12 @@ public class Petition extends AppCompatActivity {
 
 
         callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
-
         callprocessed.enqueue(new Callback<List<ProcessedPetitionModer>>() {
             @Override
             public void onResponse(Call<List<ProcessedPetitionModer>> call,Response<List<ProcessedPetitionModer>> response) {
                 Log.d("Test","여기있어요여기있어요여기있어요여기있어요여기있어요");
                 ps_result = response.body();
-                Log.d("Test","여기여기여기여기");
+                Log.d("qwerqwerqwerqwer","여기여기여기여기"+ps_result);
 
                 pending1.setText(ps_result.get(0).getName());
                 pending2.setText(ps_result.get(1).getName());

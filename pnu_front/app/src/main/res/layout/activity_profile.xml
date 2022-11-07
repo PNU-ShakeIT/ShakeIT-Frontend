@@ -131,6 +131,7 @@
         android:layout_height="30dp"
         android:background="@drawable/layout_background"
         android:elevation="10dp"
+        android:queryHint="이름or정당 입력"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

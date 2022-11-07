@@ -102,9 +102,7 @@ public class Calender extends AppCompatActivity {
                     int t;
                     int f;
                     if(tmp.get(p).getTime().contains("~")) {
-                        Log.d("개씨발","살려주세요살려주세요살려주세요살려주세요살려주세요살려주세요살려주세요");
                         time1 = tmp.get(p).getTime().substring(0,5);
-                        Log.d("시발",""+time1);
                         time2 = time1.substring(0, 2) + time1.substring(3);
                         f = Integer.parseInt(time2);
                     }
