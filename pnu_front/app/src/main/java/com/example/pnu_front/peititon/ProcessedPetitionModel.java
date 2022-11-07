@@ -2,7 +2,7 @@ package com.example.pnu_front.peititon;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ProcessedPetitionModer {
+public class ProcessedPetitionModel {
     @SerializedName("id")
     private int id;
 
