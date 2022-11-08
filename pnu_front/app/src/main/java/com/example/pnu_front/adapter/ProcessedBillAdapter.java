@@ -27,6 +27,8 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         public TextView day;
         public TextView num;
         public TextView association;
+        public TextView vote;
+        public TextView ProcessedBIll_url;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -35,6 +37,8 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
             day = itemView.findViewById(R.id.ProcessedBill_date);
             num = itemView.findViewById(R.id.ProcessedBill_num);
             association = itemView.findViewById(R.id.Bill_association);
+            vote = itemView.findViewById(R.id.vote);
+            ProcessedBIll_url = itemView.findViewById(R.id.ProcessedBill_url);
         }
     }
 
@@ -54,6 +58,8 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         holder.day.setText(this.ProcessedBillData.get(position).getAnnounce_dt());
         holder.user.setText(this.ProcessedBillData.get(position).getProposer());
         holder.association.setText(this.ProcessedBillData.get(position).getCommittee_nm());
+        holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getUrl());
+        holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getProc_result());
     }
 
     @Override
