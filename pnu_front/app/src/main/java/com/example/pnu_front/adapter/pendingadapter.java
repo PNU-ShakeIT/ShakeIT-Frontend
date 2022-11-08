@@ -16,6 +16,7 @@ import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.profile.OnitemClick;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHolder> {
@@ -89,5 +90,9 @@ public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHo
     public int getItemCount() {
 
         return pendingPetitionData.size();
+    }
+    public void setItems(List<PendingPetitionModel> list){
+        pendingPetitionData = list;
+        notifyDataSetChanged();
     }
 }

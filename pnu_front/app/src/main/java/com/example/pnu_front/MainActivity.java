@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     //github push and pull
 
     protected void onCreate(Bundle savedInstanceState) {
-        final Bundle bundle = new Bundle();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

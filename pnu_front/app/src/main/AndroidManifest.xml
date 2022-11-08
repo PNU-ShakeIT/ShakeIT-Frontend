@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pnu_front"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+
         <activity
             android:name=".peititon.Petition"
             android:exported="false"
@@ -39,7 +40,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LawMakingActivity"
+            android:name=".LawMaking.LawMakingActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
@@ -76,5 +77,4 @@
                 android:value="" />
         </activity>
     </application>
-
 </manifest>

@@ -1,14 +1,20 @@
 package com.example.pnu_front.profile;
 
+import static com.example.pnu_front.R.id.searchView;
+
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,11 +42,13 @@ import retrofit2.Response;
 public class Profile extends AppCompatActivity implements OnitemClick {
 
     RecyclerView recyclerView;
+    EditText editText;
     RecyclerView.Adapter adapter;
     RecyclerView.Adapter myadapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProfileModel>> call;
     List<ProfileModel> result = new ArrayList<>();
+    List<ProfileModel> search_list = new ArrayList<>();
 
 
     @Override
@@ -80,6 +88,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 }
             }
         });
+
         String[] str = getResources().getStringArray(R.array.spinnerArray);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_age,str);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -107,6 +116,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 myadapter = new profileadapter(getApplicationContext(), result, Profile.this);
                 congressmember.setAdapter(myadapter);
             }
+
 
             @Override
             public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
