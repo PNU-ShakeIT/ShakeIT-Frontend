@@ -29,6 +29,11 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
         this.mCallback = listener;
     }
 
+    public void setFilteredList(List<ProfileModel> filteredList){
+        this.profileData = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView member;
@@ -58,6 +63,7 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
         profileData = list;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
