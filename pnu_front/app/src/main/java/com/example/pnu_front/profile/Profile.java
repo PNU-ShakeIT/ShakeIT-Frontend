@@ -52,12 +52,16 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
+        ViewGroup.LayoutParams params = congressmember.getLayoutParams();
+        params.height = 1400;
+        congressmember.setLayoutParams(params);
+        memberprofile.setVisibility(View.GONE);
+        imageView.setBackgroundResource(R.drawable.up_right);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-                    params.width = 950;
                     params.height = 1400;
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.GONE);

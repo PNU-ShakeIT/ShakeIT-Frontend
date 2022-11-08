@@ -5,6 +5,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +47,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         TextView status = findViewById(R.id.petition_processed_status);//0일때 평소 상태 1일때 확대 상태
         RecyclerView processedpt = findViewById(R.id.processedpt);
         Button processed_urlbtn = findViewById(R.id.processed_list_detail_urlbtn);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView urltmp = findViewById(R.id.processed_urltmp);
         status.setText("0");
         layoutManager = new LinearLayoutManager(this);
         processedpt.setLayoutManager(layoutManager);
@@ -84,11 +88,24 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
 
             }
         });
+        processed_urlbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.getText().toString();
 
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+//                Log.d("url",""+i);
+//                context.startActivity(i);
+            }
+        });
     }
 
     @Override
     public void onClick(int value) {
+        TextView urltmp = findViewById(R.id.processed_urltmp);
+        urltmp.setText(result.get(value).getUrl());
+        Log.d("testestest",""+urltmp.getText());
         FrameLayout proceed_list = findViewById(R.id.processed_list);
         CardView list_detail = findViewById(R.id.processed_list_detail);
         ImageView imageView = findViewById(R.id.processed_listsizebtn);

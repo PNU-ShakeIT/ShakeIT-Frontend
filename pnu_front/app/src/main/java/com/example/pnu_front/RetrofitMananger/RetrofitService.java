@@ -3,7 +3,6 @@ package com.example.pnu_front.RetrofitMananger;
 import java.util.List;
 
 import com.example.pnu_front.Calender.CalenderModel;
-import com.example.pnu_front.Calender.CalenderModer;
 import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.peititon.PendingPetitionModel;

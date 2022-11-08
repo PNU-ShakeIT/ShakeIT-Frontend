@@ -16,6 +16,7 @@ import com.example.pnu_front.adapter.calendarAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,7 +60,6 @@ public class Calender extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<CalenderModel>> call, Throwable t) {
-                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
             }
         });
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -74,22 +74,25 @@ public class Calender extends AppCompatActivity {
                 String strtmp;
                 int inttmp = 0;
                 int k = 0;
+
                 //받은 후에 선택된 날짜의 일정만 뽑아서 tmp에 저장
                 inttmp = inttmp + i * 1000000;
                 inttmp = inttmp + (i1 + 1) * 1000;
                 inttmp = inttmp + i2;
                 strtmp = Integer.toString(inttmp);
                 today = strtmp.substring(0, 4) + '-' + strtmp.substring(5, 7) + '-' + strtmp.substring(8);
-                Log.d("tag", "" + today + result);
+//                Log.d("tag", "" + today + result);
                 tmp.clear();
                 int p;
                 for (p = 0; p < result.size(); p++) {
-                    if (result.get(p).getDate().equals(today)) {
-                        Log.d("si", "여기사람살아요" + result.get(p));
+                    if (Objects.equals(result.get(p).getDate(), today)) {
+                    }
+                    }
+                for (p = 0; p < result.size(); p++) {
+                    if (Objects.equals(result.get(p).getDate(), today)) {
                         tmp.add(k, result.get(p));
                         k++;
                     }
-                    p++;
                 }
                 //tmp에 저장된 일정을 시간 순서로 정렬
                 for (p = 0; p < tmp.size()-1; p++ )
