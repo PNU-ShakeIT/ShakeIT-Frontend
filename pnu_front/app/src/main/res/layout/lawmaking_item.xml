@@ -57,34 +57,21 @@
                 android:text="2019-10-20~ 2019-10-21"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
+        <TextView
                 android:textColor="@color/black"
                 android:id="@+id/association"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="14dp"
                 android:text="안녕하세요"/>
-            <TextView
-                android:textColor="@color/black"
-                android:id="@+id/vote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="14dp"
-                android:text="원안가결"/>
-        </LinearLayout>
         <TextView
             android:textColor="@color/black"
-            android:id="@+id/url"
+            android:id="@+id/lawmaking_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13dp"
-            android:text="http://sexkingkimsaehoon.com"/>
+            android:text="http://sistermode.com"/>
 
     </LinearLayout>
 </LinearLayout>

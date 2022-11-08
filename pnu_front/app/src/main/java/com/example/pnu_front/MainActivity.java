@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         lawmaking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, LawMakingActivity.class);
+                Intent i = new Intent(MainActivity.this, com.example.pnu_front.LawMakingActivity.class);
                 startActivity(i);
             }
         });
@@ -102,34 +102,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         adapter = new MainAdapter();
 
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
-        original_list.add("김세훈 sexmachine 김세훈 sexmachine");
-        original_list.add("한성익 sexmachine 한성익 sexmachine");
+
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
+        original_list.add("국회는 지금 무엇을 하고 있느가");
 
         adapter.setItems(original_list);
         recyclerView.setAdapter(adapter);
