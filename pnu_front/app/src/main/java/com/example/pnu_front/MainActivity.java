@@ -113,10 +113,15 @@ public class MainActivity extends AppCompatActivity {
         news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
-//                startActivity(i);
-
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.naon.go.kr/"));
+                startActivity(i);
+            }
+        });
+        libbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.nanet.go.kr/main.do"));
+                startActivity(i);
             }
         });
 
