@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         TextView article08 = findViewById(R.id.article_08);
         TextView article09 = findViewById(R.id.article_09);
 
+
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +108,18 @@ public class MainActivity extends AppCompatActivity {
 
         translateLeftAnim = AnimationUtils.loadAnimation(this, R.anim.translate_left);
         translateRightAnim = AnimationUtils.loadAnimation(this, R.anim.treanslate_right);
+        View news = findViewById(R.id.newsbtn);
+        View libbtn = findViewById(R.id.librarybtn);
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+//                startActivity(i);
+
+            }
+        });
+
 
 
         SlidingPageAnimationListener animationListener = new SlidingPageAnimationListener();
@@ -245,23 +258,34 @@ public class MainActivity extends AppCompatActivity {
     private class SlidingPageAnimationListener implements Animation.AnimationListener {
         @Override
         public void onAnimationEnd(Animation animation) {
+            TextView article01 = findViewById(R.id.article_01);
+            TextView article02 = findViewById(R.id.article_02);
+            TextView article03 = findViewById(R.id.article_03);
+            TextView article04 = findViewById(R.id.article_04);
+            TextView article05 = findViewById(R.id.article_05);
+            TextView article06 = findViewById(R.id.article_06);
+            TextView article07 = findViewById(R.id.article_07);
+            TextView article08 = findViewById(R.id.article_08);
+            TextView article09 = findViewById(R.id.article_09);
             //슬라이드 열기->닫기
             if (isPageOpen) {
+
+                article01.setClickable(true);
+                article02.setClickable(true);
+                article03.setClickable(true);
+                article04.setClickable(true);
+                article05.setClickable(true);
+                article06.setClickable(true);
+                article07.setClickable(true);
+                article08.setClickable(true);
+                article09.setClickable(true);
 
                 slidingPage01.setVisibility(View.INVISIBLE);
                 isPageOpen = false;
             }
             //슬라이드 닫기->열기
             else {
-                TextView article01 = findViewById(R.id.article_01);
-                TextView article02 = findViewById(R.id.article_02);
-                TextView article03 = findViewById(R.id.article_03);
-                TextView article04 = findViewById(R.id.article_04);
-                TextView article05 = findViewById(R.id.article_05);
-                TextView article06 = findViewById(R.id.article_06);
-                TextView article07 = findViewById(R.id.article_07);
-                TextView article08 = findViewById(R.id.article_08);
-                TextView article09 = findViewById(R.id.article_09);
+
                 article01.setClickable(false);
                 article02.setClickable(false);
                 article03.setClickable(false);
@@ -311,16 +335,16 @@ public class MainActivity extends AppCompatActivity {
             Log.d("asdfafafsfasdfa","1111111111111111111111"+tempstr+"진짜개씨발좆같네"+temp);
             if(temp-1 == 8)
             {
-                 article01.setText(article_list.get(0));
-                 article02.setText(article_list.get(1));
-                 article03.setText(article_list.get(2));
-                 article04.setText(article_list.get(3));
-                 article05.setText(article_list.get(4));
-                 article06.setText(article_list.get(5));
-                 article07.setText(article_list.get(6));
-                 article08.setText(article_list.get(7));
-                 article09.setText(article_list.get(8));
-                 urltmp = (ArrayList<String>) url_list.clone();
+                article01.setText(article_list.get(0));
+                article02.setText(article_list.get(1));
+                article03.setText(article_list.get(2));
+                article04.setText(article_list.get(3));
+                article05.setText(article_list.get(4));
+                article06.setText(article_list.get(5));
+                article07.setText(article_list.get(6));
+                article08.setText(article_list.get(7));
+                article09.setText(article_list.get(8));
+                urltmp = (ArrayList<String>) url_list.clone();
             }
             article_list = bundle.getStringArrayList("article");
             url_list = bundle.getStringArrayList("url");
