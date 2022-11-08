@@ -47,7 +47,6 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);
-                        Log.d("1:37","pos:"+pos);
                     }
 
                 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -62,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
         View petition = findViewById(R.id.petitionbtn);
         View lawmaking = findViewById(R.id.lawmakingbtn);
         LinearLayout article_layout = findViewById(R.id.news_notion);
+        TextView article01 = findViewById(R.id.article_01);
+        TextView article02 = findViewById(R.id.article_02);
+        TextView article03 = findViewById(R.id.article_03);
+        TextView article04 = findViewById(R.id.article_04);
+        TextView article05 = findViewById(R.id.article_05);
+        TextView article06 = findViewById(R.id.article_06);
+        TextView article07 = findViewById(R.id.article_07);
+        TextView article08 = findViewById(R.id.article_08);
+        TextView article09 = findViewById(R.id.article_09);
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,79 +147,96 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(e.text());
                         article_list.add(e.text());
                         url_list.add("http://www.a-news.co.kr/news/"+e.getElementsByAttribute("href").attr("href"));
-
-                        Log.d("ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ","2");
-
-
-
-
-
-
-
                         bundle.putStringArrayList("article",article_list);//핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
                         bundle.putStringArrayList("url",url_list);
                         Message msg = handler.obtainMessage();
                         msg.setData(bundle);
                         handler.sendMessage(msg);
-
                     }
-
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.d("실패","실패실패실패실패실패실패실패실패실패실패실패");
                 }
-
             }
         }.start();
-
-
-
-
-
-
-
-        editText = findViewById(R.id.search_text);
-
-        // editText 리스터 작성
-//        editText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                String searchText = editText.getText().toString();
-//                search_list.clear();
-//
-//                if (searchText.equals("")) {
-//                    adapter.setItems(original_list);
-//                } else {
-//                    // 검색 단어를 포함하는지 확인
-//                    for (int a = 0; a < original_list.size(); a++) {
-//                        if (original_list.get(a).toLowerCase().contains(searchText.toLowerCase())) {
-//                            search_list.add(original_list.get(a));
-//                        }
-//                        adapter.setItems(search_list);
-//                    }
-//                }
-//            }
-//        });
-
-
 
         ImageView chatbot = findViewById(R.id.Chatbotbtn);
         chatbot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this , Chatbot.class);
+                startActivity(i);
+            }
+        });
+        article01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(0);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(1);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(2);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(3);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article05.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(4);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article06.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(5);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article07.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(6);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article08.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(7);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+            }
+        });
+        article09.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.get(8);
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
                 startActivity(i);
             }
         });
@@ -220,11 +247,30 @@ public class MainActivity extends AppCompatActivity {
         public void onAnimationEnd(Animation animation) {
             //슬라이드 열기->닫기
             if (isPageOpen) {
+
                 slidingPage01.setVisibility(View.INVISIBLE);
                 isPageOpen = false;
             }
             //슬라이드 닫기->열기
             else {
+                TextView article01 = findViewById(R.id.article_01);
+                TextView article02 = findViewById(R.id.article_02);
+                TextView article03 = findViewById(R.id.article_03);
+                TextView article04 = findViewById(R.id.article_04);
+                TextView article05 = findViewById(R.id.article_05);
+                TextView article06 = findViewById(R.id.article_06);
+                TextView article07 = findViewById(R.id.article_07);
+                TextView article08 = findViewById(R.id.article_08);
+                TextView article09 = findViewById(R.id.article_09);
+                article01.setClickable(false);
+                article02.setClickable(false);
+                article03.setClickable(false);
+                article04.setClickable(false);
+                article05.setClickable(false);
+                article06.setClickable(false);
+                article07.setClickable(false);
+                article08.setClickable(false);
+                article09.setClickable(false);
                 isPageOpen = true;
             }
         }
@@ -258,27 +304,29 @@ public class MainActivity extends AppCompatActivity {
             TextView article08 = findViewById(R.id.article_08);
             TextView article09 = findViewById(R.id.article_09);
             Bundle bundle = msg.getData();
-//            Log.d("iiiiiiiiiiiiiiiiiii","i여기있어요 : "+i);
-            String tmp;
-//            switch ()
-//            {
-//                case 0 : article01.setText(article_list.get(0));
-//                case 1 : article02.setText(article_list.get(1));
-//                case 2 : article03.setText(article_list.get(2));
-//                case 3 : article04.setText(article_list.get(3));
-//                case 4 : article05.setText(article_list.get(4));
-//                case 5 : article06.setText(article_list.get(5));
-//                case 6 : article07.setText(article_list.get(6));
-//                case 7 : article08.setText(article_list.get(7));
-//                case 8 : {
-//                    article09.setText(article_list.get(8));
-//                    urltmp = (ArrayList<String>) url_list.clone();
-//                }
-//            }
+            int temp ;
+            String tempstr;
+            tempstr = tmpint.getText().toString();
+            temp = Integer.parseInt(tempstr);
+            Log.d("asdfafafsfasdfa","1111111111111111111111"+tempstr+"진짜개씨발좆같네"+temp);
+            if(temp-1 == 8)
+            {
+                 article01.setText(article_list.get(0));
+                 article02.setText(article_list.get(1));
+                 article03.setText(article_list.get(2));
+                 article04.setText(article_list.get(3));
+                 article05.setText(article_list.get(4));
+                 article06.setText(article_list.get(5));
+                 article07.setText(article_list.get(6));
+                 article08.setText(article_list.get(7));
+                 article09.setText(article_list.get(8));
+                 urltmp = (ArrayList<String>) url_list.clone();
+            }
             article_list = bundle.getStringArrayList("article");
             url_list = bundle.getStringArrayList("url");
             Log.d("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ","1111111111111111111");
-            tmp = bundle.getString("art");
+            temp++;
+            tmpint.setText(Integer.toString(temp));
 //            article_list.setText(bundle.getString("art"));
             //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
         }

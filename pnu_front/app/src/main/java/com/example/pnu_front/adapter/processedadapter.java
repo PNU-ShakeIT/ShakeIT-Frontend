@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,15 +33,15 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
         public TextView title;
         public TextView member;
         public ProgressBar bar;
-        public CardView cardView;
+        public LinearLayout linearLayout;
 
         public MyViewHolder(View view) {
             super(view);
             this.title = view.findViewById(R.id.title);
             this.member = view.findViewById(R.id.petition_amount);
             this.bar = view.findViewById(R.id.progressBar);
-            this.cardView = view.findViewById(R.id.cardView_petition);
-            cardView.setOnClickListener(new View.OnClickListener() {
+            this.linearLayout = view.findViewById(R.id.linearlayout_petition);
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();

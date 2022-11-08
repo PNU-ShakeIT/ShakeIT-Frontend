@@ -47,7 +47,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         TextView status = findViewById(R.id.petition_processed_status);//0일때 평소 상태 1일때 확대 상태
         RecyclerView processedpt = findViewById(R.id.processedpt);
         Button processed_urlbtn = findViewById(R.id.processed_list_detail_urlbtn);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView urltmp = findViewById(R.id.processed_urltmp);
+        TextView urltmp = findViewById(R.id.processed_urltmp);
         status.setText("0");
         layoutManager = new LinearLayoutManager(this);
         processedpt.setLayoutManager(layoutManager);
