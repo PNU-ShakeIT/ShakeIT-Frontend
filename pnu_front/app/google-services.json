@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:724114318045:android:90b72410b955c1955fb134",
         "android_client_info": {
-          "package_name": "com.example.notification"
+          "package_name": "com.example.pnu_front"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "724114318045-f694j7ik9t8f1aejkfv8qbquijvdqtvt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.notification",
+            "package_name": "com.example.pnu_front",
             "certificate_hash": "fe344d2b5cc433f9effc61ef453a3bdc39488407"
           }
         },
