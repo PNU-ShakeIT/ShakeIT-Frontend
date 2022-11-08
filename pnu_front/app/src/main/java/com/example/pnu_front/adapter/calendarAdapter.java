@@ -12,16 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pnu_front.Calender.CalenderModer;
+import com.example.pnu_front.Calender.CalenderModel;
 import com.example.pnu_front.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyViewHolder> {
-    List<CalenderModer> calenderData;
+    List<CalenderModel> calenderData;
 
-    public calendarAdapter(List<CalenderModer> calenderData) {
+    public calendarAdapter(List<CalenderModel> calenderData) {
         this.calenderData = calenderData;
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -54,9 +54,9 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyView
         switch(this.calenderData.get(i).getCode())
         {
             case "1" : {holder.title.setTextColor(Color.parseColor("#4f9468")); holder.title.setText("세미나"); break;}
-            case "2" : {holder.title.setTextColor(Color.parseColor("#c0522b")); break;}
+            case "2" : {holder.title.setTextColor(Color.parseColor("#c0522b")); holder.title.setText("본회의"); break;}
             case "3" : {holder.title.setTextColor(Color.parseColor("#3b768e")); break;}
-            case "4" : {holder.title.setTextColor(Color.parseColor("#b78333")); break;}
+            case "4" : {holder.title.setTextColor(Color.parseColor("#b78333")); holder.title.setText("국회의장");break;}
             case "5" : {holder.title.setTextColor(Color.parseColor("#555c6a")); break;}
         }
 
@@ -69,7 +69,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyView
 
         return calenderData.size();
     }
-    public void setItems(List<CalenderModer> list){
+    public void setItems(List<CalenderModel> list){
         calenderData = list;
         notifyDataSetChanged();
     }

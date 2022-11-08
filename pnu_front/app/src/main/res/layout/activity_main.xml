@@ -8,42 +8,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="이 시간 실시간 국회는?"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.126" />
-
     <ImageView
         android:id="@+id/Chatbotbtn"
         android:layout_width="45dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/hope_right"
         android:elevation="10dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginRight="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <FrameLayout
-        android:id="@+id/frameLayout2"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/round_edge"
-        android:elevation="1dp"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -58,9 +40,8 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="391dp"
-        android:layout_height="52dp"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
         android:background="#F5F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,11 +50,12 @@
 
 
     <FrameLayout
+
         android:id="@+id/view4"
         android:layout_width="343dp"
         android:layout_height="417dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/oval_edge"
+        android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,23 +73,130 @@
             android:text="국회 종합 뉴스"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/news_notion"
             android:layout_width="340dp"
             android:layout_height="373dp"
             android:layout_marginTop="40dp"
             android:elevation="10dp"
             android:visibility="visible"
+            android:orientation="vertical"
+            android:weightSum="9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview" />
+            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview"
+            >
+            <TextView
+                android:id="@+id/article_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
 
+
+
+
+
+
+        </LinearLayout>
     </FrameLayout>
 
     <View
-        android:id="@+id/view5"
         android:layout_width="170dp"
         android:layout_height="30dp"
         android:background="@drawable/congress_symbol_blue"
@@ -116,10 +205,9 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.048" />
 
     <View
-        android:id="@+id/view7"
         android:layout_width="350dp"
         android:layout_height="2dp"
         android:background="#F4F4F4"
@@ -135,7 +223,7 @@
         android:id="@+id/view2"
         android:layout_width="343dp"
         android:layout_height="56dp"
-        android:background="@drawable/oval_edge"
+        android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -164,7 +252,7 @@
         android:layout_height="29dp"
         android:background="@android:color/transparent"
         android:elevation="5dp"
-        android:textColor="@color/black"
+        android:textColor="#A89E9E"
         android:hint="검색"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -195,10 +283,10 @@
         android:background="@drawable/menu_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <LinearLayout
         android:id="@+id/sliding_page"
@@ -217,6 +305,7 @@
         app:layout_constraintVertical_bias="0.601">
 
         <FrameLayout
+            android:id="@+id/side_menu_frame"
             android:layout_width="38dp"
             android:layout_height="70dp"
             android:layout_gravity="center_horizontal"
@@ -264,6 +353,7 @@
             app:layout_constraintVertical_bias="0.217">
 
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_gravity="bottom"
@@ -274,6 +364,7 @@
                 android:textSize="14dp" />
 
             <View
+                android:id="@+id/newsbtn"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_horizontal"
@@ -377,6 +468,7 @@
                 android:textSize="14dp" />
 
             <View
+                android:id="@+id/librarybtn"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_horizontal"
@@ -422,5 +514,17 @@
                 tools:layout_editor_absoluteY="240dp" />
         </FrameLayout>
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tmpint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible">
+
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

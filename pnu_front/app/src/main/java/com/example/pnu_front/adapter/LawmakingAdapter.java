@@ -28,6 +28,7 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
         public TextView day;
         public TextView num;
         public TextView association;
+        public TextView url;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -36,6 +37,7 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             day = itemView.findViewById(R.id.lawmaking_date);
             num = itemView.findViewById(R.id.lawmaking_num);
             association = itemView.findViewById(R.id.association);
+            url = itemView.findViewById(R.id.lawmaking_url);
         }
     }
 
@@ -55,6 +57,7 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             holder.day.setText(this.LawMakingData.get(position).getNoti_end_dt());
             holder.user.setText(this.LawMakingData.get(position).getProposer());
             holder.association.setText(this.LawMakingData.get(position).getCurr_committee());
+            holder.url.setText(this.LawMakingData.get(position).getLink());
         }
 
         @Override

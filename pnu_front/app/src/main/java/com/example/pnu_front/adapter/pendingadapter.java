@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -15,17 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.profile.OnitemClick;
-import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
+public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHolder> {
 
     List<PendingPetitionModel> pendingPetitionData;
     private static OnitemClick mCallback;
 
-    public expirationadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData,OnitemClick listener) {
+    public pendingadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData, OnitemClick listener) {
         this.pendingPetitionData = pendingPetitionData;
         this.mCallback = listener;
     }
@@ -34,15 +34,15 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
         public TextView title;
         public TextView member;
         public ProgressBar bar;
-        public CardView cardView;
+        public LinearLayout linearLayout;
         public MyViewHolder(View view)
         {
             super(view);
             this.title = view.findViewById(R.id.title);
             this.member = view.findViewById(R.id.petition_amount);
             this.bar = view.findViewById(R.id.progressBar);
-            this.cardView = view.findViewById(R.id.cardView_petition);
-            cardView.setOnClickListener(new View.OnClickListener() {
+            this.linearLayout = view.findViewById(R.id.linearlayout_petition);
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
@@ -83,7 +83,29 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
             numString = tmpname[1].replace("인","");
             num = Integer.parseInt(numString.replace(",", ""));
             Log.d("num", ""+num);
-            holder.bar.setProgress(num/500);
+            if (num < 100) {
+                holder.bar.setProgress((301*num)/100);
+            }
+            else if(num<1000)
+            {
+                tmp = num-100;
+                holder.bar.setProgress(301 + 201*tmp/1000);
+            }
+            else if(num<10000)
+            {
+                tmp = num - 1000;
+                holder.bar.setProgress(502 + (164*num)/10000);
+            }
+            else if(num<30000)
+            {
+                tmp = num-10000;
+                Log.d("tmp",""+tmp);
+                holder.bar.setProgress(666+(167*tmp) / 30000);
+            }
+            else if(num >= 50000)
+            {
+                holder.bar.setProgress(1000);
+            }
         }
     }
 

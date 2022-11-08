@@ -34,10 +34,10 @@ public class ProcessedPetitionModel {
     private String url;
 
     @SerializedName("billid")
-    private int billid;
+    private String billid;
 
     @SerializedName("committee_id")
-    private int committee_id;
+    private String committee_id;
 
     public int getId() {
         return id;
@@ -119,25 +119,25 @@ public class ProcessedPetitionModel {
         this.url = url;
     }
 
-    public int getBillid() {
+    public String getBillid() {
         return billid;
     }
 
-    public void setBillid(int bill_id) {
+    public void setBillid(String bill_id) {
         this.billid = bill_id;
     }
 
-    public int getCommittee_id() {
+    public String getCommittee_id() {
         return committee_id;
     }
 
-    public void setCommittee_id(int committee_id) {
+    public void setCommittee_id(String committee_id) {
         this.committee_id = committee_id;
     }
 
     @Override
     public String toString() {
-        return "ProcessedPetitionModer{" +
+        return "ProcessedPetitionModel{" +
                 "id=" + id +
                 ", num='" + num + '\'' +
                 ", age='" + age + '\'' +

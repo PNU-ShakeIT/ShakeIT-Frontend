@@ -14,9 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.SearchView;
+//import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,12 +46,12 @@ public class Profile extends AppCompatActivity implements OnitemClick {
     RecyclerView recyclerView;
     EditText editText;
     RecyclerView.Adapter adapter;
-    RecyclerView.Adapter myadapter;
+    profileadapter myadapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProfileModel>> call;
     List<ProfileModel> result = new ArrayList<>();
     List<ProfileModel> search_list = new ArrayList<>();
-
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +62,30 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+        ViewGroup.LayoutParams params = congressmember.getLayoutParams();
+        params.height = 1400;
+        congressmember.setLayoutParams(params);
+        memberprofile.setVisibility(View.GONE);
+        imageView.setBackgroundResource(R.drawable.up_right);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-                    params.width = 950;
                     params.height = 1400;
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.GONE);
@@ -104,6 +124,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         spinner_field.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(this);
         congressmember.setLayoutManager(layoutManager);
+
         call = RetrofitInstance.getApiService().getCongressMember();
         call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
@@ -113,12 +134,26 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 congressmember.setAdapter(myadapter);
             }
 
-
             @Override
             public void onFailure(Call<List<ProfileModel>> call, Throwable t) {
 
             }
         });
+    }
+
+    private void filterList(String text) {
+        List<ProfileModel> filteredList = new ArrayList<>();
+        for(ProfileModel item : result){
+            if(item.getHg_NM().contains(text)){
+                filteredList.add(item);
+            }
+        }
+
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+           myadapter.setFilteredList(filteredList);
+        }
     }
 
     @Override

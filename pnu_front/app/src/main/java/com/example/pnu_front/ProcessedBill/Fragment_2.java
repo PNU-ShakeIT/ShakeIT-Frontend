@@ -58,44 +58,44 @@ public class Fragment_2 extends Fragment {
             }
         });
 
-        editText = ((LawMakingActivity)getActivity()).findViewById(R.id.search_lawmake_text);
-
-        // editText 리스터 작성
-
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String searchText = editText.getText().toString();
-                search_list.clear();
-
-                if (searchText.equals("")) {
-                    adapter.setItems(result);
-                } else {
-                    // 검색 단어를 포함하는지 확인
-                    for (int a = 0; a < result.size(); a++) {
-                        if (result.get(a).getBill_name().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getBill_num().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getProposer().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getAnnounce_dt().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getCommittee_nm().toLowerCase().contains(searchText.toLowerCase())) {
-                            search_list.add(result.get(a));
-                        }
-                        adapter.setItems(search_list);
-                    }
-                }
-            }
-        });
-        recyclerView.setAdapter(adapter);
+//        editText = ((LawMakingActivity)getActivity()).findViewById(R.id.search_lawmake_text);
+//
+//        // editText 리스터 작성
+//
+//        editText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                String searchText = editText.getText().toString();
+//                search_list.clear();
+//
+//                if (searchText.equals("")) {
+//                    adapter.setItems(result);
+//                } else {
+//                    // 검색 단어를 포함하는지 확인
+//                    for (int a = 0; a < result.size(); a++) {
+//                        if (result.get(a).getBill_name().toLowerCase().contains(searchText.toLowerCase()) ||
+//                                result.get(a).getBill_num().toLowerCase().contains(searchText.toLowerCase()) ||
+//                                result.get(a).getProposer().toLowerCase().contains(searchText.toLowerCase()) ||
+//                                result.get(a).getAnnounce_dt().toLowerCase().contains(searchText.toLowerCase()) ||
+//                                result.get(a).getCommittee_nm().toLowerCase().contains(searchText.toLowerCase())) {
+//                            search_list.add(result.get(a));
+//                        }
+//                        adapter.setItems(search_list);
+//                    }
+//                }
+//            }
+//        });
+//        recyclerView.setAdapter(adapter);
 
         return rootView;
     }

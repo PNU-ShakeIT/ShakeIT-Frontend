@@ -126,17 +126,18 @@
 <!--            android:textSize="15sp"></TextView>-->
 <!--    </LinearLayout>-->
 
-    <EditText
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_marginTop="31dp"
         android:layout_height="30dp"
-        android:background="@drawable/layout_background"
+        android:background="@drawable/search_view_bg"
         android:elevation="10dp"
-        android:queryHint="이름or정당 입력"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:queryHint="국회의원 입력해 주세요"
+        app:iconifiedByDefault="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/congress_member_list"
@@ -371,7 +372,7 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="1"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

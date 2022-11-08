@@ -1,5 +1,6 @@
 package com.example.pnu_front.peititon;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -71,7 +72,6 @@ public class Petition extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
-
             }
         });
 

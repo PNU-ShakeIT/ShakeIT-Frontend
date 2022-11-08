@@ -5,6 +5,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +25,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import com.example.pnu_front.adapter.expirationadapter;
+import com.example.pnu_front.adapter.pendingadapter;
 import com.example.pnu_front.profile.OnitemClick;
 
 public class Petition_progress extends AppCompatActivity implements OnitemClick {
@@ -42,6 +44,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         RecyclerView progress = findViewById(R.id.progresspt);
         layoutManager = new LinearLayoutManager(this);
         progress.setLayoutManager(layoutManager);
+        TextView urltmp = findViewById(R.id.proceed_urltmp);
         FrameLayout proceed_list = findViewById(R.id.proceed_list);
         CardView list_detail = findViewById(R.id.proceed_list_detail);
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
@@ -79,7 +82,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             @Override
             public void onResponse(Call<List<PendingPetitionModel>> call, Response<List<PendingPetitionModel>> response) {
                 result = response.body();
-                adapter = new expirationadapter(getApplicationContext(), result,Petition_progress.this);
+                adapter = new pendingadapter(getApplicationContext(), result,Petition_progress.this);
                 progress.setAdapter(adapter);
             }
 
@@ -88,10 +91,25 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
 
             }
         });
+        proceed_urlbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str =  urltmp.getText().toString();
+                Log.d("url",""+str);
+
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
+                startActivity(i);
+//                Log.d("url",""+i);
+//                context.startActivity(i);
+            }
+        });
     }
 
     @Override
     public void onClick(int value) {
+        TextView urltmp = findViewById(R.id.proceed_urltmp);
+        urltmp.setText(result.get(value).getUrl());
+        Log.d("testestest",""+urltmp.getText());
         FrameLayout proceed_list = findViewById(R.id.proceed_list);
         CardView list_detail = findViewById(R.id.proceed_list_detail);
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
@@ -109,10 +127,10 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         TextView pro_dt = findViewById(R.id.text_proceed_list_detail_pro_dt);
         TextView committee = findViewById(R.id.text_proceed_list_detail_curr_committee);
         title.setText(result.get(value).getName());
-        num.setText(result.get(value).getNum());
-        proposer.setText(result.get(value).getProposer());
-        approver.setText(result.get(value).getApprover());
-        pro_dt.setText(result.get(value).getPro_dt());
-        committee.setText(result.get(value).getCurr_committee());
+        num.setText("제안인 = "+result.get(value).getNum());
+        proposer.setText("승인자 = "+result.get(value).getProposer());
+        approver.setText("청원번호 = "+result.get(value).getApprover());
+        pro_dt.setText("신청년도 = "+result.get(value).getPro_dt());
+        committee.setText("제안한 곳 = "+result.get(value).getCurr_committee());
     }
 }

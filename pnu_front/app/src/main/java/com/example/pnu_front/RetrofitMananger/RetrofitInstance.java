@@ -1,17 +1,19 @@
 package com.example.pnu_front.RetrofitMananger;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-
+import retrofit2.http.Header;
 
 
 public class RetrofitInstance {
 
-    private static final String BASE_URL = "http://3.35.187.40:8080";
+    private static final String BASE_URL = "http://3.35.187.40:8080/";
 
     public static RetrofitService getApiService(){
 

@@ -13,13 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.calendarAdapter;
-import com.example.pnu_front.adapter.expirationadapter;
-import com.example.pnu_front.peititon.PendingPetitionModel;
-import com.ramotion.circlemenu.CircleMenuView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,10 +31,10 @@ public class Calender extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-    Call<List<CalenderModer>> call;
-    List<CalenderModer> result = new ArrayList<>();
-    List<CalenderModer> tmp = new ArrayList<>();// 오늘 일정만 뺀 후의 리스트
-    List<CalenderModer> cal_data = new ArrayList<>();//시간 순서로 정렬한 후의 리스트
+    Call<List<CalenderModel>> call;
+    List<CalenderModel> result = new ArrayList<>();
+    List<CalenderModel> tmp = new ArrayList<>();// 오늘 일정만 뺀 후의 리스트
+    List<CalenderModel> cal_data = new ArrayList<>();//시간 순서로 정렬한 후의 리스트
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +53,15 @@ public class Calender extends AppCompatActivity {
 
         call = RetrofitInstance.getApiService().getCalendar();
         //데이터 요청(날짜별로)
-        call.enqueue(new Callback<List<CalenderModer>>() {
+        call.enqueue(new Callback<List<CalenderModel>>() {
             @Headers({"Content-Type: application/json"})
             @POST("/user/signup")
             @Override
-            public void onResponse(Call<List<CalenderModer>> call, Response<List<CalenderModer>> response) {
+            public void onResponse(Call<List<CalenderModel>> call, Response<List<CalenderModel>> response) {
                 result = response.body();
             }
             @Override
-            public void onFailure(Call<List<CalenderModer>> call, Throwable t) {
-                Log.d("qwer","씨@@@@@@@@@@@@@@@@@@@@@@@발왜안되는데");
+            public void onFailure(Call<List<CalenderModel>> call, Throwable t) {
             }
         });
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -79,22 +76,25 @@ public class Calender extends AppCompatActivity {
                 String strtmp;
                 int inttmp = 0;
                 int k = 0;
+
                 //받은 후에 선택된 날짜의 일정만 뽑아서 tmp에 저장
                 inttmp = inttmp + i * 1000000;
                 inttmp = inttmp + (i1 + 1) * 1000;
                 inttmp = inttmp + i2;
                 strtmp = Integer.toString(inttmp);
                 today = strtmp.substring(0, 4) + '-' + strtmp.substring(5, 7) + '-' + strtmp.substring(8);
-                Log.d("tag", "" + today + result);
+//                Log.d("tag", "" + today + result);
                 tmp.clear();
                 int p;
                 for (p = 0; p < result.size(); p++) {
-                    if (result.get(p).getDate().equals(today)) {
-                        Log.d("si", "여기사람살아요" + result.get(p));
+                    if (Objects.equals(result.get(p).getDate(), today)) {
+                    }
+                    }
+                for (p = 0; p < result.size(); p++) {
+                    if (Objects.equals(result.get(p).getDate(), today)) {
                         tmp.add(k, result.get(p));
                         k++;
                     }
-                    p++;
                 }
                 //tmp에 저장된 일정을 시간 순서로 정렬
                 for (p = 0; p < tmp.size()-1; p++ )

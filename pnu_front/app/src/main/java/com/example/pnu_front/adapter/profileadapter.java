@@ -29,6 +29,11 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
         this.mCallback = listener;
     }
 
+    public void setFilteredList(List<ProfileModel> filteredList){
+        this.profileData = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView member;
@@ -47,7 +52,6 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);
-                        Log.d("1:37","pos:"+pos);
                     }
 
                 }
@@ -58,6 +62,7 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
         profileData = list;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
