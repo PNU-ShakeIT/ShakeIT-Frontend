@@ -10,11 +10,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/lawmaking_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="개dsadadadsadadasdadasddadsadadsdaadsad"
-            android:textSize="22dp" />
+            android:text="갬dsadadadsadadasdadasddadsadadsdaadsad"
+            android:textSize="17dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/lawmaking_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,12 +32,14 @@
                 android:textSize="15dp"
                 android:text="20ewqewqe"/>
             <TextView
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:textSize="15dp"
                 android:text="|"/>
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/lawmaking_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,6 +48,7 @@
                 android:text="의원"/>
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/lawmaking_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,11 +57,34 @@
                 android:text="2019-10-20~ 2019-10-21"/>
 
         </LinearLayout>
-        <TextView
-            android:id="@+id/association"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="안녕하세요"/>
+            android:orientation="horizontal">
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/association"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:text="안녕하세요"/>
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:text="원안가결"/>
+        </LinearLayout>
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:text="http://sexkingkimsaehoon.com"/>
+
     </LinearLayout>
 </LinearLayout>

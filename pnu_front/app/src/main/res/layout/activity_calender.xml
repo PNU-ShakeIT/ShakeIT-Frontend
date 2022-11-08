@@ -6,6 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".Calender.Calender">
 
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/round_edge"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/assemblymark_right">
+
+        </ImageView>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <View
         android:id="@+id/view"
         android:background="@color/line_color"
@@ -30,9 +58,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="12dp"
         android:text="국회 일정"
-        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,60 +74,35 @@
         android:layout_marginTop="19dp"
         android:layout_weight ="20"
         android:background="@drawable/layout_background"
-        android:translationZ="10dp"
+        android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
     </CalendarView>
 
-    <FrameLayout
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:background="@drawable/round_edge"
-        android:elevation="10dp"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/assemblymark_right"
-            >
-
-        </ImageView>
-    </FrameLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <FrameLayout
-        android:layout_width="363dp"
-        android:layout_height="320dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:layout_width="369dp"
+        android:layout_height="277dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/layout_background"
-        android:elevation="8dp"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView">
+
         <TextView
             android:id="@+id/date_text"
             android:layout_width="150dp"
             android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="11월 5일 일정"
-            >
+            android:textColor="@color/black"
+            android:textSize="15sp">
 
         </TextView>
 
@@ -110,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-    </FrameLayout>
+    </LinearLayout>
 
 
 

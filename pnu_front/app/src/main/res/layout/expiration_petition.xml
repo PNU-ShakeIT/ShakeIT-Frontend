@@ -20,8 +20,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:text="1.한성익 sexmachine issue"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="-1dp">
 
@@ -37,11 +37,12 @@
             android:layout_height="30dp"
             android:layout_gravity="center" />
         <TextView
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/petition_amount"
             android:text="999999명이 이 청원에 동의하였습니다"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="10dp"

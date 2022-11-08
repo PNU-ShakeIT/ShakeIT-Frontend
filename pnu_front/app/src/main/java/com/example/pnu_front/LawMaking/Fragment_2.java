@@ -32,21 +32,27 @@ public class Fragment_2 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(((RecyclerView) rootView.findViewById(R.id.pass_lawmake_notion)).getContext(),RecyclerView.VERTICAL,false));
         adapter = new LawmakingAdapter();
 
-        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름"));
-        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회"));
-        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소"));
-        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름"));
-        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회"));
-        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소"));
-        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름"));
-        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회"));
-        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소"));
-        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름"));
-        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회"));
-        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소"));
-        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름"));
-        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회"));
-        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
+        original_list.add(new lawmake("우리의 우주는 실존하는게 맞는가?", "20994", "지평선","2020-10-5 ~ 2021-10-4", "오르트 구름","http:woojoo.com","가결"));
+        original_list.add(new lawmake("은하계는 사실 작은 먼지에 불과하지 안흘까?", "21124", "우주","2022-10-5 ~ 2023-10-4", "은하계 탐구회","http:eunha.net","가결"));
+        original_list.add(new lawmake("자각몽을 꾸는 조건은 무엇인가?", "23355", "수면중","2020-10-5 ~ 2021-10-4", "수면 연구소","http:aqedsh.com","불결"));
 
 
         adapter.setItems(original_list);

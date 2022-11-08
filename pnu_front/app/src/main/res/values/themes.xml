@@ -12,5 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="buttonStyle">@style/customButtonFontStyle</item>
+        <item name ="editTextStyle">@style/customEditTextFontStyle</item>
+        <item name ="radioButtonStyle">@style/customRadioButtonFontStyle</item>
+        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
+
 </resources>

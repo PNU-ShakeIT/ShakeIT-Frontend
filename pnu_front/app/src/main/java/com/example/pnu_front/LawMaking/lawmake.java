@@ -7,13 +7,17 @@ public class lawmake {
         private String day;
         private String user;
         private String association;
+        private String url;
+        private String vote;
 
-        public lawmake(String title,String num,String user,String day, String association){
+        public lawmake(String title,String num,String user,String day, String association, String url, String vote){
             this.title = title;
             this.num = num;
             this.user = user;
             this.day = day;
             this.association = association;
+            this.url = url;
+            this.vote = vote;
         }
         public String getTitle(){
             return this.title;
@@ -28,6 +32,8 @@ public class lawmake {
             return this.user;
         }
         public String getAssociation(){return this.association;}
+        public String getUrl(){return this.url;}
+        public String getVote(){return  this.vote;}
 
     public void setTitle(String title) {
         this.title = title;
@@ -42,4 +48,6 @@ public class lawmake {
             this.day = day;
     }
     public void setAssociation(String association) {this.association = association;}
+    public void setUrl(){this.url = url;}
+    public void setVote(){this.vote = vote;}
 }
