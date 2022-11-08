@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,10 +15,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -35,7 +36,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     String article = "";
     String url = "";
+    static ArrayList<String> urltmp = new ArrayList<>();
     boolean isPageOpen = false;
+    static int tmp_int ;
     Animation translateLeftAnim;
     Animation translateRightAnim;
     LinearLayout slidingPage01;
@@ -53,13 +56,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        final Bundle bundle = new Bundle();
         View calender = findViewById(R.id.calbtn);
         View profile = findViewById(R.id.profbtn);
         View petition = findViewById(R.id.petitionbtn);
         View lawmaking = findViewById(R.id.lawmakingbtn);
-        recyclerView = (RecyclerView) findViewById(R.id.news_notion);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
+        LinearLayout article_layout = findViewById(R.id.news_notion);
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         lawmaking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, LawMakingActivity.class);
+                Intent i = new Intent(MainActivity.this, com.example.pnu_front.LawMakingActivity.class);
                 startActivity(i);
             }
         });
@@ -115,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        TextView tmpint = findViewById(R.id.tmpint);
+        tmpint.setText("0");
 
         new Thread(){
             @Override
@@ -134,6 +138,13 @@ public class MainActivity extends AppCompatActivity {
                         article_list.add(e.text());
                         url_list.add("http://www.a-news.co.kr/news/"+e.getElementsByAttribute("href").attr("href"));
 
+                        Log.d("ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ","2");
+
+
+
+
+
+
 
                         bundle.putStringArrayList("article",article_list);//핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
                         bundle.putStringArrayList("url",url_list);
@@ -147,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Log.d("실패","실패실패실패실패실패실패실패실패실패실패실패");
                 }
 
             }
@@ -235,19 +247,38 @@ public class MainActivity extends AppCompatActivity {
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            TextView tmpint = findViewById(R.id.tmpint);
+            TextView article01 = findViewById(R.id.article_01);
+            TextView article02 = findViewById(R.id.article_02);
+            TextView article03 = findViewById(R.id.article_03);
+            TextView article04 = findViewById(R.id.article_04);
+            TextView article05 = findViewById(R.id.article_05);
+            TextView article06 = findViewById(R.id.article_06);
+            TextView article07 = findViewById(R.id.article_07);
+            TextView article08 = findViewById(R.id.article_08);
+            TextView article09 = findViewById(R.id.article_09);
             Bundle bundle = msg.getData();
+//            Log.d("iiiiiiiiiiiiiiiiiii","i여기있어요 : "+i);
             String tmp;
-            int p = 0;
+//            switch ()
+//            {
+//                case 0 : article01.setText(article_list.get(0));
+//                case 1 : article02.setText(article_list.get(1));
+//                case 2 : article03.setText(article_list.get(2));
+//                case 3 : article04.setText(article_list.get(3));
+//                case 4 : article05.setText(article_list.get(4));
+//                case 5 : article06.setText(article_list.get(5));
+//                case 6 : article07.setText(article_list.get(6));
+//                case 7 : article08.setText(article_list.get(7));
+//                case 8 : {
+//                    article09.setText(article_list.get(8));
+//                    urltmp = (ArrayList<String>) url_list.clone();
+//                }
+//            }
             article_list = bundle.getStringArrayList("article");
             url_list = bundle.getStringArrayList("url");
-
+            Log.d("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ","1111111111111111111");
             tmp = bundle.getString("art");
-            Log.d("qwqwerqwerqwer",""+article_list + url_list);
-            recyclerView = (RecyclerView) findViewById(R.id.news_notion);
-            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
-            adapter = new MainAdapter(article_list,url_list,MainActivity.this);
-            adapter.setItems(article_list);
-            recyclerView.setAdapter(adapter);
 //            article_list.setText(bundle.getString("art"));
             //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
         }

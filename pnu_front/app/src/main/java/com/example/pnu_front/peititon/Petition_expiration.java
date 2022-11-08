@@ -123,11 +123,11 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         TextView pro_dt = findViewById(R.id.text_processed_list_detail_pro_dt);
         TextView committee = findViewById(R.id.text_processed_list_detail_curr_committee);
         title.setText(result.get(value).getName());
-        num.setText(result.get(value).getNum());
-        proposer.setText(result.get(value).getProposer());
-        approver.setText(result.get(value).getApprover());
-        pro_dt.setText(result.get(value).getPro_dt());
-        committee.setText(result.get(value).getCurr_committee());
+        num.setText("제안인 = "+result.get(value).getNum());
+        proposer.setText("승인자 = "+result.get(value).getProposer());
+        approver.setText("청원번호 = "+result.get(value).getApprover());
+        pro_dt.setText("신청년도 = "+result.get(value).getPro_dt());
+        committee.setText("제안한 곳 = "+result.get(value).getCurr_committee());
 
     }
 }

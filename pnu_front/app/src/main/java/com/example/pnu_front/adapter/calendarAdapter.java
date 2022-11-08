@@ -69,7 +69,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyView
 
         return calenderData.size();
     }
-    public void setItems(List<CalenderModer> list){
+    public void setItems(List<CalenderModel> list){
         calenderData = list;
         notifyDataSetChanged();
     }
