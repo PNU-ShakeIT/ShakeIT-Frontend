@@ -13,30 +13,28 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
-import com.example.pnu_front.peititon.PendingPetitionModel;
+import com.example.pnu_front.peititon.ProcessedPetitionModel;
 import com.example.pnu_front.profile.OnitemClick;
-import com.example.pnu_front.profile.ProfileModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class expirationadapter extends RecyclerView.Adapter<expirationadapter.MyViewHolder> {
+public class processedadapter extends RecyclerView.Adapter<processedadapter.MyViewHolder> {
 
-    List<PendingPetitionModel> pendingPetitionData;
+    List<ProcessedPetitionModel> processedPetitionData;
     private static OnitemClick mCallback;
 
-    public expirationadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData,OnitemClick listener) {
-        this.pendingPetitionData = pendingPetitionData;
+    public processedadapter(Context applicationContext, List<ProcessedPetitionModel> processedPetitionData, OnitemClick listener) {
+        this.processedPetitionData = processedPetitionData;
         this.mCallback = listener;
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView member;
         public ProgressBar bar;
         public CardView cardView;
-        public MyViewHolder(View view)
-        {
+
+        public MyViewHolder(View view) {
             super(view);
             this.title = view.findViewById(R.id.title);
             this.member = view.findViewById(R.id.petition_amount);
@@ -49,37 +47,38 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);
-                        Log.d("1:37","pos:"+pos);
                     }
 
                 }
             });
         }
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         Context context = parent.getContext();
-        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent , false);
+        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(holderView);
+
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        holder.title.setText(this.pendingPetitionData.get(i).getName());
+        holder.title.setText(this.processedPetitionData.get(i).getName());
         String[] tmpname = new String[2];
         int num =0;
         int tmp =0;
         String numString;
-        tmpname = pendingPetitionData.get(i).getProposer().split(" ");
+        tmpname = processedPetitionData.get(i).getProposer().split(" ");
         if(tmpname.length == 1){
-            holder.member.setText(this.pendingPetitionData.get(i).getProposer());
+            holder.member.setText(this.processedPetitionData.get(i).getProposer());
             holder.bar.setProgress(0);
         }
         else{
-            holder.member.setText(this.pendingPetitionData.get(i).getProposer());
+            holder.member.setText(this.processedPetitionData.get(i).getProposer());
             numString = tmpname[1].replace("인","");
             num = Integer.parseInt(numString.replace(",", ""));
             Log.d("num", ""+num);
@@ -90,10 +89,6 @@ public class expirationadapter extends RecyclerView.Adapter<expirationadapter.My
     @Override
     public int getItemCount() {
 
-        return pendingPetitionData.size();
-    }
-    public void setItems(List<PendingPetitionModel> list){
-        pendingPetitionData = list;
-        notifyDataSetChanged();
+        return processedPetitionData.size();
     }
 }

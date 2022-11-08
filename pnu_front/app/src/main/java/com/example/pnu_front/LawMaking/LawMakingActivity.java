@@ -1,4 +1,4 @@
-package com.example.pnu_front.LawMaking;
+package com.example.pnu_front;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.pnu_front.MyAdapter;
 import com.example.pnu_front.R;
 
 import me.relex.circleindicator.CircleIndicator3;

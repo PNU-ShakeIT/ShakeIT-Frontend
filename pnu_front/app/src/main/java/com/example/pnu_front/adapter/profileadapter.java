@@ -19,8 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHolder> {
-    private OnitemClick mCallback;
+
     List<ProfileModel> profileData;
+    private OnitemClick mCallback;
 
 
     public profileadapter(Context applicationContext, List<ProfileModel> profileData , OnitemClick listener) {

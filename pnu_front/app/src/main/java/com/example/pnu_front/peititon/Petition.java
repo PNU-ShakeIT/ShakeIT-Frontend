@@ -1,6 +1,5 @@
 package com.example.pnu_front.peititon;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pnu_front.adapter.expirationadapter;
-import com.example.pnu_front.peititon.*;
 import com.example.pnu_front.R;
 //import com.example.pnu_front.RetrofitManager.ApiClient;
 //import com.example.pnu_front.RetrofitManager.ApiInterface;
@@ -21,9 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
-import com.example.pnu_front.profile.ProfileModel;
-
-import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,8 +25,8 @@ import retrofit2.Response;
 
 public class Petition extends AppCompatActivity {
 
-    Call<List<ProcessedPetitionModer>> callprocessed;
-    List<ProcessedPetitionModer> ps_result = new ArrayList<>();
+    Call<List<ProcessedPetitionModel>> callprocessed;
+    List<ProcessedPetitionModel> ps_result = new ArrayList<>();
 
     Call<List<PendingPetitionModel>> call;
     List<PendingPetitionModel> result = new ArrayList<>();
@@ -77,30 +71,23 @@ public class Petition extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<PendingPetitionModel>> call, Throwable t) {
+
             }
         });
 
-        Log.d("Test","2번째");
-
-
         callprocessed = RetrofitInstance.getApiService().getProcessedPetition();
-
-        callprocessed.enqueue(new Callback<List<ProcessedPetitionModer>>() {
+        callprocessed.enqueue(new Callback<List<ProcessedPetitionModel>>() {
             @Override
-            public void onResponse(Call<List<ProcessedPetitionModer>> call,Response<List<ProcessedPetitionModer>> response) {
-                Log.d("Test","여기있어요여기있어요여기있어요여기있어요여기있어요");
+            public void onResponse(Call<List<ProcessedPetitionModel>> call, Response<List<ProcessedPetitionModel>> response) {
                 ps_result = response.body();
-                Log.d("Test","여기여기여기여기");
-
                 pending1.setText(ps_result.get(0).getName());
                 pending2.setText(ps_result.get(1).getName());
                 pending3.setText(ps_result.get(2).getName());
+
                 pending4.setText(ps_result.get(3).getName());
-
             }
-
             @Override
-            public void onFailure(Call<List<ProcessedPetitionModer>> call, Throwable t) {
+            public void onFailure(Call<List<ProcessedPetitionModel>> call, Throwable t) {
 
             }
         });

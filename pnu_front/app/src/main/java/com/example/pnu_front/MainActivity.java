@@ -22,8 +22,6 @@ import com.example.pnu_front.profile.Profile;
 
 import java.util.ArrayList;
 
-import com.example.pnu_front.LawMaking.LawMakingActivity;
-
 public class MainActivity extends AppCompatActivity {
     boolean isPageOpen = false;
     Animation translateLeftAnim;
