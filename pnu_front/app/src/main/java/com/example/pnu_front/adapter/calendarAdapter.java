@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.Calender.CalenderModel;
 import com.example.pnu_front.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyViewHolder> {
@@ -67,5 +68,9 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.MyView
     public int getItemCount() {
 
         return calenderData.size();
+    }
+    public void setItems(List<CalenderModel> list){
+        calenderData = list;
+        notifyDataSetChanged();
     }
 }

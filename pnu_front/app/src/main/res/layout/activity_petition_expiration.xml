@@ -8,9 +8,9 @@
     <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_edge"
-        android:elevation="10dp"
-        android:layout_marginBottom="25dp"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -19,18 +19,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/assemblymark_right"
-            >
+            android:background="@drawable/assemblymark_right">
 
         </ImageView>
     </FrameLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/view"
@@ -53,11 +45,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:text="청원"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,33 +77,34 @@
     <FrameLayout
         android:id="@+id/processed_list"
         android:layout_width="343dp"
-        android:layout_height="700px"
+        android:layout_height="496dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/oval_edge"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:elevation="8dp"
-        android:background="@drawable/oval_edge"
         app:layout_constraintTop_toBottomOf="@+id/petition_searchview">
 
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="만료된 청원"
-            android:textSize="17sp"
-            android:textStyle="bold"
             android:layout_marginTop="20dp"
-            >
+            android:gravity="center"
+            android:text="동의만료된 청원"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold">
 
         </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/processedpt"
             android:layout_width="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="244dp" />
     </FrameLayout>

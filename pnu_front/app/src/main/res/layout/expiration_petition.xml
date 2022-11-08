@@ -1,160 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_petition"
+    <LinearLayout
+        android:elevation="5dp"
+        android:layout_margin="5dp"
+        android:id="@+id/linearlayout_petition"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/oval_edge"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="1.라면 끓여 먹을까 말까 고민하지 마"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:text="1.청원청원청원청원원청원청원청원청원청원청원청원청원청원청원청원청원청원청원청원청원청원"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:gravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="-1dp">
 
         </TextView>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            >
+
         <ProgressBar
             android:id="@+id/progressBar"
-            android:max="1000"
-            android:progress="167"
+            android:max="100"
+            android:progress="50"
             style="?android:attr/progressBarStyleHorizontal"
             android:progressDrawable="@drawable/progressbar_design"
-            android:layout_width="300dp"
-            android:layout_height="25dp"
+            android:layout_width="270dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center" />
-            <View
-                android:layout_width="1dp"
-                android:layout_height="10dp"
-                android:background="@color/black"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="7.5dp"
-                >
-            </View>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="100"
-                android:textSize="8sp"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
-                >
-            </TextView>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="10dp"
-                android:background="@color/black"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="7.5dp"
-                >
-            </View>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1000"
-                android:textSize="8sp"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="93dp"
-                android:layout_marginTop="16dp"
-                >
-            </TextView>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="10dp"
-                android:background="@color/black"
-                android:layout_gravity="center"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="7.5dp"
-                >
-            </View>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10000"
-                android:textSize="8sp"
-                android:layout_gravity="center|end"
-                android:layout_marginRight="90dp"
-                android:layout_marginTop="16dp"
-                >
-            </TextView>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="10dp"
-                android:background="@color/black"
-                android:layout_gravity="center"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="7.5dp"
-                >
-            </View>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30000"
-                android:textSize="8sp"
-                android:layout_gravity="center|end"
-                android:layout_marginRight="38dp"
-                android:layout_marginTop="16dp"
-                >
-            </TextView>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="5dp"
-                android:background="@color/black"
-                android:layout_gravity="center|end"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="7.5dp"
-                >
-            </View>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50000"
-                android:textSize="8sp"
-                android:layout_gravity="center|end"
-                android:layout_marginTop="16dp"
-                >
-            </TextView>
-
-        </FrameLayout>
         <TextView
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/petition_amount"
             android:text="999999명이 이 청원에 동의하였습니다"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textSize="13sp"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cardView"
-            app:layout_constraintStart_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toTopOf="@+id/cardView"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="5dp"
             >
         </TextView>
-
-    </androidx.cardview.widget.CardView>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

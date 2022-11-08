@@ -75,16 +75,125 @@
             android:layout_marginTop="5dp"
             android:textSize="20sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/news_notion"
             android:layout_width="340dp"
             android:layout_height="373dp"
             android:layout_marginTop="40dp"
             android:elevation="10dp"
             android:visibility="visible"
+            android:orientation="vertical"
+            android:weightSum="9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview" />
+            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview"
+            >
+            <TextView
+                android:id="@+id/article_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/article_09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:text="뉴스1"
+                >
+            </TextView>
+
+
+
+
+
+
+        </LinearLayout>
     </FrameLayout>
 
     <View
@@ -196,6 +305,7 @@
         app:layout_constraintVertical_bias="0.601">
 
         <FrameLayout
+            android:id="@+id/side_menu_frame"
             android:layout_width="38dp"
             android:layout_height="70dp"
             android:layout_gravity="center_horizontal"
@@ -243,6 +353,7 @@
             app:layout_constraintVertical_bias="0.217">
 
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_gravity="bottom"
@@ -253,6 +364,7 @@
                 android:textSize="14dp" />
 
             <View
+                android:id="@+id/newsbtn"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_horizontal"
@@ -356,6 +468,7 @@
                 android:textSize="14dp" />
 
             <View
+                android:id="@+id/librarybtn"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_horizontal"
@@ -401,5 +514,17 @@
                 tools:layout_editor_absoluteY="240dp" />
         </FrameLayout>
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tmpint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible">
+
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".profile.Profile">
 
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_edge"
-        android:elevation="10dp"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -24,15 +34,6 @@
 
         </ImageView>
     </FrameLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <View
         android:id="@+id/view"
@@ -124,22 +125,23 @@
 <!--            android:textSize="15sp"></TextView>-->
 <!--    </LinearLayout>-->
 
-    <android.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_marginTop="31dp"
         android:layout_height="30dp"
-        android:background="@drawable/layout_background"
+        android:background="@drawable/search_view_bg"
         android:elevation="10dp"
-        android:queryHint="이름or정당 입력"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:queryHint="국회의원 입력해 주세요"
+        app:iconifiedByDefault="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/congress_member_list"
-        android:layout_width="343dp"
-        android:layout_height="235dp"
+        android:layout_width="342dp"
+        android:layout_height="215dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/layout_background"
         android:elevation="10dp"
@@ -198,6 +200,7 @@
         >
     </ImageView>
         <TextView
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:id="@+id/text_profile_name"
             android:layout_width="40dp"
@@ -209,6 +212,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_width="6dp"
             android:layout_height="18dp"
@@ -219,6 +223,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:layout_width="6dp"
             android:layout_height="18dp"
             android:layout_marginTop="18dp"
@@ -230,6 +235,7 @@
 
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_hj_NM"
             android:layout_width="48dp"
             android:layout_height="18dp"
@@ -241,6 +247,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_eng_NM_birth"
             android:layout_width="wrap_content"
             android:layout_height="18dp"
@@ -251,6 +258,7 @@
             android:textStyle="bold">
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_orig"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -263,6 +271,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_cmits"
             android:layout_width="213dp"
             android:layout_height="28dp"
@@ -275,6 +284,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_units"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -287,6 +297,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_telNum"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -299,6 +310,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_homepage"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -312,6 +324,7 @@
         </TextView>
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_email"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -324,6 +337,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_secretary"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
@@ -336,6 +350,7 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/text_profile_secretary2"
             android:layout_width="213dp"
             android:layout_height="wrap_content"

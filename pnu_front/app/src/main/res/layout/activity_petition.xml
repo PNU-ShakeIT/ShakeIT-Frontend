@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".peititon.Petition">
+
     <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_edge"
-        android:elevation="10dp"
-        android:layout_marginBottom="25dp"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -19,14 +20,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/assemblymark_right"
-            >
+            android:background="@drawable/assemblymark_right">
 
         </ImageView>
     </FrameLayout>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:id="@+id/textView2"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
         android:background="#F5F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,11 +40,12 @@
         android:layout_height="33dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="91dp"
+        android:textColor="@color/black"
         android:background="@drawable/oval_edge"
         android:elevation="8dp"
         android:gravity="center"
         android:text="동의만료 청원"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petition_searchview" />
@@ -72,14 +75,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
+        android:textColor="@color/black"
         android:text="청원"
-        android:textSize="20sp"
+        android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
+
+        android:textColor="@color/black"
         android:id="@+id/progress_btn"
         android:layout_width="90dp"
         android:layout_height="33dp"
@@ -89,7 +95,7 @@
         android:elevation="8dp"
         android:gravity="center"
         android:text="진행중인 청원"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petition_searchview" />
@@ -127,18 +133,21 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="실시간 진행중인 청원"
-            android:textSize="13sp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             >
         </TextView>
         <TextView
+            android:padding="2dp"
+            android:textColor="@color/black"
             android:id="@+id/proceed_realtime_1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
@@ -146,11 +155,13 @@
             >
         </TextView>
         <TextView
+            android:padding="2dp"
+            android:textColor="@color/black"
             android:id="@+id/proceed_realtime_2"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="누어나예누어나예누어나예누어"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
@@ -158,25 +169,29 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
+            android:padding="2dp"
             android:id="@+id/proceed_realtime_3"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textStyle="bold"
             android:text="누어나예누어"
             android:gravity="center"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="115dp"
             >
         </TextView>
 
         <TextView
+            android:padding="2dp"
+            android:textColor="@color/black"
             android:id="@+id/proceed_realtime_4"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textStyle="bold"
             android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="145dp"
@@ -199,20 +214,23 @@
         >
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="@color/black"
             android:layout_height="20dp"
             android:text="실시간 만료된 청원"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
+            android:padding="2dp"
             android:id="@+id/pending_realtime_1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="누어나예누어누어나예누어누어나예누어누어나예누어"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
@@ -220,11 +238,13 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
+            android:padding="2dp"
             android:id="@+id/pending_realtime_2"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="누어나예누어나예누어나예누어"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
@@ -232,12 +252,14 @@
             >
         </TextView>
         <TextView
+            android:textColor="@color/black"
+            android:padding="2dp"
             android:id="@+id/pending_realtime_3"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textStyle="bold"
             android:text="누어나예누어"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="115dp"
@@ -245,12 +267,14 @@
         </TextView>
 
         <TextView
+            android:textColor="@color/black"
+            android:padding="2dp"
             android:id="@+id/pending_realtime_4"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textStyle="bold"
             android:text="실시간누어나예누어 진행중 누어나예누어 첫번째"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="145dp"

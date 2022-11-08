@@ -1,16 +1,24 @@
 package com.example.pnu_front.profile;
 
+import static com.example.pnu_front.R.id.searchView;
+
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+//import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,12 +44,14 @@ import retrofit2.Response;
 public class Profile extends AppCompatActivity implements OnitemClick {
 
     RecyclerView recyclerView;
+    EditText editText;
     RecyclerView.Adapter adapter;
-    RecyclerView.Adapter myadapter;
+    profileadapter myadapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProfileModel>> call;
     List<ProfileModel> result = new ArrayList<>();
-
+    List<ProfileModel> search_list = new ArrayList<>();
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +62,20 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();
         params.height = 1400;
         congressmember.setLayoutParams(params);
@@ -80,6 +104,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 }
             }
         });
+
         String[] str = getResources().getStringArray(R.array.spinnerArray);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_age,str);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -99,6 +124,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         spinner_field.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(this);
         congressmember.setLayoutManager(layoutManager);
+
         call = RetrofitInstance.getApiService().getCongressMember();
         call.enqueue(new Callback<List<ProfileModel>>() {
             @Override
@@ -113,6 +139,21 @@ public class Profile extends AppCompatActivity implements OnitemClick {
 
             }
         });
+    }
+
+    private void filterList(String text) {
+        List<ProfileModel> filteredList = new ArrayList<>();
+        for(ProfileModel item : result){
+            if(item.getHg_NM().contains(text)){
+                filteredList.add(item);
+            }
+        }
+
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+           myadapter.setFilteredList(filteredList);
+        }
     }
 
     @Override
