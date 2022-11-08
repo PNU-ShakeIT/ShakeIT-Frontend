@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+
 }
 
 android {
@@ -51,4 +52,8 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
+    //firebase
+    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+
 }
+apply plugin: 'com.google.gms.google-services'
