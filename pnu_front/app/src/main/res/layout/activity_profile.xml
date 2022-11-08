@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
+        android:id="@+id/frameLayout3"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="4dp"
@@ -142,8 +143,8 @@
         android:layout_width="342dp"
         android:layout_height="215dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/layout_background"
-        android:elevation="10dp"
+        android:background="@drawable/oval_edge"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
@@ -154,7 +155,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="-25dp"
-        android:elevation="5dp"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/congress_member_list">
@@ -181,13 +182,14 @@
     </FrameLayout>
 
     <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
         android:id="@+id/congress_member_profile"
         android:layout_width="343dp"
         android:layout_height="240dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/layout_background"
-        android:elevation="8dp"
+        android:background="@drawable/oval_edge"
         app:layout_constraintTop_toBottomOf="@+id/frame_layout" >
     <ImageView
         android:id="@+id/image_profile"

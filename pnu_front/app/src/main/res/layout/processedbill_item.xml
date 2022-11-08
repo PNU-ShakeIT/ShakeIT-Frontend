@@ -14,13 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="개dsadadadsadadasdadasddadsadadsdaadsad"
+            android:layout_marginBottom="1dp"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp">
 
             <TextView
                 android:id="@+id/ProcessedBill_num"
@@ -52,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:textColor="@color/black"
+                android:gravity="end"
                 android:textSize="15sp"
                 android:text="2019-10-20~ 2019-10-21"/>
 
@@ -60,13 +63,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp">
             <TextView
                 android:id="@+id/Bill_association"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="안녕하세요"/>
             <TextView
@@ -75,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="14dp"
+                android:gravity="end"
+                android:textSize="13dp"
                 android:text="원안가결"/>
         </LinearLayout>
         <TextView
@@ -83,7 +88,7 @@
             android:id="@+id/ProcessedBill_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13dp"
-            android:text="http://helloworld.com"/>
+            android:textSize="12dp"
+            android:text="http://helloworld.com" />
     </LinearLayout>
 </LinearLayout>
