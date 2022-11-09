@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -31,7 +33,6 @@ import com.example.pnu_front.Calender.Calender;
 import com.example.pnu_front.peititon.Petition;
 
 import com.example.pnu_front.profile.Profile;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> url_list = new ArrayList<>();
     ArrayList<String> search_list = new ArrayList<>();
     ArrayList<String> original_list = new ArrayList<>();
+    Context context;
+    TextView textView1;
 
     //github push and pull
 
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        initView();
 
         slidingPage01 = (LinearLayout) findViewById(R.id.sliding_page);
         view1 = (View) findViewById(R.id.menu_bar);
@@ -263,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
             ImageView weatherImg = findViewById(R.id.image_weather);
             TextView degree = findViewById(R.id.text_weather_temp);
-            TextView rainPorb = findViewById(R.id.text_weather_rainprob);
+            TextView rainPorb = findViewById(R.id.text_finedust);
 
             WeatherData weatherData = new WeatherData();
             String[] weather = new String[7];
@@ -283,26 +287,26 @@ public class MainActivity extends AppCompatActivity {
                 d_n = 0;//0이면 밤
             }
             if(weather[1].contains("맑음")){
-                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.sunny_day_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.sunny_night_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
+                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.sunny_day_right); rainPorb.setText("강수확률 \n "+weather[4]+"%");}
+                else {weatherImg.setBackgroundResource(R.drawable.sunny_night_right); rainPorb.setText("강수확률 \n "+weather[4]+"%");}
 
             }
             else if(weather[1].contains("구름많음")){
-                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.cloudy_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.cloudy_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.cloudy_day_right);rainPorb.setText("강수확률 \n "+weather[4]+"%");}
+                else {weatherImg.setBackgroundResource(R.drawable.cloudy_night_right);rainPorb.setText("강수확률 \n "+weather[4]+"%");}
             }
             else if(weather[1].contains("흐림")){
-                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.blur_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.blur_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.blur_day_right);rainPorb.setText("강수확률 \n "+weather[4]+"%");}
+                else {weatherImg.setBackgroundResource(R.drawable.blur_night_right);rainPorb.setText("강수확률 \n "+weather[4]+"%");}
             }
             else if(weather[1].contains("비")){
-                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.rainy_day_right);rainPorb.setText("강수량 : "+weather[5]+"mm");}
-            else {weatherImg.setBackgroundResource(R.drawable.rainy_night_right);rainPorb.setText("강수량 : "+weather[5]+"mm");}
+                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.rainy_day_right);rainPorb.setText("강수량 \n "+weather[5]+"mm");}
+            else {weatherImg.setBackgroundResource(R.drawable.rainy_night_right);rainPorb.setText("강수량 \n "+weather[5]+"mm");}
 
             }
             else if(weather[1].contains("눈")){
                 weatherImg.setBackgroundResource(R.drawable.snow);
-                rainPorb.setText("강수량 : "+weather[5]+"mm");
+                rainPorb.setText("강수량 \n "+weather[5]+"mm");
             }
     }
 
@@ -360,6 +364,50 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+    private void initView() {
+
+        TextView textView1 = findViewById(R.id.text_ultrafinedust);
+
+        String path2 = "https://weather.naver.com/air/09560110"; // 영등포구 미세먼지
+        new getData2().execute(path2);
+    }
+
+
+
+    private class getData2 extends AsyncTask<String, Void, String> {
+        // String 으로 값을 전달받은 값을 처리하고, Boolean 으로 doInBackground 결과를 넘겨준다.
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                Document document = Jsoup.connect(params[0].toString()).get();
+                Elements elements1 = document.select("em");
+                String[] str1 = elements1.text().split(" ");
+
+
+                Document document2 = Jsoup.connect(params[0].toString()).get();
+                Elements elements2 = document.select("em"); // 내용중에서 원하는 부분을 가져온다.
+                String[] str2 = elements2.text().split(" ");
+
+                String text = str1[1] +","+ str2[3];
+                return text;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            TextView finedust = findViewById(R.id.text_finedust);
+            TextView ultrafinedust = findViewById(R.id.text_ultrafinedust);
+            String[] tmp;
+            tmp = result.split(",");
+            Log.d("lllllllllllllllll",""+tmp[0]+"/////////////////"+tmp[1]);
+            finedust.setText("미세먼지\n"+tmp[0]);
+            ultrafinedust.setText("초미세먼지\n"+tmp[1]);
+        }
+    }
+
 
     @Override
     protected void onResume() {

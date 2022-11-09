@@ -468,7 +468,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2">
     </TextView>
     <LinearLayout
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/view4"
@@ -501,15 +501,30 @@
             >
         </View>
         <TextView
-            android:id="@+id/text_weather_rainprob"
+            android:id="@+id/text_finedust"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9123132"
+            android:text="미세먼지\n 좋음"
             android:textSize="15sp"
             android:layout_gravity="center"
             android:gravity="center"
             >
-
+        </TextView>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="41dp"
+            android:background="@color/line_color"
+            android:layout_gravity="center"
+            >
+        </View>
+        <TextView
+            android:id="@+id/text_ultrafinedust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="초미세먼지\n좋음"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
         </TextView>
     </LinearLayout>
     
