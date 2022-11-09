@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
+        android:id="@+id/frameLayout3"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="4dp"
@@ -129,13 +130,14 @@
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_marginTop="31dp"
-        android:layout_height="30dp"
-        android:background="@drawable/search_view_bg"
+        android:layout_height="42dp"
+        android:background="@drawable/oval_edge"
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:queryHint="국회의원 입력해 주세요"
+        app:searchIcon="@drawable/serachicon_right"
         app:iconifiedByDefault="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -143,8 +145,8 @@
         android:layout_width="342dp"
         android:layout_height="215dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/layout_background"
-        android:elevation="10dp"
+        android:background="@drawable/oval_edge"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
@@ -155,7 +157,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="-25dp"
-        android:elevation="5dp"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/congress_member_list">
@@ -165,7 +167,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:background="@drawable/round_edge"
-            android:elevation="5dp">
+            android:elevation="4dp">
 
         </TextView>
 
@@ -176,19 +178,20 @@
             android:layout_gravity="center"
             android:layout_marginTop="7dp"
             android:background="@drawable/down_right"
-            android:elevation="8dp">
+            android:elevation="5dp">
 
         </ImageView>
     </FrameLayout>
 
     <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
         android:id="@+id/congress_member_profile"
         android:layout_width="343dp"
         android:layout_height="240dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/layout_background"
-        android:elevation="8dp"
+        android:background="@drawable/oval_edge"
         app:layout_constraintTop_toBottomOf="@+id/frame_layout" >
     <ImageView
         android:id="@+id/image_profile"

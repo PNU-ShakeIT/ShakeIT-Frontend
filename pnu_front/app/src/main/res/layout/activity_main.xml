@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_constraintStart_toStartOf="parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-    <ImageView
-        android:id="@+id/Chatbotbtn"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/hope_right"
-        android:elevation="10dp"
-        android:layout_marginBottom="21dp"
-        android:layout_marginRight="62dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_edge"
-        android:elevation="10dp"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -39,164 +36,168 @@
         </ImageView>
     </FrameLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:background="#F5F5F5"
+
+    <ImageView
+        android:id="@+id/Chatbotbtn"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/hope_right"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <FrameLayout
 
         android:id="@+id/view4"
         android:layout_width="343dp"
-        android:layout_height="417dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796">
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
             android:text="국회 종합 뉴스"
             android:textColor="@color/black"
-            android:layout_marginTop="5dp"
             android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/news_notion"
             android:layout_width="340dp"
-            android:layout_height="373dp"
+            android:layout_height="460dp"
             android:layout_marginTop="40dp"
             android:elevation="10dp"
-            android:visibility="visible"
             android:orientation="vertical"
+            android:visibility="visible"
             android:weightSum="9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/progress_hot_recyclerview">
+
             <TextView
                 android:id="@+id/article_01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_04"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
-                android:textSize="11sp"
-                android:layout_weight="1"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_06"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_07"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
+                android:textSize="11sp"></TextView>
+
             <TextView
                 android:id="@+id/article_09"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:clickable="true"
-                android:textSize="11sp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
-                >
-            </TextView>
-
-
-
-
+                android:textSize="11sp"></TextView>
 
 
         </LinearLayout>
     </FrameLayout>
 
     <View
+        android:id="@+id/view5"
         android:layout_width="170dp"
         android:layout_height="30dp"
         android:background="@drawable/congress_symbol_blue"
@@ -208,6 +209,7 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <View
+        android:id="@+id/view2"
         android:layout_width="350dp"
         android:layout_height="2dp"
         android:background="#F4F4F4"
@@ -217,63 +219,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.116" />
-
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="343dp"
-        android:layout_height="56dp"
-        android:background="@drawable/congress_main_search"
-        android:elevation="5dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
-
-    <View
-        android:id="@+id/search1"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:background="@drawable/congress_main_search_icon"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.444" />
-
-    <EditText
-        android:id="@+id/search_text"
-        android:layout_width="255dp"
-        android:layout_height="29dp"
-        android:background="@android:color/transparent"
-        android:elevation="5dp"
-        android:textColor="#A89E9E"
-        android:hint="검색"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
-
-    <View
-        android:id="@+id/search2"
-        android:layout_width="5dp"
-        android:layout_height="8dp"
-        android:background="@drawable/congress_main_searcg_icon2"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/search1"
-        app:layout_constraintEnd_toEndOf="@+id/search1"
-        app:layout_constraintHorizontal_bias="0.708"
-        app:layout_constraintStart_toStartOf="@+id/search1"
-        app:layout_constraintTop_toTopOf="@+id/search1"
-        app:layout_constraintVertical_bias="0.952" />
 
 
     <View
@@ -294,9 +239,9 @@
         android:layout_height="558dp"
         android:background="@drawable/congress_main_search"
         android:elevation="6dp"
-        android:visibility="gone"
         android:orientation="vertical"
         android:padding="15dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
@@ -521,10 +466,89 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible">
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="이 시각 실시간 국회는?"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+        <ImageView
+            android:id="@+id/image_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/snow_right"
+            >
+        </ImageView>
+        <TextView
+            android:id="@+id/text_weather_temp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="13° 구름 많음(국회)"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="41dp"
+            android:background="@color/line_color"
+            android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            >
+        </View>
+        <TextView
+            android:id="@+id/text_finedust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="미세먼지\n 좋음"
+            android:textSize="13sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+        </TextView>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="41dp"
+            android:background="@color/line_color"
+            android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            >
+        </View>
+        <TextView
+            android:id="@+id/text_ultrafinedust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="초미세먼지\n좋음"
+            android:textSize="13sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+        </TextView>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

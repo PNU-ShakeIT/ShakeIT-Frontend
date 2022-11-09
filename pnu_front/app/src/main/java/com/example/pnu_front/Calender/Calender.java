@@ -1,5 +1,6 @@
 package com.example.pnu_front.Calender;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
@@ -14,8 +15,10 @@ import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.calendarAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,6 +36,7 @@ public class Calender extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
     Call<List<CalenderModel>> call;
     List<CalenderModel> result = new ArrayList<>();
+    static List<CalenderModel> sta = new ArrayList<>();
     List<CalenderModel> tmp = new ArrayList<>();// 오늘 일정만 뺀 후의 리스트
     List<CalenderModel> cal_data = new ArrayList<>();//시간 순서로 정렬한 후의 리스트
 
@@ -50,20 +54,129 @@ public class Calender extends AppCompatActivity {
 //         code 3 -> 위원회
 //         code 4 -> 국회의장
 //         code 5 -> 공청회
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
+        String today = dateFormat.format(date);
+        String thismonth = monthFormat.format(date);
+        TextView datetext = findViewById(R.id.date_text);
+        datetext.setText(thismonth+"월 "+today+"일 일정");
 
         call = RetrofitInstance.getApiService().getCalendar();
         //데이터 요청(날짜별로)
         call.enqueue(new Callback<List<CalenderModel>>() {
-            @Headers({"Content-Type: application/json"})
-            @POST("/user/signup")
             @Override
             public void onResponse(Call<List<CalenderModel>> call, Response<List<CalenderModel>> response) {
                 result = response.body();
+                sta = result;
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String today = dateFormat.format(date);
+                int p;
+                int k =0;
+                for (p = 0; p < result.size(); p++) {
+                    if (Objects.equals(result.get(p).getDate(), today)) {
+                        tmp.add(k, result.get(p));
+                        k++;
+                    }
+                }
+                int r = tmp.size();
+                int y = 0;
+                for (p = 0; p < r; p++ ) {
+
+                    if(tmp.get(p).getTime().contains("후")||tmp.get(p).getTime().contains("null"))
+                    {
+                        sta.add(y,tmp.get(p));
+                        tmp.remove(p);
+                        r--;
+                        y++;
+                    }
+                }
+                //tmp에 저장된 일정을 시간 순서로 정렬
+                for (p = 0; p < tmp.size()-1; p++ )
+                {
+                    String time1;
+                    String time2;
+                    int t;
+                    int f;
+
+
+                    if(tmp.get(p).getTime().contains("~")) {
+                        time1 = tmp.get(p).getTime().substring(0,5);
+                        time2 = time1.substring(0, 2) + time1.substring(3);
+                        f = Integer.parseInt(time2);
+                    }
+                    else{
+                        time2 = tmp.get(p).getTime().substring(0, 2) + tmp.get(p).getTime().substring(3);
+                        f = Integer.parseInt(time2);
+                    }
+                    if(tmp.get(p+1).getTime().contains("~")) {
+                        time1 = tmp.get(p + 1).getTime().substring(0, 5);
+                        Log.d("시발",""+time1);
+                        time2 = time1.substring(0, 2) + time1.substring(3);
+                        t = Integer.parseInt(time2);
+                    }
+                    else{
+                        time2 = tmp.get(p + 1).getTime().substring(0, 2) + tmp.get(p + 1).getTime().substring(3);
+                        t = Integer.parseInt(time2);
+                    }
+                    if(f>t)
+                    {
+                        cal_data.add(tmp.get(p+1));
+                        tmp.set(p+1,tmp.get(p));
+                        tmp.set(p,cal_data.get(0));
+                        cal_data.clear();
+                    }
+                    for(k=p; 0<k; k--) {
+                        if(tmp.get(k).getTime().contains("~")) {
+                            time1 = tmp.get(k).getTime().substring(0, 5);
+                            Log.d("시발",""+time1);
+                            time2 = time1.substring(0, 2) + time1.substring(3);
+                            f = Integer.parseInt(time2);
+                        }
+                        else{
+                            time2 = tmp.get(k).getTime().substring(0, 2) + tmp.get(k).getTime().substring(3);
+                            f = Integer.parseInt(time2);
+                        }
+                        if(tmp.get(k+1).getTime().contains("~")) {
+                            time1 = tmp.get(k + 1).getTime().substring(0, 5);
+                            Log.d("시발",""+time1);
+                            time2 = time1.substring(0, 2) + time1.substring(3);
+                            t = Integer.parseInt(time2);
+                        }
+                        else{
+                            time2 = tmp.get(k + 1).getTime().substring(0, 2) + tmp.get(k + 1).getTime().substring(3);
+                            t = Integer.parseInt(time2);
+                        }
+                        t = Integer.parseInt(time2);
+                        if(f<t)
+                        {
+                            cal_data.add(tmp.get(k));
+                            tmp.set(k-1,tmp.get(k));
+                            tmp.set(k,cal_data.get(0));
+                            cal_data.clear();
+                        }
+                    }
+                }
+                Log.d("test",""+tmp);
+                RecyclerView recyclerview_cal = findViewById(R.id.recyclerview_calendar);
+                recyclerview_cal.setLayoutManager(layoutManager);
+                adapter = new calendarAdapter(tmp);
+                recyclerview_cal.setAdapter(adapter);
+
+
+
+
+
             }
             @Override
             public void onFailure(Call<List<CalenderModel>> call, Throwable t) {
             }
         });
+        Log.d("sibal",""+sta);
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -89,7 +202,7 @@ public class Calender extends AppCompatActivity {
                 for (p = 0; p < result.size(); p++) {
                     if (Objects.equals(result.get(p).getDate(), today)) {
                     }
-                    }
+                }
                 for (p = 0; p < result.size(); p++) {
                     if (Objects.equals(result.get(p).getDate(), today)) {
                         tmp.add(k, result.get(p));
