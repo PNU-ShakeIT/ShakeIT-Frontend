@@ -18,10 +18,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -261,49 +264,49 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            ImageView weatherImg = findViewById(R.id.image_weather);
-            TextView degree = findViewById(R.id.text_weather_temp);
-            TextView rainPorb = findViewById(R.id.text_weather_rainprob);
+        ImageView weatherImg = findViewById(R.id.image_weather);
+        TextView degree = findViewById(R.id.text_weather_temp);
+        TextView rainPorb = findViewById(R.id.text_weather_rainprob);
 
-            WeatherData weatherData = new WeatherData();
-            String[] weather = new String[7];
-            int d_n = 0;
-            String string;
-            weather = weatherData.getData();
-            System.out.println("메인 !");
-            for(int i=0; i<weather.length;i++){
-                System.out.println(weather[i]);
-            }
-            //0 : 온도 1: 구름많음 2. 밤낮 3 강수 중 4: 강수확률 5: 강수없음
-            degree.setText(weather[0]+"C˚ "+weather[1]+"(국회)");
-            // 밤낮구분
-            if(weather[2].equals("1")){
-                d_n = 1;//1이면 낮
-            }else {
-                d_n = 0;//0이면 밤
-            }
-            if(weather[1].contains("맑음")){
-                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.sunny_day_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.sunny_night_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
+        WeatherData weatherData = new WeatherData();
+        String[] weather = new String[7];
+        int d_n = 0;
+        String string;
+        weather = weatherData.getData();
+        System.out.println("메인 !");
+        for(int i=0; i<weather.length;i++){
+            System.out.println(weather[i]);
+        }
+        //0 : 온도 1: 구름많음 2. 밤낮 3 강수 중 4: 강수확률 5: 강수없음
+        degree.setText(weather[0]+"C˚ "+weather[1]+"(국회)");
+        // 밤낮구분
+        if(weather[2].equals("1")){
+            d_n = 1;//1이면 낮
+        }else {
+            d_n = 0;//0이면 밤
+        }
+        if(weather[1].contains("맑음")){
+            if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.sunny_day_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
+            else {weatherImg.setBackgroundResource(R.drawable.sunny_night_right); rainPorb.setText("강수확률 : "+weather[4]+"%");}
 
-            }
-            else if(weather[1].contains("구름많음")){
-                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.cloudy_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.cloudy_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-            }
-            else if(weather[1].contains("흐림")){
-                if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.blur_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-                else {weatherImg.setBackgroundResource(R.drawable.blur_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
-            }
-            else if(weather[1].contains("비")){
-                if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.rainy_day_right);rainPorb.setText("강수량 : "+weather[5]+"mm");}
+        }
+        else if(weather[1].contains("구름많음")){
+            if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.cloudy_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+            else {weatherImg.setBackgroundResource(R.drawable.cloudy_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+        }
+        else if(weather[1].contains("흐림")){
+            if(d_n == 1) {weatherImg.setBackgroundResource(R.drawable.blur_day_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+            else {weatherImg.setBackgroundResource(R.drawable.blur_night_right);rainPorb.setText("강수확률 : "+weather[4]+"%");}
+        }
+        else if(weather[1].contains("비")){
+            if(d_n == 1){ weatherImg.setBackgroundResource(R.drawable.rainy_day_right);rainPorb.setText("강수량 : "+weather[5]+"mm");}
             else {weatherImg.setBackgroundResource(R.drawable.rainy_night_right);rainPorb.setText("강수량 : "+weather[5]+"mm");}
 
-            }
-            else if(weather[1].contains("눈")){
-                weatherImg.setBackgroundResource(R.drawable.snow);
-                rainPorb.setText("강수량 : "+weather[5]+"mm");
-            }
+        }
+        else if(weather[1].contains("눈")){
+            weatherImg.setBackgroundResource(R.drawable.snow);
+            rainPorb.setText("강수량 : "+weather[5]+"mm");
+        }
     }
 
     private class SlidingPageAnimationListener implements Animation.AnimationListener {

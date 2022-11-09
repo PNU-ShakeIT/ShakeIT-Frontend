@@ -107,9 +107,7 @@
         android:background="@drawable/oval_edge"
         android:elevation="5dp"
         android:queryBackground="@null"
-
         android:iconifiedByDefault="false"
-        android:paddingLeft="0dp"
         android:queryHint="@string/petition"
         android:searchIcon="@drawable/serachicon_right"
         app:layout_constraintEnd_toEndOf="parent"
