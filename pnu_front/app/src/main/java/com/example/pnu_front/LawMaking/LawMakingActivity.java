@@ -1,10 +1,14 @@
 package com.example.pnu_front.LawMaking;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +18,11 @@ import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
 import com.example.pnu_front.adapter.ProcessedBillAdapter;
 import com.example.pnu_front.adapter.processedadapter;
+import com.example.pnu_front.peititon.Petition;
 import com.example.pnu_front.peititon.Petition_expiration;
+import com.example.pnu_front.peititon.Petition_progress;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +41,9 @@ public class LawMakingActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lawmaking);
+
+        TextView progress = findViewById(R.id.progress_btn);
+        TextView expiration = findViewById(R.id.expiration_btn);
         FrameLayout bill_list = findViewById(R.id.bill_list);
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
@@ -52,6 +63,17 @@ public class LawMakingActivity extends AppCompatActivity {
 
             }
         });
+
+        expiration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LawMakingActivity.this, Fragment1.class)
+            }
+        });
+        public void onClick(View v) {
+            Intent i = new Intent(Petition.this , Petition_progress.class);
+            startActivity(i);
+        }
 
     }
 }
