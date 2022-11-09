@@ -9,7 +9,10 @@ import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.peititon.ProcessedPetitionModel;
 import com.example.pnu_front.profile.ProfileModel;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface RetrofitService {
 
@@ -30,4 +33,7 @@ public interface RetrofitService {
 
     @GET("getBill")
     Call<List<ProcessedBillModel>> getBill();
+
+    @GET("push/{tokens}")
+    Call<String> insertToken(@Path("tokens") String tokens);
 }

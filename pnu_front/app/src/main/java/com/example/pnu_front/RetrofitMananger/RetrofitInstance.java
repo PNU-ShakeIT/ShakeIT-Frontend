@@ -1,14 +1,10 @@
 package com.example.pnu_front.RetrofitMananger;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
-import retrofit2.http.Header;
 
 
 public class RetrofitInstance {
@@ -28,5 +24,6 @@ public class RetrofitInstance {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }
+
  }
 
