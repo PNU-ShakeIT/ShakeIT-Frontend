@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.R;
+import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.ArrayList;
@@ -21,6 +22,12 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
     public LawmakingAdapter(List<LawMakingModel> lawMakingData) {
         LawMakingData = lawMakingData;
     }
+
+    public void setFilteredList(List<LawMakingModel> filteredList){
+        this.LawMakingData = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title;

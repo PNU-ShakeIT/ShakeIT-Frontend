@@ -60,22 +60,6 @@
         app:layout_constraintTop_toTopOf="@+id/view6"
         app:layout_constraintVertical_bias="0.444" />
 
-    <EditText
-        android:id="@+id/search_lawmake_text"
-        android:layout_width="255dp"
-        android:layout_height="29dp"
-        android:background="@android:color/transparent"
-        android:elevation="5dp"
-        android:hint="검색"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
-
     <View
         android:id="@+id/search4"
         android:layout_width="5dp"

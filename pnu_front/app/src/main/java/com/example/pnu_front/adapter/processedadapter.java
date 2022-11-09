@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.ProcessedPetitionModel;
 import com.example.pnu_front.profile.OnitemClick;
+import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;
 
@@ -27,6 +28,11 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
     public processedadapter(Context applicationContext, List<ProcessedPetitionModel> processedPetitionData, OnitemClick listener) {
         this.processedPetitionData = processedPetitionData;
         this.mCallback = listener;
+    }
+
+    public void setFilteredList(List<ProcessedPetitionModel> filteredList){
+        this.processedPetitionData = filteredList;
+        notifyDataSetChanged();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

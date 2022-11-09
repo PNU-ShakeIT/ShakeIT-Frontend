@@ -18,6 +18,23 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_lawmake_text"
+        android:layout_width="255dp"
+        android:layout_height="29dp"
+        android:background="@drawable/search_view_bg"
+        android:elevation="5dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198"
+        android:queryHint="법률을 입력해 주세요"
+        app:iconifiedByDefault="false"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/progress_lawmake_notion"
         android:layout_width="match_parent"

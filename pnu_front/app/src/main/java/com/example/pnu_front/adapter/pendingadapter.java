@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.peititon.PendingPetitionModel;
+import com.example.pnu_front.peititon.ProcessedPetitionModel;
 import com.example.pnu_front.profile.OnitemClick;
 
 import java.util.ArrayList;
@@ -28,6 +29,11 @@ public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHo
     public pendingadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData, OnitemClick listener) {
         this.pendingPetitionData = pendingPetitionData;
         this.mCallback = listener;
+    }
+
+    public void setFilteredList(List<PendingPetitionModel> filteredList){
+        this.pendingPetitionData = filteredList;
+        notifyDataSetChanged();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{

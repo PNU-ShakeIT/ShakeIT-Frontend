@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
@@ -31,10 +33,11 @@ import com.example.pnu_front.profile.OnitemClick;
 public class Petition_progress extends AppCompatActivity implements OnitemClick {
 
     RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    pendingadapter adapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<PendingPetitionModel>> call;
     List<PendingPetitionModel> result = new ArrayList<>();
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,20 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
         TextView status = findViewById(R.id.petition_proceed_status);//0일때 평소 상태 1일때 확대 상태
         Button proceed_urlbtn = findViewById(R.id.proceed_list_detail_urlbtn);
+        searchView = findViewById(R.id.petition_searchview);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                fileterList(newText);
+                return false;
+            }
+        });
         status.setText("0");
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +120,20 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
 //                context.startActivity(i);
             }
         });
+    }
+
+    private void fileterList(String text) {
+        List<PendingPetitionModel> filteredList = new ArrayList<>();
+        for(PendingPetitionModel item : result){
+            if(item.getName().contains(text)){
+                filteredList.add(item);
+            }
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setFilteredList(filteredList);
+        }
     }
 
     @Override

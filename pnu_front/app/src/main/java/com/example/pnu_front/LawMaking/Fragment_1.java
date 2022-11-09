@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +20,7 @@ import com.example.pnu_front.LawMakingActivity;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
+import com.example.pnu_front.peititon.PendingPetitionModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,8 @@ public class Fragment_1 extends Fragment {
     Call<List<LawMakingModel>> call;
     List<LawMakingModel> result = new ArrayList<>();
     EditText editText;
+    SearchView searchView;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,45 +70,36 @@ public class Fragment_1 extends Fragment {
             }
         });
 
-        editText = ((LawMakingActivity)getActivity()).findViewById(R.id.search_lawmake_text);
-
-        // editText 리스터 작성
-
-        editText.addTextChangedListener(new TextWatcher() {
+        searchView = ((LawMakingActivity)getActivity()).findViewById(R.id.search_lawmake_text);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String searchText = editText.getText().toString();
-                search_list.clear();
-
-                if (searchText.equals("")) {
-                    adapter.setItems(result);
-                } else {
-                    // 검색 단어를 포함하는지 확인
-                    for (int a = 0; a < result.size(); a++) {
-                        if (result.get(a).getBill_name().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getBill_no().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getProposer().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getNoti_end_dt().toLowerCase().contains(searchText.toLowerCase()) ||
-                                result.get(a).getCurr_committee().toLowerCase().contains(searchText.toLowerCase())) {
-                            search_list.add(result.get(a));
-                        }
-                        adapter.setItems(search_list);
-                    }
-                }
+            public boolean onQueryTextChange(String newText) {
+                fileterList(newText);
+                return false;
             }
         });
+
         recyclerView.setAdapter(adapter);
         return rootView;
     }
 
+    private void fileterList(String text) {
+        List<LawMakingModel> filteredList = new ArrayList<>();
+        for (LawMakingModel item : result) {
+            if (item.getBill_name().contains(text)) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            //Toast.makeText(this,"입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setFilteredList(filteredList);
+        }
+    }
 }

@@ -1,11 +1,13 @@
 package com.example.pnu_front;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -14,6 +16,7 @@ import com.example.pnu_front.LawMaking.MyAdapter;
 import me.relex.circleindicator.CircleIndicator3;
 
 public class LawMakingActivity extends AppCompatActivity {
+    public static SearchView searchView;
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 2;
