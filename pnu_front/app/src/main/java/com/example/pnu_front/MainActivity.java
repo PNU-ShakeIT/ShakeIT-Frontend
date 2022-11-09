@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.example.pnu_front.Calender.Calender;
+import com.example.pnu_front.LawMaking.LawMakingActivity;
 import com.example.pnu_front.peititon.Petition;
 
 import com.example.pnu_front.profile.Profile;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         lawmaking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, com.example.pnu_front.LawMakingActivity.class);
+                Intent i = new Intent(MainActivity.this, LawMakingActivity.class);
                 startActivity(i);
             }
         });
