@@ -45,18 +45,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="법률안"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="15sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/view" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:text="법률안"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="15sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/view" />-->
 
 
     <TextView
@@ -113,7 +113,7 @@
     </android.widget.SearchView>
 
     <FrameLayout
-        android:id="@+id/bill_list"
+        android:id="@+id/Processed_Bill_list"
         android:layout_width="343dp"
         android:layout_height="496dp"
         android:layout_marginTop="20dp"
@@ -130,7 +130,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="처리된 법률안"
+            android:text="진행중인 법률안"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold">

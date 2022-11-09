@@ -1,5 +1,6 @@
 package com.example.pnu_front.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +13,18 @@ import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.R;
 import com.example.pnu_front.profile.ProfileModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.ViewHolder>{
     List<LawMakingModel> LawMakingData;
 
-    public LawmakingAdapter(List<LawMakingModel> lawMakingData) {
+    public LawmakingAdapter(Context applicationContext, List<LawMakingModel> lawMakingData) {
         LawMakingData = lawMakingData;
+    }
+
+    public void setFilteredList(List<LawMakingModel> filteredList){
+        this.LawMakingData = filteredList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

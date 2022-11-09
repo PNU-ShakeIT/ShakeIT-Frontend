@@ -1,6 +1,8 @@
-package com.example.pnu_front.LawMaking;
+package com.example.pnu_front.ProcessedBill;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.NoCopySpan;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -10,13 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
+import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
 import com.example.pnu_front.adapter.ProcessedBillAdapter;
-import com.example.pnu_front.adapter.processedadapter;
-import com.example.pnu_front.peititon.Petition_expiration;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.ArrayList;
@@ -26,22 +26,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LawMakingActivity extends AppCompatActivity {
-    ProcessedBillAdapter adapter;
+public class ProcessedBillActivity extends AppCompatActivity {
+    LawmakingAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    Call<List<ProcessedBillModel>> call;
-    List<ProcessedBillModel> result = new ArrayList<>();
+    Call<List<LawMakingModel>> call;
+    List<LawMakingModel> result = new ArrayList<>();
     SearchView searchView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lawmaking);
-        FrameLayout bill_list = findViewById(R.id.bill_list);
+        setContentView(R.layout.activity_processedbill);
+        FrameLayout Processed_Bill_list = findViewById(R.id.Processed_Bill_list);
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
-
         searchView = findViewById(R.id.bill_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -57,17 +56,17 @@ public class LawMakingActivity extends AppCompatActivity {
             }
         });
 
-        call = RetrofitInstance.getApiService().getBill();
-        call.enqueue(new Callback<List<ProcessedBillModel>>() {
+        call = RetrofitInstance.getApiService().getLegislativeStatus();
+        call.enqueue(new Callback<List<LawMakingModel>>() {
             @Override
-            public void onResponse(Call<List<ProcessedBillModel>> call, Response<List<ProcessedBillModel>> response) {
+            public void onResponse(Call<List<LawMakingModel>> call, Response<List<LawMakingModel>> response) {
                 result = response.body();
-                adapter = new ProcessedBillAdapter(getApplicationContext(), result);
+                adapter = new LawmakingAdapter(getApplicationContext(), result);
                 processedBillpt.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<List<ProcessedBillModel>> call, Throwable t) {
+            public void onFailure(Call<List<LawMakingModel>> call, Throwable t) {
 
             }
         });
@@ -75,8 +74,8 @@ public class LawMakingActivity extends AppCompatActivity {
     }
 
     private void filterList(String text) {
-        List<ProcessedBillModel> filteredList = new ArrayList<>();
-        for(ProcessedBillModel item : result){
+        List<LawMakingModel> filteredList = new ArrayList<>();
+        for(LawMakingModel item : result){
             if(item.getBill_name().contains(text)){
                 filteredList.add(item);
             }
