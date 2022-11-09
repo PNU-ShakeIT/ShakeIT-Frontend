@@ -1,8 +1,11 @@
 package com.example.pnu_front.LawMaking;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pnu_front.ProcessedBill.ProcessedBillActivity;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
@@ -41,6 +45,15 @@ public class LawMakingActivity extends AppCompatActivity {
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
+        TextView progress = findViewById(R.id.progress_btn1);
+
+        progress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LawMakingActivity.this, ProcessedBillActivity.class);
+                startActivity(i);
+            }
+        });
 
         searchView = findViewById(R.id.bill_searchview);
         searchView.clearFocus();

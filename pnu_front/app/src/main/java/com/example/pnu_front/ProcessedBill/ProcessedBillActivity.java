@@ -1,10 +1,14 @@
 package com.example.pnu_front.ProcessedBill;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.NoCopySpan;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -12,12 +16,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pnu_front.LawMaking.LawMakingActivity;
 import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
 import com.example.pnu_front.adapter.ProcessedBillAdapter;
 import com.example.pnu_front.profile.ProfileModel;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +44,21 @@ public class ProcessedBillActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processedbill);
+        TextView expiration = findViewById(R.id.expiration_btn2);
         FrameLayout Processed_Bill_list = findViewById(R.id.Processed_Bill_list);
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
         searchView = findViewById(R.id.bill_searchview);
+
+
+        expiration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProcessedBillActivity.this, LawMakingActivity.class);
+                startActivity(i);
+            }
+        });
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -55,6 +72,7 @@ public class ProcessedBillActivity extends AppCompatActivity {
                 return true;
             }
         });
+
 
         call = RetrofitInstance.getApiService().getLegislativeStatus();
         call.enqueue(new Callback<List<LawMakingModel>>() {
