@@ -1,5 +1,6 @@
 package com.example.pnu_front.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.R;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdapter.ViewHolder>{
     List<ProcessedBillModel> ProcessedBillData;
 
-    public ProcessedBillAdapter(List<ProcessedBillModel> processedBillData) {
+    public ProcessedBillAdapter(Context applicationContext, List<ProcessedBillModel> processedBillData) {
         ProcessedBillData = processedBillData;
     }
 
