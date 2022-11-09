@@ -89,5 +89,13 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
+        <activity
+            android:name=".ProcessedBill.ProcessedBillActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 </manifest>

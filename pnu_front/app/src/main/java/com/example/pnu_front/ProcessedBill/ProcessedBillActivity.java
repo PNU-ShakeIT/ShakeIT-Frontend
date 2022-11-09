@@ -44,7 +44,7 @@ public class ProcessedBillActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processedbill);
-        TextView expiration = findViewById(R.id.expiration_btn2);
+        TextView expiration = findViewById(R.id.lawmaking_expiration_btn2);
         FrameLayout Processed_Bill_list = findViewById(R.id.Processed_Bill_list);
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);

@@ -69,7 +69,7 @@
 
 
     <TextView
-        android:id="@+id/expiration_btn2"
+        android:id="@+id/lawmaking_expiration_btn2"
         android:layout_width="90dp"
         android:layout_height="33dp"
         android:layout_marginStart="76dp"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <TextView
-        android:id="@+id/progress_btn2"
+        android:id="@+id/lawmaking_progress_btn2"
         android:layout_width="90dp"
         android:layout_height="33dp"
         android:layout_marginTop="17dp"
@@ -152,6 +152,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="244dp" />
     </FrameLayout>

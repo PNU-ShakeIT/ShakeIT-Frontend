@@ -45,7 +45,7 @@ public class LawMakingActivity extends AppCompatActivity {
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
-        TextView progress = findViewById(R.id.progress_btn1);
+        TextView progress = findViewById(R.id.lawmaking_progress_btn1);
 
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
