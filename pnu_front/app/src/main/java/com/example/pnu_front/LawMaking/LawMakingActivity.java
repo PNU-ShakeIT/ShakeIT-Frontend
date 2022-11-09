@@ -51,6 +51,7 @@ public class LawMakingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LawMakingActivity.this, ProcessedBillActivity.class);
+
                 startActivity(i);
             }
         });
