@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         TextView article07 = findViewById(R.id.article_07);
         TextView article08 = findViewById(R.id.article_08);
         TextView article09 = findViewById(R.id.article_09);
+        System.out.println("token : "+FirebaseMessaging.getInstance().getToken().getResult());
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
