@@ -1,17 +1,24 @@
 package com.example.pnu_front.LawMaking;
 
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,15 +42,7 @@ public class Fragment_1 extends Fragment {
     ArrayList<LawMakingModel> search_list = new ArrayList<>();
     Call<List<LawMakingModel>> call;
     List<LawMakingModel> result = new ArrayList<>();
-    EditText editText;
-    SearchView searchView;
 
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,36 +69,7 @@ public class Fragment_1 extends Fragment {
             }
         });
 
-        searchView = ((LawMakingActivity)getActivity()).findViewById(R.id.search_lawmake_text);
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                fileterList(newText);
-                return false;
-            }
-        });
-
         recyclerView.setAdapter(adapter);
         return rootView;
-    }
-
-    private void fileterList(String text) {
-        List<LawMakingModel> filteredList = new ArrayList<>();
-        for (LawMakingModel item : result) {
-            if (item.getBill_name().contains(text)) {
-                filteredList.add(item);
-            }
-        }
-        if (filteredList.isEmpty()) {
-            //Toast.makeText(this,"입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
-        } else {
-            adapter.setFilteredList(filteredList);
-        }
     }
 }
