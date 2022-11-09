@@ -2,6 +2,8 @@ package com.example.pnu_front.LawMaking;
 
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import com.example.pnu_front.adapter.LawmakingAdapter;
 import com.example.pnu_front.adapter.ProcessedBillAdapter;
 import com.example.pnu_front.adapter.processedadapter;
 import com.example.pnu_front.peititon.Petition_expiration;
+import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ public class LawMakingActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProcessedBillModel>> call;
     List<ProcessedBillModel> result = new ArrayList<>();
+    SearchView searchView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +41,21 @@ public class LawMakingActivity extends AppCompatActivity {
         RecyclerView processedBillpt = findViewById(R.id.processedBillpt);
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
+
+        searchView = findViewById(R.id.bill_searchview);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         call = RetrofitInstance.getApiService().getBill();
         call.enqueue(new Callback<List<ProcessedBillModel>>() {
@@ -53,5 +72,20 @@ public class LawMakingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void filterList(String text) {
+        List<ProcessedBillModel> filteredList = new ArrayList<>();
+        for(ProcessedBillModel item : result){
+            if(item.getBill_name().contains(text)){
+                filteredList.add(item);
+            }
+        }
+
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setFilteredList(filteredList);
+        }
     }
 }
