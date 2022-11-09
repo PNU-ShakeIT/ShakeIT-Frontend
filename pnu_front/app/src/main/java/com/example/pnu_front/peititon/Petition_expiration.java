@@ -1,6 +1,7 @@
 package com.example.pnu_front.peititon;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
@@ -31,12 +33,14 @@ import retrofit2.Response;
 
 public class Petition_expiration extends AppCompatActivity implements OnitemClick {
     RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    processedadapter adapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProcessedPetitionModel>> call;
     List<ProcessedPetitionModel> result = new ArrayList<>();
+    SearchView searchView;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,20 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         RecyclerView processedpt = findViewById(R.id.processedpt);
         Button processed_urlbtn = findViewById(R.id.processed_list_detail_urlbtn);
         TextView urltmp = findViewById(R.id.processed_urltmp);
+        searchView = findViewById(R.id.petition_searchview);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
         status.setText("0");
         layoutManager = new LinearLayoutManager(this);
         processedpt.setLayoutManager(layoutManager);
@@ -99,6 +117,20 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
 //                context.startActivity(i);
             }
         });
+    }
+
+    private void filterList(String text) {
+        List<ProcessedPetitionModel> filteredList = new ArrayList<>();
+        for(ProcessedPetitionModel item : result){
+            if(item.getName().contains(text)){
+                filteredList.add(item);
+            }
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setFilteredList(filteredList);
+        }
     }
 
     @Override

@@ -47,7 +47,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LawMakingActivity"
+            android:name=".LawMaking.LawMakingActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
