@@ -8,12 +8,22 @@ import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.LawMaking.MyAdapter;
+import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
+import com.example.pnu_front.adapter.LawmakingAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LawMakingActivity extends AppCompatActivity {
     public static SearchView searchView;
@@ -71,6 +81,7 @@ public class LawMakingActivity extends AppCompatActivity {
                 mIndicator.animatePageSelected(position%num_page);
             }
         });
+
 
     }
 }
