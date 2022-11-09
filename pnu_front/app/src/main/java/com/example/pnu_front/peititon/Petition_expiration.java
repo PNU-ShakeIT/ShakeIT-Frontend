@@ -65,7 +65,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
                 else
                 {
                     ViewGroup.LayoutParams params = processed_list.getLayoutParams();
-                    params.height = 700;
+                    params.height = 600;
                     processed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
