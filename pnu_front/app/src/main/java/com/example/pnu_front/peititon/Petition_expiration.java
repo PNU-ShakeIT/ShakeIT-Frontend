@@ -124,7 +124,10 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         for(ProcessedPetitionModel item : result){
             if(item.getName().contains(text)){
                 filteredList.add(item);
+            } else if(item.getProposer().contains(text)){
+                filteredList.add(item);
             }
+
         }
         if(filteredList.isEmpty()){
             Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();

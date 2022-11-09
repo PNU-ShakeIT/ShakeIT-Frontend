@@ -76,16 +76,24 @@ public class LawMakingActivity extends AppCompatActivity {
 
     private void filterList(String text) {
         List<ProcessedBillModel> filteredList = new ArrayList<>();
-        for(ProcessedBillModel item : result){
-            if(item.getBill_name().contains(text)){
+        for (ProcessedBillModel item : result) {
+            if (item.getBill_name().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getBill_num().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getAnnounce_dt().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getCommittee_nm().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getProc_result().contains(text)) {
                 filteredList.add(item);
             }
-        }
 
-        if(filteredList.isEmpty()){
-            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
-        } else {
-            adapter.setFilteredList(filteredList);
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+            } else {
+                adapter.setFilteredList(filteredList);
+            }
         }
     }
 }

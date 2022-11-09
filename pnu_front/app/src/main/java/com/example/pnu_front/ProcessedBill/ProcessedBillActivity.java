@@ -78,6 +78,14 @@ public class ProcessedBillActivity extends AppCompatActivity {
         for(LawMakingModel item : result){
             if(item.getBill_name().contains(text)){
                 filteredList.add(item);
+            } else if(item.getBill_no().contains(text)){
+                filteredList.add(item);
+            } else if(item.getNoti_end_dt().contains(text)){
+                filteredList.add(item);
+            } else if(item.getProposer().contains(text)){
+                filteredList.add(item);
+            } else if(item.getCurr_committee().contains(text)){
+                filteredList.add(item);
             }
         }
 

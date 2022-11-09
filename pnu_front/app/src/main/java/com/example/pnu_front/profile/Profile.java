@@ -146,6 +146,8 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         for(ProfileModel item : result){
             if(item.getHg_NM().contains(text)){
                 filteredList.add(item);
+            } else if(item.getPoly_NM().contains(text)){
+                filteredList.add(item);
             }
         }
 

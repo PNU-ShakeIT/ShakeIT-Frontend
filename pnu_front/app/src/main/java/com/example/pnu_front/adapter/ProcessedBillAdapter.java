@@ -65,7 +65,7 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         holder.user.setText(this.ProcessedBillData.get(position).getProposer());
         holder.association.setText(this.ProcessedBillData.get(position).getCommittee_nm());
         holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getUrl());
-        holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getProc_result());
+        holder.vote.setText(this.ProcessedBillData.get(position).getProc_result());
     }
 
     @Override
