@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.R;
+import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;
 
@@ -19,6 +20,11 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
 
     public ProcessedBillAdapter(Context applicationContext, List<ProcessedBillModel> processedBillData) {
         ProcessedBillData = processedBillData;
+    }
+
+    public void setFilteredList(List<ProcessedBillModel> filteredList){
+        this.ProcessedBillData = filteredList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
