@@ -23,7 +23,7 @@ import java.util.List;
 
 public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHolder> {
 
-    List<PendingPetitionModel> pendingPetitionData;
+    static List<PendingPetitionModel> pendingPetitionData;
     private static OnitemClick mCallback;
 
     public pendingadapter(Context applicationContext, List<PendingPetitionModel> pendingPetitionData, OnitemClick listener) {
@@ -51,7 +51,7 @@ public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHo
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = getAdapterPosition();
+                    int pos = pendingPetitionData.get(getAdapterPosition()).getId() -1;;
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);

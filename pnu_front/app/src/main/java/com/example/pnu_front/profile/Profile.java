@@ -36,6 +36,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -143,21 +144,27 @@ public class Profile extends AppCompatActivity implements OnitemClick {
 
     private void filterList(String text) {
         List<ProfileModel> filteredList = new ArrayList<>();
+
         for(ProfileModel item : result){
             if(item.getHg_NM().contains(text)){
                 filteredList.add(item);
             }
         }
+        System.out.println("filteredList : "+ filteredList);
 
         if(filteredList.isEmpty()){
-            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
+            RecyclerView congressmember = findViewById(R.id.congress_member_list);
+            System.out.println("뿌려주기 !!!!!");
+            myadapter = new profileadapter(getApplicationContext(), result, Profile.this);
            myadapter.setFilteredList(filteredList);
+           congressmember.setAdapter(myadapter);
         }
     }
 
     @Override
     public void onClick(int value) {
+        System.out.println("value : "+value);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();

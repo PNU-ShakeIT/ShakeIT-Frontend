@@ -22,7 +22,7 @@ import java.util.List;
 
 public class processedadapter extends RecyclerView.Adapter<processedadapter.MyViewHolder> {
 
-    List<ProcessedPetitionModel> processedPetitionData;
+    static List<ProcessedPetitionModel> processedPetitionData;
     private static OnitemClick mCallback;
 
     public processedadapter(Context applicationContext, List<ProcessedPetitionModel> processedPetitionData, OnitemClick listener) {
@@ -50,7 +50,7 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = getAdapterPosition();
+                    int pos = processedPetitionData.get(getAdapterPosition()).getId() -1;
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);

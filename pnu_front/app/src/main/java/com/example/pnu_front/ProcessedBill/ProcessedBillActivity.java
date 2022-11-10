@@ -57,6 +57,8 @@ public class ProcessedBillActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ProcessedBillActivity.this, LawMakingActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
                 startActivity(i);
             }
         });
@@ -101,7 +103,6 @@ public class ProcessedBillActivity extends AppCompatActivity {
         }
 
         if(filteredList.isEmpty()){
-            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setFilteredList(filteredList);
         }

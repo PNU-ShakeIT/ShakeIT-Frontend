@@ -48,7 +48,8 @@ public class profileadapter extends RecyclerView.Adapter<profileadapter.MyViewHo
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = getAdapterPosition();
+                    int pos = Integer.parseInt(profileData.get(getAdapterPosition()).getId()) -1;
+                    System.out.println("pos"+pos);
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);
