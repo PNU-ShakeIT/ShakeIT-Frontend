@@ -53,6 +53,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
         TextView status = findViewById(R.id.petition_proceed_status);//0일때 평소 상태 1일때 확대 상태
         Button proceed_urlbtn = findViewById(R.id.proceed_list_detail_urlbtn);
+        View back = findViewById(R.id.pet_prog_back);
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -65,6 +66,20 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             public boolean onQueryTextChange(String newText) {
                 fileterList(newText);
                 return false;
+            }
+        });
+        ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
+        params.height = 1400;
+        proceed_list.setLayoutParams(params);
+        list_detail.setVisibility(View.GONE);
+        imageView.setBackgroundResource(R.drawable.up_right);
+        status.setText("1");
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition_progress.this, Petition.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
         status.setText("0");
@@ -126,11 +141,9 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             }
         }
         if(filteredList.isEmpty()){
+            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
-            RecyclerView progress = findViewById(R.id.progresspt);
-            adapter = new pendingadapter(getApplicationContext(), result,Petition_progress.this);
             adapter.setFilteredList(filteredList);
-            progress.setAdapter(adapter);
         }
     }
 
@@ -143,7 +156,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
         TextView status = findViewById(R.id.petition_proceed_status);//0일때 평소 상태 1일때 확대 상태
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height =700;
+        params.height =600;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);

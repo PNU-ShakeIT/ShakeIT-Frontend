@@ -2,6 +2,7 @@ package com.example.pnu_front.profile;
 
 import static com.example.pnu_front.R.id.searchView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.RetrofitMananger.RetrofitService;
@@ -57,12 +59,13 @@ public class Profile extends AppCompatActivity implements OnitemClick {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_profile);
         ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
+        View back = findViewById(R.id.profile_back);
+
         searchView = findViewById(R.id.searchView);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -75,6 +78,14 @@ public class Profile extends AppCompatActivity implements OnitemClick {
             public boolean onQueryTextChange(String newText) {
                 filterList(newText);
                 return true;
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();
@@ -171,7 +182,9 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         TextView status = findViewById(R.id.status);
         ImageView img = findViewById(R.id.image_profile);
         String url = result.get(value).getImg_URL();
+
         Glide.with(this).load(url).override(200,300).into(img);
+
         TextView name = findViewById(R.id.text_profile_name);
         TextView hj_name = findViewById(R.id.text_profile_hj_NM);
         TextView eng_name = findViewById(R.id.text_profile_eng_NM_birth);
@@ -184,7 +197,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         TextView secretary1 = findViewById(R.id.text_profile_secretary);
         TextView secretary2 = findViewById(R.id.text_profile_secretary2);
         name.setText(result.get(value).getHg_NM());
-        hj_name.setText(result.get(value).getHj_NM());
+        hj_name.setText("("+result.get(value).getHj_NM()+")");
         eng_name.setText(result.get(value).getEng_NM()+" "+result.get(value).getBth_DATE());
         orig.setText(result.get(value).getOrig_NM());
         cmits.setText(result.get(value).getCmits());

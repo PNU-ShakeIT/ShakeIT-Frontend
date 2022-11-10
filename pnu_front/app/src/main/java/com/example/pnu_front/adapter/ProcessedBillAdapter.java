@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,16 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.R;
+import com.example.pnu_front.profile.OnitemClick;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;
 
 public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdapter.ViewHolder>{
     List<ProcessedBillModel> ProcessedBillData;
+    private OnitemClick mCallback;
 
-    public ProcessedBillAdapter(Context applicationContext, List<ProcessedBillModel> processedBillData) {
+
+    public ProcessedBillAdapter(Context applicationContext, List<ProcessedBillModel> processedBillData, OnitemClick listener) {
         ProcessedBillData = processedBillData;
-    }
+        this.mCallback = listener;
+
+           }
 
     public void setFilteredList(List<ProcessedBillModel> filteredList){
         this.ProcessedBillData = filteredList;
@@ -35,16 +41,32 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         public TextView association;
         public TextView vote;
         public TextView ProcessedBIll_url;
+        public LinearLayout Processedbill;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             title = itemView.findViewById(R.id.ProcessedBill_title);
             user = itemView.findViewById(R.id.ProcessedBill_user);
             day = itemView.findViewById(R.id.ProcessedBill_date);
             num = itemView.findViewById(R.id.ProcessedBill_num);
             association = itemView.findViewById(R.id.Bill_association);
             vote = itemView.findViewById(R.id.vote);
+            Processedbill = itemView.findViewById(R.id.Processedbill);
             ProcessedBIll_url = itemView.findViewById(R.id.ProcessedBill_url);
+
+            Processedbill.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = Integer.parseInt(ProcessedBillData.get(getAdapterPosition()).getId());
+                    System.out.println("pos : " + pos);
+                    mCallback.onClick(pos);
+
+                }
+            });
+
+
         }
     }
 
@@ -65,7 +87,7 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         holder.user.setText(this.ProcessedBillData.get(position).getProposer());
         holder.association.setText(this.ProcessedBillData.get(position).getCommittee_nm());
         holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getUrl());
-        holder.ProcessedBIll_url.setText(this.ProcessedBillData.get(position).getProc_result());
+
     }
 
     @Override
