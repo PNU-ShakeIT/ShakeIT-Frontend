@@ -50,6 +50,8 @@ public class Petition extends AppCompatActivity {
 
         ImageView titleImg = findViewById(R.id.imageView);
 
+        View back = findViewById(R.id.pettion_back);
+
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +66,15 @@ public class Petition extends AppCompatActivity {
                 startActivity(i);
             }
         });//만료된 청원으로
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+
         titleImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

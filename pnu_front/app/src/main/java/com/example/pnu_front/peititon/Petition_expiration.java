@@ -74,6 +74,15 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         list_detail.setVisibility(View.GONE);
         imageView.setBackgroundResource(R.drawable.up_right);
         status.setText("1");
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition_expiration.this, Petition.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+        status.setText("0");
         layoutManager = new LinearLayoutManager(this);
         processedpt.setLayoutManager(layoutManager);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +162,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         ImageView imageView = findViewById(R.id.processed_listsizebtn);
         TextView status = findViewById(R.id.petition_processed_status);//0일때 평소 상태 1일때 확대 상태
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height =700;
+        params.height =600;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);

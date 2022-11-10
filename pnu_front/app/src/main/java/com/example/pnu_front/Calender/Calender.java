@@ -1,7 +1,6 @@
 package com.example.pnu_front.Calender;
 
 import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
@@ -19,11 +18,9 @@ import com.example.pnu_front.adapter.calendarAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +45,7 @@ public class Calender extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
         TextView text_day = findViewById(R.id.date_text);
+        View back = findViewById(R.id.calendar_back);
 
 
         CalendarView calendarView = findViewById(R.id.calendarView);
@@ -65,6 +63,16 @@ public class Calender extends AppCompatActivity {
         String thismonth = monthFormat.format(date);
         TextView datetext = findViewById(R.id.date_text);
         datetext.setText(thismonth+"월 "+today+"일 일정");
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( Calender.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);    //인텐트 플래그 설정
+                startActivity(i);  //인텐트 이동
+                finish();
+            }
+        });
 
         call = RetrofitInstance.getApiService().getCalendar();
         //데이터 요청(날짜별로)
@@ -152,7 +160,6 @@ public class Calender extends AppCompatActivity {
                         k++;
                     }
                 }
-
                 //tmp에 저장된 일정을 시간 순서로 정렬
                 List<CalenderModel> calenderModels = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -170,8 +177,10 @@ public class Calender extends AppCompatActivity {
                 adapter = new calendarAdapter(calenderModels);
                 recyclerview_cal.setAdapter(adapter);
             }
-
         });
+
+
+
 
         //캘린더에 뿌려주기
 

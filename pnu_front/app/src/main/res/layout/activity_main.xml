@@ -516,7 +516,7 @@
             android:background="@color/line_color"
             android:layout_gravity="center"
             android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="3dp"
             >
         </View>
         <TextView
@@ -534,8 +534,8 @@
             android:layout_height="41dp"
             android:background="@color/line_color"
             android:layout_gravity="center"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
             >
         </View>
         <TextView
