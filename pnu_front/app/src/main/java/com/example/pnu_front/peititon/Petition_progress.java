@@ -53,6 +53,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
         TextView status = findViewById(R.id.petition_proceed_status);//0일때 평소 상태 1일때 확대 상태
         Button proceed_urlbtn = findViewById(R.id.proceed_list_detail_urlbtn);
+        View back = findViewById(R.id.pet_prog_back);
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -65,6 +66,14 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             public boolean onQueryTextChange(String newText) {
                 fileterList(newText);
                 return false;
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition_progress.this, Petition.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
         status.setText("0");

@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".peititon.Petition">
 
+
+    <View
+        android:id="@+id/pettion_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/backspace_icon"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
+
     <FrameLayout
         android:layout_width="75dp"
         android:layout_height="75dp"

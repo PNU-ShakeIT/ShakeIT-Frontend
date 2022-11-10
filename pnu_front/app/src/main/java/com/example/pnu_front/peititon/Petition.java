@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.R;
 //import com.example.pnu_front.RetrofitManager.ApiClient;
 //import com.example.pnu_front.RetrofitManager.ApiInterface;
@@ -45,6 +46,8 @@ public class Petition extends AppCompatActivity {
         TextView pending2 = findViewById(R.id.pending_realtime_2);
         TextView pending3 = findViewById(R.id.pending_realtime_3);
         TextView pending4 = findViewById(R.id.pending_realtime_4);
+        View back = findViewById(R.id.pettion_back);
+
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +62,14 @@ public class Petition extends AppCompatActivity {
                 startActivity(i);
             }
         });//만료된 청원으로
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
 
         call = RetrofitInstance.getApiService().getPendingPetition();
         call.enqueue(new Callback<List<PendingPetitionModel>>() {

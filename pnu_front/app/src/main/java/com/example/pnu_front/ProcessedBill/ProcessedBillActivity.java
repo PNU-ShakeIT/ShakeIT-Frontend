@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.LawMaking.LawMakingActivity;
 import com.example.pnu_front.LawMaking.LawMakingModel;
+import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
@@ -51,12 +52,21 @@ public class ProcessedBillActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
         searchView = findViewById(R.id.bill_searchview);
-
+        View back = findViewById(R.id.processed_back);
 
         expiration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ProcessedBillActivity.this, LawMakingActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProcessedBillActivity.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });

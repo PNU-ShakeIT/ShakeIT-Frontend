@@ -2,6 +2,7 @@ package com.example.pnu_front.profile;
 
 import static com.example.pnu_front.R.id.searchView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.RetrofitMananger.RetrofitService;
@@ -56,12 +58,13 @@ public class Profile extends AppCompatActivity implements OnitemClick {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_profile);
         ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         TextView status = findViewById(R.id.status);//0일때 평소 상태 1일때 확대 상태
+        View back = findViewById(R.id.profile_back);
+
         searchView = findViewById(R.id.searchView);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -74,6 +77,14 @@ public class Profile extends AppCompatActivity implements OnitemClick {
             public boolean onQueryTextChange(String newText) {
                 filterList(newText);
                 return true;
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.ProcessedBill.ProcessedBillActivity;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
 import com.example.pnu_front.R;
@@ -46,16 +47,24 @@ public class LawMakingActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         processedBillpt.setLayoutManager(layoutManager);
         TextView progress = findViewById(R.id.lawmaking_progress_btn1);
+        View back = findViewById(R.id.lawmaking_back);
 
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LawMakingActivity.this, ProcessedBillActivity.class);
-
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LawMakingActivity.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
         searchView = findViewById(R.id.bill_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

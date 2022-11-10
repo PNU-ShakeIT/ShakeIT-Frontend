@@ -48,7 +48,6 @@
         </activity>
         <activity
             android:name=".LawMaking.LawMakingActivity"
-            android:launchMode="singleTask"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
@@ -93,7 +92,6 @@
         <activity
             android:name=".ProcessedBill.ProcessedBillActivity"
             android:exported="false"
-            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
                 android:name="android.app.lib_name"

@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".peititon.Petition_expiration">
 
+    <View
+        android:id="@+id/pet_exp_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/backspace_icon"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="391dp"

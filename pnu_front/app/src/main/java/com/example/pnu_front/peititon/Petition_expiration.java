@@ -52,6 +52,8 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         RecyclerView processedpt = findViewById(R.id.processedpt);
         Button processed_urlbtn = findViewById(R.id.processed_list_detail_urlbtn);
         TextView urltmp = findViewById(R.id.processed_urltmp);
+        View back = findViewById(R.id.pet_exp_back);
+
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -64,6 +66,14 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
             public boolean onQueryTextChange(String newText) {
                 filterList(newText);
                 return false;
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Petition_expiration.this, Petition.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
         status.setText("0");
