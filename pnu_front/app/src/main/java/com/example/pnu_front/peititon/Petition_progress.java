@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -87,7 +86,6 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("testst",""+status.getText());
                 if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
                     params.height = 1400;
@@ -128,11 +126,9 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             @Override
             public void onClick(View v) {
                 String str =  urltmp.getText().toString();
-                Log.d("url",""+str);
+
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
                 startActivity(i);
-//                Log.d("url",""+i);
-//                context.startActivity(i);
             }
         });
     }
@@ -155,7 +151,6 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
     public void onClick(int value) {
         TextView urltmp = findViewById(R.id.proceed_urltmp);
         urltmp.setText(result.get(value).getUrl());
-        Log.d("testestest",""+urltmp.getText());
         FrameLayout proceed_list = findViewById(R.id.proceed_list);
         CardView list_detail = findViewById(R.id.proceed_list_detail);
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);

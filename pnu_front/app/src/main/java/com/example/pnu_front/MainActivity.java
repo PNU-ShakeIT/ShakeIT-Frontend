@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
                     //Elements elem = doc.select("td.pl");
 
                     for(Element e: elem.select("td")) {
-                        System.out.println(e.text());
                         article_list.add(e.text());
                         url_list.add("http://www.a-news.co.kr/news/"+e.getElementsByAttribute("href").attr("href"));
                         bundle.putStringArrayList("article",article_list);//핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
@@ -181,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.d("실패","실패실패실패실패실패실패실패실패실패실패실패");
                 }
             }
         }.start();
@@ -278,10 +276,6 @@ public class MainActivity extends AppCompatActivity {
             int d_n = 0;
             String string;
             weather = weatherData.getData();
-            System.out.println("메인 !");
-            for(int i=0; i<weather.length;i++){
-                System.out.println(weather[i]);
-            }
             //0 : 온도 1: 구름많음 2. 밤낮 3 강수 중 4: 강수확률 5: 강수없음
             degree.setText(weather[0]+"C˚ "+weather[1]+"(국회)");
             // 밤낮구분
@@ -406,7 +400,6 @@ public class MainActivity extends AppCompatActivity {
             TextView ultrafinedust = findViewById(R.id.text_ultrafinedust);
             String[] tmp;
             tmp = result.split(",");
-            Log.d("lllllllllllllllll",""+tmp[0]+"/////////////////"+tmp[1]);
             finedust.setText("미세먼지\n"+tmp[0]);
             ultrafinedust.setText("초미세먼지\n"+tmp[1]);
         }
@@ -435,7 +428,6 @@ public class MainActivity extends AppCompatActivity {
             String tempstr;
             tempstr = tmpint.getText().toString();
             temp = Integer.parseInt(tempstr);
-            Log.d("asdfafafsfasdfa","1111111111111111111111"+tempstr+"진짜개씨발좆같네"+temp);
             if(temp-1 == 8)
             {
                 article01.setText(article_list.get(0));
@@ -451,7 +443,6 @@ public class MainActivity extends AppCompatActivity {
             }
             article_list = bundle.getStringArrayList("article");
             url_list = bundle.getStringArrayList("url");
-            Log.d("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ","1111111111111111111");
             temp++;
             tmpint.setText(Integer.toString(temp));
 //            article_list.setText(bundle.getString("art"));

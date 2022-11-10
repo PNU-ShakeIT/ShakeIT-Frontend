@@ -125,8 +125,6 @@ public class Profile extends AppCompatActivity implements OnitemClick {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spinner_field.getSelectedItemPosition() > 0){
-
-                    Log.d("msg",spinner_field.getSelectedItem().toString()+"selected");
                 }
             }
             @Override
@@ -161,12 +159,10 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 filteredList.add(item);
             }
         }
-        System.out.println("filteredList : "+ filteredList);
 
         if(filteredList.isEmpty()){
         } else {
             RecyclerView congressmember = findViewById(R.id.congress_member_list);
-            System.out.println("뿌려주기 !!!!!");
             myadapter = new profileadapter(getApplicationContext(), result, Profile.this);
            myadapter.setFilteredList(filteredList);
            congressmember.setAdapter(myadapter);
@@ -175,7 +171,6 @@ public class Profile extends AppCompatActivity implements OnitemClick {
 
     @Override
     public void onClick(int value) {
-        System.out.println("value : "+value);
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();
@@ -185,11 +180,10 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         memberprofile.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);
         TextView status = findViewById(R.id.status);
-        status.setText("0");
         ImageView img = findViewById(R.id.image_profile);
         String url = result.get(value).getImg_URL();
-        Log.d("urll",""+url);
-        Glide.with(this).load(url).override(300,400).into(img);
+
+        Glide.with(this).load(url).override(200,300).into(img);
 
         TextView name = findViewById(R.id.text_profile_name);
         TextView hj_name = findViewById(R.id.text_profile_hj_NM);
