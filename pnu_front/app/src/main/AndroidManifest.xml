@@ -31,6 +31,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Chatbot"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|adjustPan">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".peititon.Petition"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|adjustPan">

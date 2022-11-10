@@ -36,6 +36,6 @@ public class Chatbot extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_USER);
 
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://dc03-58-72-42-91.jp.ngrok.io");
+        webView.loadUrl("https://seongikx.github.io/ChatBot/");
     }
 }
