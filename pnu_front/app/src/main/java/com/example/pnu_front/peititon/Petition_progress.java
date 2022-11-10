@@ -28,6 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.pnu_front.adapter.pendingadapter;
+import com.example.pnu_front.adapter.processedadapter;
 import com.example.pnu_front.profile.OnitemClick;
 
 public class Petition_progress extends AppCompatActivity implements OnitemClick {
@@ -132,7 +133,10 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         if(filteredList.isEmpty()){
             Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
+            RecyclerView progress = findViewById(R.id.progresspt);
+            adapter = new pendingadapter(getApplicationContext(), result,Petition_progress.this);
             adapter.setFilteredList(filteredList);
+            progress.setAdapter(adapter);
         }
     }
 
