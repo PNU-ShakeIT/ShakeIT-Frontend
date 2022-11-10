@@ -40,6 +40,7 @@ public class ProcessedBillActivity extends AppCompatActivity {
     List<LawMakingModel> result = new ArrayList<>();
     SearchView searchView;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

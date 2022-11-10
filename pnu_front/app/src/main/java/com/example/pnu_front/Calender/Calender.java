@@ -148,14 +148,11 @@ public class Calender extends AppCompatActivity {
                 int p;
                 for (p = 0; p < result.size(); p++) {
                     if (Objects.equals(result.get(p).getDate(), today)) {
-                    }
-                }
-                for (p = 0; p < result.size(); p++) {
-                    if (Objects.equals(result.get(p).getDate(), today)) {
                         tmp.add(k, result.get(p));
                         k++;
                     }
                 }
+
                 //tmp에 저장된 일정을 시간 순서로 정렬
                 List<CalenderModel> calenderModels = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -173,6 +170,7 @@ public class Calender extends AppCompatActivity {
                 adapter = new calendarAdapter(calenderModels);
                 recyclerview_cal.setAdapter(adapter);
             }
+
         });
 
         //캘린더에 뿌려주기
