@@ -143,7 +143,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         ImageView imageView = findViewById(R.id.processed_listsizebtn);
         TextView status = findViewById(R.id.petition_processed_status);//0일때 평소 상태 1일때 확대 상태
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height =700;
+        params.height =600;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);

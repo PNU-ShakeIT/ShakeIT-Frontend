@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, Profile.class);
                 startActivity(i);
+
             }
         });//profile로 이동
         petition.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, Petition.class);
                 startActivity(i);
+
             }
         });//petition으로 이동
         lawmaking.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, LawMakingActivity.class);
                 startActivity(i);
+
             }
         });
         initView();
