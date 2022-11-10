@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/Processedbill"
     android:layout_margin="7dp">
 
     <LinearLayout
@@ -85,6 +86,7 @@
         </LinearLayout>
         <TextView
             android:textColor="@color/black"
+            android:visibility="gone"
             android:id="@+id/ProcessedBill_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

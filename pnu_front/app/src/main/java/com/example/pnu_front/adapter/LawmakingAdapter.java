@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
         public TextView num;
         public TextView association;
         public TextView url;
+        public LinearLayout lawmaking;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -44,9 +46,10 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             user = itemView.findViewById(R.id.lawmaking_user);
             day = itemView.findViewById(R.id.lawmaking_date);
             num = itemView.findViewById(R.id.lawmaking_num);
+            lawmaking = itemView.findViewById(R.id.lawmaking);
             association = itemView.findViewById(R.id.association);
             url = itemView.findViewById(R.id.lawmaking_url);
-            url.setOnClickListener(new View.OnClickListener() {
+            lawmaking.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = Integer.parseInt(LawMakingData.get(getAdapterPosition()).getId());

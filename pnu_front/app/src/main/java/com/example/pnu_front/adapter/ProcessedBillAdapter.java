@@ -41,6 +41,7 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
         public TextView association;
         public TextView vote;
         public TextView ProcessedBIll_url;
+        public LinearLayout Processedbill;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -52,9 +53,10 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
             num = itemView.findViewById(R.id.ProcessedBill_num);
             association = itemView.findViewById(R.id.Bill_association);
             vote = itemView.findViewById(R.id.vote);
+            Processedbill = itemView.findViewById(R.id.Processedbill);
             ProcessedBIll_url = itemView.findViewById(R.id.ProcessedBill_url);
 
-            ProcessedBIll_url.setOnClickListener(new View.OnClickListener() {
+            Processedbill.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = Integer.parseInt(ProcessedBillData.get(getAdapterPosition()).getId());
