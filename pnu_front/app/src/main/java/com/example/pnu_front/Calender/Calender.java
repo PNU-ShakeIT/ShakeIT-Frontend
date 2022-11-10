@@ -1,6 +1,7 @@
 package com.example.pnu_front.Calender;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
@@ -18,9 +19,11 @@ import com.example.pnu_front.adapter.calendarAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -94,76 +97,20 @@ public class Calender extends AppCompatActivity {
                         y++;
                     }
                 }
-                //tmp에 저장된 일정을 시간 순서로 정렬
-                for (p = 0; p < tmp.size()-1; p++ )
-                {
-                    String time1;
-                    String time2;
-                    int t;
-                    int f;
-
-
-                    if(tmp.get(p).getTime().contains("~")) {
-                        time1 = tmp.get(p).getTime().substring(0,5);
-                        time2 = time1.substring(0, 2) + time1.substring(3);
-                        f = Integer.parseInt(time2);
-                    }
-                    else{
-                        time2 = tmp.get(p).getTime().substring(0, 2) + tmp.get(p).getTime().substring(3);
-                        f = Integer.parseInt(time2);
-                    }
-                    if(tmp.get(p+1).getTime().contains("~")) {
-                        time1 = tmp.get(p + 1).getTime().substring(0, 5);
-                        Log.d("시발",""+time1);
-                        time2 = time1.substring(0, 2) + time1.substring(3);
-                        t = Integer.parseInt(time2);
-                    }
-                    else{
-                        time2 = tmp.get(p + 1).getTime().substring(0, 2) + tmp.get(p + 1).getTime().substring(3);
-                        t = Integer.parseInt(time2);
-                    }
-                    if(f>t)
-                    {
-                        cal_data.add(tmp.get(p+1));
-                        tmp.set(p+1,tmp.get(p));
-                        tmp.set(p,cal_data.get(0));
-                        cal_data.clear();
-                    }
-                    for(k=p; 0<k; k--) {
-                        if(tmp.get(k).getTime().contains("~")) {
-                            time1 = tmp.get(k).getTime().substring(0, 5);
-                            Log.d("시발",""+time1);
-                            time2 = time1.substring(0, 2) + time1.substring(3);
-                            f = Integer.parseInt(time2);
-                        }
-                        else{
-                            time2 = tmp.get(k).getTime().substring(0, 2) + tmp.get(k).getTime().substring(3);
-                            f = Integer.parseInt(time2);
-                        }
-                        if(tmp.get(k+1).getTime().contains("~")) {
-                            time1 = tmp.get(k + 1).getTime().substring(0, 5);
-                            Log.d("시발",""+time1);
-                            time2 = time1.substring(0, 2) + time1.substring(3);
-                            t = Integer.parseInt(time2);
-                        }
-                        else{
-                            time2 = tmp.get(k + 1).getTime().substring(0, 2) + tmp.get(k + 1).getTime().substring(3);
-                            t = Integer.parseInt(time2);
-                        }
-                        t = Integer.parseInt(time2);
-                        if(f<t)
-                        {
-                            cal_data.add(tmp.get(k));
-                            tmp.set(k-1,tmp.get(k));
-                            tmp.set(k,cal_data.get(0));
-                            cal_data.clear();
-                        }
-                    }
+//                //tmp에 저장된 일정을 시간 순서로 정렬
+                List<CalenderModel> calenderModels = null;
+                System.out.println("여기에요 여기 !!!!!!!");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                   calenderModels = tmp.stream().collect(Collectors.toList());
                 }
-                Log.d("test",""+tmp);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    calenderModels = calenderModels.stream()
+                            .filter((CalenderModel) -> CalenderModel.getTime() != null)
+                            .sorted(Comparator.comparing(CalenderModel::getTime)).collect(Collectors.toList());
+                }
                 RecyclerView recyclerview_cal = findViewById(R.id.recyclerview_calendar);
                 recyclerview_cal.setLayoutManager(layoutManager);
-                adapter = new calendarAdapter(tmp);
+                adapter = new calendarAdapter(calenderModels);
                 recyclerview_cal.setAdapter(adapter);
 
 
@@ -210,79 +157,23 @@ public class Calender extends AppCompatActivity {
                     }
                 }
                 //tmp에 저장된 일정을 시간 순서로 정렬
-                for (p = 0; p < tmp.size()-1; p++ )
-                {
-                    String time1;
-                    String time2;
-                    int t;
-                    int f;
-                    if(tmp.get(p).getTime().contains("~")) {
-                        time1 = tmp.get(p).getTime().substring(0,5);
-                        time2 = time1.substring(0, 2) + time1.substring(3);
-                        f = Integer.parseInt(time2);
-                    }
-                    else{
-                        time2 = tmp.get(p).getTime().substring(0, 2) + tmp.get(p).getTime().substring(3);
-                        f = Integer.parseInt(time2);
-                    }
-                    if(tmp.get(p+1).getTime().contains("~")) {
-                        time1 = tmp.get(p + 1).getTime().substring(0, 5);
-                        Log.d("시발",""+time1);
-                        time2 = time1.substring(0, 2) + time1.substring(3);
-                        t = Integer.parseInt(time2);
-                    }
-                    else{
-                        time2 = tmp.get(p + 1).getTime().substring(0, 2) + tmp.get(p + 1).getTime().substring(3);
-                        t = Integer.parseInt(time2);
-                    }
-                    if(f>t)
-                    {
-                        cal_data.add(tmp.get(p+1));
-                        tmp.set(p+1,tmp.get(p));
-                        tmp.set(p,cal_data.get(0));
-                        cal_data.clear();
-                    }
-                    for(k=p; 0<k; k--) {
-                        if(tmp.get(k).getTime().contains("~")) {
-                            time1 = tmp.get(k).getTime().substring(0, 5);
-                            Log.d("시발",""+time1);
-                            time2 = time1.substring(0, 2) + time1.substring(3);
-                            f = Integer.parseInt(time2);
-                        }
-                        else{
-                            time2 = tmp.get(k).getTime().substring(0, 2) + tmp.get(k).getTime().substring(3);
-                            f = Integer.parseInt(time2);
-                        }
-                        if(tmp.get(k+1).getTime().contains("~")) {
-                            time1 = tmp.get(k + 1).getTime().substring(0, 5);
-                            Log.d("시발",""+time1);
-                            time2 = time1.substring(0, 2) + time1.substring(3);
-                            t = Integer.parseInt(time2);
-                        }
-                        else{
-                            time2 = tmp.get(k + 1).getTime().substring(0, 2) + tmp.get(k + 1).getTime().substring(3);
-                            t = Integer.parseInt(time2);
-                        }
-                        t = Integer.parseInt(time2);
-                        if(f<t)
-                        {
-                            cal_data.add(tmp.get(k));
-                            tmp.set(k-1,tmp.get(k));
-                            tmp.set(k,cal_data.get(0));
-                            cal_data.clear();
-                        }
-                    }
+                List<CalenderModel> calenderModels = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    calenderModels = tmp.stream().collect(Collectors.toList());
                 }
-                Log.d("test",""+tmp);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    calenderModels = calenderModels.stream()
+                            .filter((CalenderModel) -> CalenderModel.getTime() != null)
+                            .sorted(Comparator.comparing(CalenderModel::getTime))
+                            .collect(Collectors.toList());
+                }
+                Log.d("test",""+calenderModels);
                 RecyclerView recyclerview_cal = findViewById(R.id.recyclerview_calendar);
                 recyclerview_cal.setLayoutManager(layoutManager);
-                adapter = new calendarAdapter(tmp);
+                adapter = new calendarAdapter(calenderModels);
                 recyclerview_cal.setAdapter(adapter);
             }
         });
-
-
-
 
         //캘린더에 뿌려주기
 

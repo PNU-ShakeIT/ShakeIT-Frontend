@@ -51,6 +51,9 @@ public class LawMakingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LawMakingActivity.this, ProcessedBillActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+
                 startActivity(i);
             }
         });

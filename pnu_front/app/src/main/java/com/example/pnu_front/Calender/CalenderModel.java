@@ -103,4 +103,8 @@ public class CalenderModel {
                 ", url='" + url + '\'' +
                 '}';
     }
+
+    public Object getDate(Object o) {
+        return this.date;
+    }
 }
