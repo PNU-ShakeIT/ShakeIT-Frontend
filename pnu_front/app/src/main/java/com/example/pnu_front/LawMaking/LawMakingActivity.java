@@ -1,7 +1,9 @@
 package com.example.pnu_front.LawMaking;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
@@ -21,6 +23,7 @@ import com.example.pnu_front.adapter.LawmakingAdapter;
 import com.example.pnu_front.adapter.ProcessedBillAdapter;
 import com.example.pnu_front.adapter.processedadapter;
 import com.example.pnu_front.peititon.Petition_expiration;
+import com.example.pnu_front.profile.OnitemClick;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.ArrayList;
@@ -30,7 +33,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LawMakingActivity extends AppCompatActivity {
+public class LawMakingActivity extends AppCompatActivity implements OnitemClick
+{
     ProcessedBillAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProcessedBillModel>> call;
@@ -51,8 +55,6 @@ public class LawMakingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LawMakingActivity.this, ProcessedBillActivity.class);
-
-
                 startActivity(i);
             }
         });
@@ -77,7 +79,8 @@ public class LawMakingActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ProcessedBillModel>> call, Response<List<ProcessedBillModel>> response) {
                 result = response.body();
-                adapter = new ProcessedBillAdapter(getApplicationContext(), result);
+                adapter = new ProcessedBillAdapter(getApplicationContext(), result , LawMakingActivity.this);
+                System.out.println(result.get(8).getUrl());
                 processedBillpt.setAdapter(adapter);
             }
 
@@ -101,5 +104,18 @@ public class LawMakingActivity extends AppCompatActivity {
         } else {
             adapter.setFilteredList(filteredList);
         }
+    }
+
+    @Override
+    public void onClick(int value) {
+        String tmp = null;
+        for (int k = 0; k < result.size(); k++) {
+            if (Integer.parseInt(result.get(k).getId()) == value) {
+                tmp = result.get(k).getUrl();
+            }
+        }
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(tmp));
+        startActivity(i);
+
     }
 }

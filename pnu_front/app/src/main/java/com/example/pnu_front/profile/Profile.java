@@ -178,7 +178,8 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         ImageView img = findViewById(R.id.image_profile);
         String url = result.get(value).getImg_URL();
         Log.d("urll",""+url);
-        Glide.with(this).load(url).override(200,300).into(img);
+        Glide.with(this).load(url).override(300,400).into(img);
+
         TextView name = findViewById(R.id.text_profile_name);
         TextView hj_name = findViewById(R.id.text_profile_hj_NM);
         TextView eng_name = findViewById(R.id.text_profile_eng_NM_birth);
@@ -191,7 +192,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         TextView secretary1 = findViewById(R.id.text_profile_secretary);
         TextView secretary2 = findViewById(R.id.text_profile_secretary2);
         name.setText(result.get(value).getHg_NM());
-        hj_name.setText(result.get(value).getHj_NM());
+        hj_name.setText("("+result.get(value).getHj_NM()+")");
         eng_name.setText(result.get(value).getEng_NM()+" "+result.get(value).getBth_DATE());
         orig.setText(result.get(value).getOrig_NM());
         cmits.setText(result.get(value).getCmits());

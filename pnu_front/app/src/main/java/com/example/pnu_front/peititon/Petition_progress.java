@@ -68,7 +68,12 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
                 return false;
             }
         });
-        status.setText("0");
+        ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
+        params.height = 1400;
+        proceed_list.setLayoutParams(params);
+        list_detail.setVisibility(View.GONE);
+        imageView.setBackgroundResource(R.drawable.up_right);
+        status.setText("1");
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +119,6 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             public void onClick(View v) {
                 String str =  urltmp.getText().toString();
                 Log.d("url",""+str);
-
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
                 startActivity(i);
 //                Log.d("url",""+i);

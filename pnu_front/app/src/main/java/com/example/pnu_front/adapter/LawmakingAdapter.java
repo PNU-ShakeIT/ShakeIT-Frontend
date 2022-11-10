@@ -11,15 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.R;
+import com.example.pnu_front.profile.OnitemClick;
 import com.example.pnu_front.profile.ProfileModel;
 
 import java.util.List;
 
 public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.ViewHolder>{
     List<LawMakingModel> LawMakingData;
+    private OnitemClick mCallback;
 
-    public LawmakingAdapter(Context applicationContext, List<LawMakingModel> lawMakingData) {
+    public LawmakingAdapter(Context applicationContext, List<LawMakingModel> lawMakingData, OnitemClick listener) {
         LawMakingData = lawMakingData;
+        this.mCallback = listener;
     }
 
     public void setFilteredList(List<LawMakingModel> filteredList){
@@ -43,6 +46,14 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             num = itemView.findViewById(R.id.lawmaking_num);
             association = itemView.findViewById(R.id.association);
             url = itemView.findViewById(R.id.lawmaking_url);
+            url.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = Integer.parseInt(LawMakingData.get(getAdapterPosition()).getId());
+                    System.out.println("pos : " + pos);
+                    mCallback.onClick(pos);
+                }
+            });
         }
     }
 

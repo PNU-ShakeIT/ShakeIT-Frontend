@@ -68,7 +68,12 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
                 return false;
             }
         });
-        status.setText("0");
+        ViewGroup.LayoutParams params = processed_list.getLayoutParams();
+        params.height = 1400;
+        processed_list.setLayoutParams(params);
+        list_detail.setVisibility(View.GONE);
+        imageView.setBackgroundResource(R.drawable.up_right);
+        status.setText("1");
         layoutManager = new LinearLayoutManager(this);
         processedpt.setLayoutManager(layoutManager);
         imageView.setOnClickListener(new View.OnClickListener() {
