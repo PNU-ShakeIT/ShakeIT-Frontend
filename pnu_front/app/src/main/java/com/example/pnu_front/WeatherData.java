@@ -38,11 +38,6 @@ public class WeatherData {
         String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
         String serviceKey = "KoUHhFgcXAWFHvii7YKfxL2cdQMYE7j0dUoxZZXryPaJ9lz3HH463WOAopzv0XXAm66dHnxiUGjzj9Zk87ATCw%3D%3D";
 
-        System.out.println(apiUrl);
-        System.out.println(baseDate);
-        System.out.println(baseTime);
-        System.out.println(type);
-        System.out.println(is_daytime);
         StringBuilder urlBuilder = new StringBuilder(apiUrl);
         urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + serviceKey);
         urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + "12");
@@ -78,7 +73,6 @@ public class WeatherData {
         conn.disconnect();
         String result = sb.toString();
 
-        System.out.println("###result"+result);
 
         //=======이 밑에 부터는 json에서 데이터 파싱해 오는 부분이다=====//
 
@@ -95,7 +89,6 @@ public class WeatherData {
 
         JSONObject jsonObj_4 = new JSONObject(items);
         JSONArray jsonArray = jsonObj_4.getJSONArray("item");
-        System.out.println("### JSONARRAY:" + jsonArray);
         for (int i = 0; i < jsonArray.length(); i++) {
             jsonObj_4 = jsonArray.getJSONObject(i);
             String fcstValue = jsonObj_4.getString("fcstValue");
@@ -157,7 +150,6 @@ public class WeatherData {
         WeatherData weatherdata = new WeatherData();
         //부산
         int is_daytime;
-        System.out.println("###Callback");
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat _date = new SimpleDateFormat("yyyyMMdd");
@@ -199,7 +191,6 @@ public class WeatherData {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("###Tread 시작");
                 try {
                     abc = weatherdata.getWeather(finalDate,finalBase_time,"JSON", is_daytime);
                 } catch (IOException e) {
@@ -212,7 +203,6 @@ public class WeatherData {
         thread.start();
         try {
             thread.join();
-            System.out.println("###Tread 끝 ");
         }catch (InterruptedException e){
             System.out.println("###동기화 오류");
         }

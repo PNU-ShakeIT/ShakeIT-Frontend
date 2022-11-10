@@ -99,7 +99,6 @@ public class Calender extends AppCompatActivity {
                 }
 //                //tmp에 저장된 일정을 시간 순서로 정렬
                 List<CalenderModel> calenderModels = null;
-                System.out.println("여기에요 여기 !!!!!!!");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                    calenderModels = tmp.stream().collect(Collectors.toList());
                 }
@@ -122,12 +121,10 @@ public class Calender extends AppCompatActivity {
             public void onFailure(Call<List<CalenderModel>> call, Throwable t) {
             }
         });
-        Log.d("sibal",""+sta);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-                Log.d("W", "1:" + i + " 2:" + i1 + " 3:" + i2);
                 String date;
                 date = Integer.toString(i2);
                 String month = Integer.toString(i1 + 1);
@@ -143,7 +140,7 @@ public class Calender extends AppCompatActivity {
                 inttmp = inttmp + i2;
                 strtmp = Integer.toString(inttmp);
                 today = strtmp.substring(0, 4) + '-' + strtmp.substring(5, 7) + '-' + strtmp.substring(8);
-//                Log.d("tag", "" + today + result);
+
                 tmp.clear();
                 int p;
                 for (p = 0; p < result.size(); p++) {
@@ -164,7 +161,6 @@ public class Calender extends AppCompatActivity {
                             .sorted(Comparator.comparing(CalenderModel::getTime))
                             .collect(Collectors.toList());
                 }
-                Log.d("test",""+calenderModels);
                 RecyclerView recyclerview_cal = findViewById(R.id.recyclerview_calendar);
                 recyclerview_cal.setLayoutManager(layoutManager);
                 adapter = new calendarAdapter(calenderModels);

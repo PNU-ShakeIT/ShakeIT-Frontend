@@ -115,7 +115,6 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
 
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
                 startActivity(i);
-//                Log.d("url",""+i);
 //                context.startActivity(i);
             }
         });
@@ -130,7 +129,6 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         }
         if(filteredList.isEmpty()){
         } else {
-            System.out.println("뿌려주기 !!!!!");
             RecyclerView processedpt = findViewById(R.id.processedpt);
             adapter = new processedadapter(getApplicationContext(), result,Petition_expiration.this);
             adapter.setFilteredList(filteredList);
@@ -142,7 +140,6 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
     public void onClick(int value) {
         TextView urltmp = findViewById(R.id.processed_urltmp);
         urltmp.setText(result.get(value).getUrl());
-        Log.d("testestest",""+urltmp.getText());
         FrameLayout proceed_list = findViewById(R.id.processed_list);
         CardView list_detail = findViewById(R.id.processed_list_detail);
         ImageView imageView = findViewById(R.id.processed_listsizebtn);
