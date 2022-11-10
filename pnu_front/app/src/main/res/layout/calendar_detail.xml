@@ -10,19 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        
+
         <TextView
             android:id="@+id/calendar_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:textColor="#3b768e"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
             android:text="위원회"
-            >
-        </TextView>
+            android:textColor="#3b768e"
+            android:textSize="10sp"
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:textColor="@color/black"

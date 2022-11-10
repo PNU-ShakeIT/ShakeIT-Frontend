@@ -8,25 +8,21 @@
     app:layout_constraintStart_toStartOf="parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/Chatbotbtn"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginRight="62dp"
-        android:layout_marginBottom="21dp"
-        android:background="@drawable/hope_right"
-        android:elevation="10dp"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:background="#F5F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
-        android:id="@+id/weatherframe"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_edge"
-        android:elevation="10dp"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -40,22 +36,24 @@
         </ImageView>
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/Chatbotbtn"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/hope_right"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <FrameLayout
 
         android:id="@+id/view4"
         android:layout_width="343dp"
-        android:layout_height="511dp"
-        android:layout_marginTop="170dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/congress_main_search"
         android:elevation="5dp"
         android:paddingBottom="10dp"
@@ -93,6 +91,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -103,6 +103,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -113,6 +115,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -123,6 +127,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -133,6 +139,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -143,6 +151,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -153,6 +163,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -163,6 +175,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -173,6 +187,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:text="뉴스1"
                 android:textSize="11sp"></TextView>
 
@@ -460,13 +476,14 @@
         android:id="@+id/textView8"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="이 시각 실시간 국회는?"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2">
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/view2"></TextView>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="45dp"
@@ -475,7 +492,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
-        
+
         <ImageView
             android:id="@+id/image_weather"
             android:layout_width="wrap_content"
@@ -489,7 +506,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="13° 구름 많음(국회)"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_gravity="center"
             >
         </TextView>
@@ -498,6 +515,8 @@
             android:layout_height="41dp"
             android:background="@color/line_color"
             android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             >
         </View>
         <TextView
@@ -505,7 +524,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="미세먼지\n 좋음"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:layout_gravity="center"
             android:gravity="center"
             >
@@ -515,6 +534,8 @@
             android:layout_height="41dp"
             android:background="@color/line_color"
             android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             >
         </View>
         <TextView
@@ -522,11 +543,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="초미세먼지\n좋음"
+            android:textSize="13sp"
             android:layout_gravity="center"
             android:gravity="center"
             >
         </TextView>
     </LinearLayout>
-    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

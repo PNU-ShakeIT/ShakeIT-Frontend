@@ -83,7 +83,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
                 else
                 {
                     ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-                    params.height = 700;
+                    params.height = 600;
                     proceed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
