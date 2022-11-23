@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final Bundle bundle = new Bundle();
         View calender = findViewById(R.id.calbtn);
         View profile = findViewById(R.id.profbtn);
@@ -265,8 +270,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
             ImageView weatherImg = findViewById(R.id.image_weather);
             TextView degree = findViewById(R.id.text_weather_temp);
             TextView rainPorb = findViewById(R.id.text_finedust);
@@ -449,6 +452,20 @@ public class MainActivity extends AppCompatActivity {
             //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
         }
     };
-
+//    private void createNotificationChannel() {
+//        // Create the NotificationChannel, but only on API 26+ because
+//        // the NotificationChannel class is new and not in the support library
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = "테스트입니다";
+//            String description = "푸쉬알림 테스트";
+//            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+//            NotificationChannel channel = new NotificationChannel("1", name, importance);
+//            channel.setDescription(description);
+//            // Register the channel with the system; you can't change the importance
+//            // or other notification behaviors after this
+//            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(channel);
+//        }
+//    }
 
 }

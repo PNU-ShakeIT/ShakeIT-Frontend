@@ -503,7 +503,7 @@
         </ImageView>
         <TextView
             android:id="@+id/text_weather_temp"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="13° 구름 많음(국회)"
             android:textSize="16sp"
