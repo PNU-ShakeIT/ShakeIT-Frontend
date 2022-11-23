@@ -130,10 +130,19 @@ public class ProcessedBillActivity extends AppCompatActivity implements OnitemCl
         for(LawMakingModel item : result){
             if(item.getBill_name().contains(text)){
                 filteredList.add(item);
+            } else if(item.getBill_no().contains(text)){
+                filteredList.add(item);
+            } else if(item.getNoti_end_dt().contains(text)){
+                filteredList.add(item);
+            } else if(item.getProposer().contains(text)){
+                filteredList.add(item);
+            } else if(item.getCurr_committee().contains(text)){
+                filteredList.add(item);
             }
         }
 
         if(filteredList.isEmpty()){
+            //Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setFilteredList(filteredList);
         }

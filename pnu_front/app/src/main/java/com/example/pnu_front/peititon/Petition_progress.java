@@ -156,9 +156,12 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             if(item.getName().contains(text)){
                 filteredList.add(item);
             }
+            if(item.getProposer().contains(text)){
+                filteredList.add(item);
+            }
         }
         if(filteredList.isEmpty()){
-            Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setFilteredList(filteredList);
         }
