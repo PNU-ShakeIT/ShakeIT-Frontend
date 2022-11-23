@@ -71,7 +71,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 3000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();

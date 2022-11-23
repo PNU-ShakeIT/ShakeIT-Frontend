@@ -68,7 +68,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 2000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
 
         progress.setOnClickListener(new View.OnClickListener() {

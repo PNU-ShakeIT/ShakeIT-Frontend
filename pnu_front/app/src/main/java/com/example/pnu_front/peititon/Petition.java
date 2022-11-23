@@ -62,7 +62,7 @@ public class Petition extends AppCompatActivity {
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 3000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
 
         ImageView titleImg = findViewById(R.id.imageView);
