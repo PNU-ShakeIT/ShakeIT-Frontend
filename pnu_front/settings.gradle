@@ -1,8 +1,9 @@
 pluginManagement {
     repositories {
+        mavenCentral()
         gradlePluginPortal()
         google()
-        mavenCentral()
+
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "pnu_front"

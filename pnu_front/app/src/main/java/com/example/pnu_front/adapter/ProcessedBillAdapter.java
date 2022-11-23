@@ -46,7 +46,6 @@ public class ProcessedBillAdapter extends RecyclerView.Adapter<ProcessedBillAdap
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             title = itemView.findViewById(R.id.ProcessedBill_title);
             user = itemView.findViewById(R.id.ProcessedBill_user);
             day = itemView.findViewById(R.id.ProcessedBill_date);

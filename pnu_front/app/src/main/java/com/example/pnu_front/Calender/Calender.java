@@ -2,8 +2,11 @@ package com.example.pnu_front.Calender;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pnu_front.MainActivity;
+import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.calendarAdapter;
@@ -52,6 +56,19 @@ public class Calender extends AppCompatActivity {
         setContentView(R.layout.activity_calender);
         TextView text_day = findViewById(R.id.date_text);
         View back = findViewById(R.id.calendar_back);
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 3000); //딜레이 타임 조절
+
 
 
         CalendarView calendarView = findViewById(R.id.calendarView);
@@ -147,14 +164,12 @@ public class Calender extends AppCompatActivity {
                 String strtmp;
                 int inttmp = 0;
                 int k = 0;
-
                 //받은 후에 선택된 날짜의 일정만 뽑아서 tmp에 저장
                 inttmp = inttmp + i * 1000000;
                 inttmp = inttmp + (i1 + 1) * 1000;
                 inttmp = inttmp + i2;
                 strtmp = Integer.toString(inttmp);
                 today = strtmp.substring(0, 4) + '-' + strtmp.substring(5, 7) + '-' + strtmp.substring(8);
-
                 tmp.clear();
                 int p;
                 for (p = 0; p < result.size(); p++) {

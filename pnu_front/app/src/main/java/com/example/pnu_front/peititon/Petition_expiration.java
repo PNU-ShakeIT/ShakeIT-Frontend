@@ -1,6 +1,10 @@
 package com.example.pnu_front.peititon;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.processedadapter;
@@ -55,6 +60,19 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         Button processed_urlbtn = findViewById(R.id.processed_list_detail_urlbtn);
         View back = findViewById(R.id.pet_exp_back);
         TextView urltmp = findViewById(R.id.processed_urltmp);
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 3000); //딜레이 타임 조절
+
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

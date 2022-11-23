@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,6 +20,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 
@@ -42,6 +46,19 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 3000); //딜레이 타임 조절
+
 
         setContentView(R.layout.activity_petition_progress);
         RecyclerView progress = findViewById(R.id.progresspt);
