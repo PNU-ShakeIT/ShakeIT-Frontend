@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         TextView article07 = findViewById(R.id.article_07);
         TextView article08 = findViewById(R.id.article_08);
         TextView article09 = findViewById(R.id.article_09);
+
+        FrameLayout notificationbtn = findViewById(R.id.notification_btn);
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +158,13 @@ public class MainActivity extends AppCompatActivity {
         });
         TextView tmpint = findViewById(R.id.tmpint);
         tmpint.setText("0");
+        notificationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , Notification.class);
+                startActivity(i);
+            }
+        });
 
         new Thread(){
             @Override

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="333dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:elevation="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:elevation="5dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="12dp">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_edge"
+            android:elevation="6dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/img_notification"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/user_right"
+            android:elevation="8dp">
+        </ImageView>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="5dp"
+        >
+        <TextView
+            android:id="@+id/text_title_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingTop="15dp"
+            android:text="새로운 입법 정보가 도착하였습니다."
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/text_detail_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textStyle="normal"
+            android:text="접근금지와 심신미약에 관한 법을 강화해 주세요"
+            android:paddingBottom="15dp"
+            >
+
+        </TextView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
