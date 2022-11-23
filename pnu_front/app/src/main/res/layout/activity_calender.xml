@@ -74,7 +74,7 @@
         android:layout_marginTop="12dp"
         android:text="국회 일정"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
@@ -114,7 +114,7 @@
             android:gravity="center"
             android:text="11월 5일 일정"
             android:textColor="@color/black"
-            android:textSize="15sp">
+            android:textSize="15dp">
 
         </TextView>
 

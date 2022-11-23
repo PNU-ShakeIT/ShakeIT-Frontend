@@ -2,7 +2,10 @@ package com.example.pnu_front.peititon;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pnu_front.MainActivity;
+import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
 //import com.example.pnu_front.RetrofitManager.ApiClient;
 //import com.example.pnu_front.RetrofitManager.ApiInterface;
@@ -47,6 +51,19 @@ public class Petition extends AppCompatActivity {
         TextView pending2 = findViewById(R.id.pending_realtime_2);
         TextView pending3 = findViewById(R.id.pending_realtime_3);
         TextView pending4 = findViewById(R.id.pending_realtime_4);
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 3000); //딜레이 타임 조절
+
 
         ImageView titleImg = findViewById(R.id.imageView);
 
@@ -105,7 +122,6 @@ public class Petition extends AppCompatActivity {
                 pending1.setText(ps_result.get(0).getName());
                 pending2.setText(ps_result.get(1).getName());
                 pending3.setText(ps_result.get(2).getName());
-
                 pending4.setText(ps_result.get(3).getName());
             }
             @Override

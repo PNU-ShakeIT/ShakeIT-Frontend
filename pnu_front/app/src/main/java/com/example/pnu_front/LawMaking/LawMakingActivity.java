@@ -1,8 +1,11 @@
 package com.example.pnu_front.LawMaking;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.ProcessedBill.ProcessedBillActivity;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
+import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
 import com.example.pnu_front.RetrofitMananger.RetrofitInstance;
 import com.example.pnu_front.adapter.LawmakingAdapter;
@@ -52,6 +56,20 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
         processedBillpt.setLayoutManager(layoutManager);
         TextView progress = findViewById(R.id.lawmaking_progress_btn1);
         View back = findViewById(R.id.lawmaking_back);
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 2000); //딜레이 타임 조절
+
 
         progress.setOnClickListener(new View.OnClickListener() {
             @Override

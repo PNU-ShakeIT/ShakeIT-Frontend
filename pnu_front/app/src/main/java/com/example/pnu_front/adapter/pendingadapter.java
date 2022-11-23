@@ -75,8 +75,11 @@ public class pendingadapter extends RecyclerView.Adapter<pendingadapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         holder.title.setText(this.pendingPetitionData.get(i).getName());
+//        holder.member.setText(pendingPetitionData.get(i).getProposer());
         String[] tmpname = new String[2];
         int num =0;
+//        holder.bar.setMax(pendingPetitionData.size()+1);
+//        holder.bar.setProgress(pendingPetitionData.size()-i);
         int tmp =0;
         String numString;
         tmpname = pendingPetitionData.get(i).getProposer().split(" ");

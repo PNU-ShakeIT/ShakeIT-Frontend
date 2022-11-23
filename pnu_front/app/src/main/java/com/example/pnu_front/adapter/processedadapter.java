@@ -38,15 +38,17 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView member;
-        public ProgressBar bar;
+        public TextView result;
         public LinearLayout linearLayout;
+        public ProgressBar bar;
 
         public MyViewHolder(View view) {
             super(view);
             this.title = view.findViewById(R.id.title);
             this.member = view.findViewById(R.id.petition_amount);
-            this.bar = view.findViewById(R.id.progressBar);
+            this.result = view.findViewById(R.id.text_processed_result);
             this.linearLayout = view.findViewById(R.id.linearlayout_petition);
+            this.bar = view.findViewById(R.id.processed_progressBar);
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -66,26 +68,27 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         Context context = parent.getContext();
-        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expiration_petition, parent, false);
+        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.processed_petition_item, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(holderView);
-
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         holder.title.setText(this.processedPetitionData.get(i).getName());
+        holder.member.setText(processedPetitionData.get(i).getProposer());
         String[] tmpname = new String[2];
         int num =0;
         int tmp =0;
+        holder.result.setText("사유: "+processedPetitionData.get(i).getPro_result());
         String numString;
         tmpname = processedPetitionData.get(i).getProposer().split(" ");
         if(tmpname.length == 1){
-            holder.member.setText(this.processedPetitionData.get(i).getProposer());
+            holder.member.setText("청원자 : "+this.processedPetitionData.get(i).getProposer());
             holder.bar.setProgress(0);
         }
         else{
-            holder.member.setText(this.processedPetitionData.get(i).getProposer());
+            holder.member.setText("청원자 : "+this.processedPetitionData.get(i).getProposer());
             numString = tmpname[1].replace("인","");
             num = Integer.parseInt(numString.replace(",", ""));
             Log.d("num", ""+num);
