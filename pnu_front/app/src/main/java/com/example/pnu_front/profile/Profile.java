@@ -76,7 +76,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 3000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
 
 
@@ -177,10 +177,13 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         for(ProfileModel item : result){
             if(item.getHg_NM().contains(text)){
                 filteredList.add(item);
+            } else if(item.getPoly_NM().contains(text)){
+                filteredList.add(item);
             }
         }
 
         if(filteredList.isEmpty()){
+            //Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
             RecyclerView congressmember = findViewById(R.id.congress_member_list);
             myadapter = new profileadapter(getApplicationContext(), result, Profile.this);
@@ -200,6 +203,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         memberprofile.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);
         TextView status = findViewById(R.id.status);
+        status.setText("0");
         ImageView img = findViewById(R.id.image_profile);
         String url = result.get(value).getImg_URL();
 
@@ -217,7 +221,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
         TextView secretary1 = findViewById(R.id.text_profile_secretary);
         TextView secretary2 = findViewById(R.id.text_profile_secretary2);
         name.setText(result.get(value).getHg_NM());
-        hj_name.setText("("+result.get(value).getHj_NM()+")");
+        hj_name.setText(result.get(value).getHj_NM());
         eng_name.setText(result.get(value).getEng_NM()+" "+result.get(value).getBth_DATE());
         orig.setText(result.get(value).getOrig_NM());
         cmits.setText(result.get(value).getCmits());

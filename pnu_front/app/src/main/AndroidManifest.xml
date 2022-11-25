@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,16 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pnu_front"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31" >
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-             See README(https://goo.gl/l4GJaQ) for more. -->
+        tools:targetApi="31">
+        <activity
+            android:name=".notification.Notification"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!--
+         Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/assemblymark_right" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
-
-        <activity android:name=".MainActivity"
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <activity
+            android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|adjustPan">
             <meta-data
@@ -99,12 +111,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <service android:name=".pushAlerm.MyFirebaseMessagingService"
+
+        <service
+            android:name=".pushAlerm.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".ProcessedBill.ProcessedBillActivity"
             android:exported="false"
@@ -114,4 +129,5 @@
                 android:value="" />
         </activity>
     </application>
+
 </manifest>

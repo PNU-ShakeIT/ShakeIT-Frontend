@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rec_edge"
+    android:elevation="7dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:elevation="4dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:background="@drawable/round_edge"
+            >
+        </TextView>
+        <ImageView
+            android:id="@+id/img_notification"
+            android:background="@drawable/notification_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:elevation="8dp"
+            android:layout_gravity="center"
+            >
+        </ImageView>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="5dp"
+        >
+
+        <TextView
+            android:id="@+id/text_title_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingTop="15dp"
+            android:text="새로운 입법 정보가 도착하였습니다."
+            android:textSize="16dp"
+            android:textStyle="bold"></TextView>
+        <TextView
+            android:id="@+id/text_detail_notification"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textStyle="normal"
+            android:text="접근금지와 심신미약에 관한 법을 강화해 주세요"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            >
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/notification_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:text="메인>메뉴>입법"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/notification_datealerm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:paddingBottom="5dp"
+            android:text="1일전"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="219dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

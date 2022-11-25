@@ -8,6 +8,24 @@
     app:layout_constraintStart_toStartOf="parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:id="@+id/menu_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.050"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046">
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:background="@drawable/menu_bar" />
+    </FrameLayout>
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="391dp"
@@ -222,22 +240,21 @@
 
 
     <FrameLayout
-        android:id="@+id/menu_bar"
+        android:id="@+id/notification_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintVertical_bias="0.64"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.050"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
-        >
-    <View
-        android:layout_width="24dp"
-        android:layout_gravity="center"
-        android:layout_height="24dp"
-        android:background="@drawable/menu_bar"
-         />
+        app:layout_constraintStart_toEndOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:background="@drawable/notification_right" />
     </FrameLayout>
 
     <LinearLayout
@@ -505,56 +522,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/snow_right"
-            >
-        </ImageView>
+            android:background="@drawable/snow_right"></ImageView>
+
         <TextView
             android:id="@+id/text_weather_temp"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="13° 구름 많음(국회)"
-            android:textSize="16dp"
             android:layout_gravity="center"
-            >
-        </TextView>
+            android:text="13° 구름 많음(국회)"
+            android:textSize="16dp"></TextView>
+
         <View
             android:layout_width="1dp"
             android:layout_height="41dp"
-            android:background="@color/line_color"
             android:layout_gravity="center"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="3dp"
-            >
-        </View>
+            android:background="@color/line_color"></View>
+
         <TextView
             android:id="@+id/text_finedust"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="미세먼지\n 좋음"
-            android:textSize="13dp"
             android:layout_gravity="center"
             android:gravity="center"
-            >
-        </TextView>
+            android:text="미세먼지\n 좋음"
+            android:textSize="13dp"></TextView>
+
         <View
             android:layout_width="1dp"
             android:layout_height="41dp"
-            android:background="@color/line_color"
             android:layout_gravity="center"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="3dp"
-            >
-        </View>
+            android:background="@color/line_color"></View>
+
         <TextView
             android:id="@+id/text_ultrafinedust"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="초미세먼지\n좋음"
-            android:textSize="13dp"
             android:layout_gravity="center"
             android:gravity="center"
-            >
-        </TextView>
+            android:text="초미세먼지\n좋음"
+            android:textSize="13dp"></TextView>
     </LinearLayout>
 
 

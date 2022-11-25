@@ -1,7 +1,6 @@
 package com.example.pnu_front;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -11,11 +10,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,13 +23,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
 
 import com.example.pnu_front.Calender.Calender;
 import com.example.pnu_front.LawMaking.LawMakingActivity;
+import com.example.pnu_front.notification.Notification;
 import com.example.pnu_front.peititon.Petition;
 
 import com.example.pnu_front.profile.Profile;
@@ -77,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         TextView article07 = findViewById(R.id.article_07);
         TextView article08 = findViewById(R.id.article_08);
         TextView article09 = findViewById(R.id.article_09);
+
+        FrameLayout notificationbtn = findViewById(R.id.notification_btn);
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +156,13 @@ public class MainActivity extends AppCompatActivity {
         });
         TextView tmpint = findViewById(R.id.tmpint);
         tmpint.setText("0");
+        notificationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , Notification.class);
+                startActivity(i);
+            }
+        });
 
         new Thread(){
             @Override

@@ -71,7 +71,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 3000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
         searchView = findViewById(R.id.petition_searchview);
         searchView.clearFocus();
@@ -148,6 +148,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
 
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(str));
                 startActivity(i);
+//                Log.d("url",""+i);
 //                context.startActivity(i);
             }
         });
@@ -158,9 +159,13 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         for(ProcessedPetitionModel item : result){
             if(item.getName().contains(text)){
                 filteredList.add(item);
+            } else if(item.getProposer().contains(text)){
+                filteredList.add(item);
             }
+
         }
         if(filteredList.isEmpty()){
+            //Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
         } else {
             RecyclerView processedpt = findViewById(R.id.processedpt);
             adapter = new processedadapter(getApplicationContext(), result,Petition_expiration.this);

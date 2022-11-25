@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.pnu_front.Calender.CalenderModel;
 import com.example.pnu_front.LawMaking.LawMakingModel;
 import com.example.pnu_front.ProcessedBill.ProcessedBillModel;
+import com.example.pnu_front.notification.NotificationModel;
 import com.example.pnu_front.peititon.PendingPetitionModel;
 import com.example.pnu_front.peititon.ProcessedPetitionModel;
 import com.example.pnu_front.profile.ProfileModel;
@@ -34,6 +35,10 @@ public interface RetrofitService {
     @GET("getBill")
     Call<List<ProcessedBillModel>> getBill();
 
+    @GET("getNotification")
+    Call<List<NotificationModel>> getNotification();
+
     @GET("push/{tokens}")
     Call<String> insertToken(@Path("tokens") String tokens);
+
 }

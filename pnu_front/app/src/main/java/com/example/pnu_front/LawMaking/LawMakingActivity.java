@@ -38,8 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LawMakingActivity extends AppCompatActivity implements OnitemClick
-{
+public class LawMakingActivity extends AppCompatActivity implements OnitemClick {
     ProcessedBillAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     Call<List<ProcessedBillModel>> call;
@@ -68,7 +67,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
             public void run() {
                 progressDialog.dismiss();
             }
-        }, 2000); //딜레이 타임 조절
+        }, 1300); //딜레이 타임 조절
 
 
         progress.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +86,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
                 startActivity(i);
             }
         });
+
         searchView = findViewById(R.id.bill_searchview);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -107,7 +107,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
             @Override
             public void onResponse(Call<List<ProcessedBillModel>> call, Response<List<ProcessedBillModel>> response) {
                 result = response.body();
-                adapter = new ProcessedBillAdapter(getApplicationContext(), result , LawMakingActivity.this);
+                adapter = new ProcessedBillAdapter(getApplicationContext(), result, LawMakingActivity.this);
                 System.out.println(result.get(8).getUrl());
                 processedBillpt.setAdapter(adapter);
             }
@@ -122,15 +122,28 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
 
     private void filterList(String text) {
         List<ProcessedBillModel> filteredList = new ArrayList<>();
-        for(ProcessedBillModel item : result){
-            if(item.getBill_name().contains(text)){
+        for (ProcessedBillModel item : result) {
+            if (item.getBill_name().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getBill_num().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getAnnounce_dt().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getCommittee_nm().contains(text)) {
+                filteredList.add(item);
+            } else if (item.getProc_result().contains(text)) {
                 filteredList.add(item);
             }
-        }
 
-        if(filteredList.isEmpty()){
-        } else {
-            adapter.setFilteredList(filteredList);
+            if (filteredList.isEmpty()) {
+            } else {
+                adapter.setFilteredList(filteredList);
+                if (filteredList.isEmpty()) {
+                    //Toast.makeText(this, "입력된 정보가 없습니다", Toast.LENGTH_SHORT).show();
+                } else {
+                    adapter.setFilteredList(filteredList);
+                }
+            }
         }
     }
 
@@ -144,6 +157,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick
         }
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(tmp));
         startActivity(i);
+
 
     }
 }
