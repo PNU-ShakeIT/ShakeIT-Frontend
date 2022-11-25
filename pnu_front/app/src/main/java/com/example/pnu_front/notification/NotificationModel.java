@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class NotificationModel {
     @SerializedName("id")
-    private String id;
+    private long id;
 
     @SerializedName("title")
     private String title;
@@ -15,11 +15,11 @@ public class NotificationModel {
     @SerializedName("createdate")
     private String createDate;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

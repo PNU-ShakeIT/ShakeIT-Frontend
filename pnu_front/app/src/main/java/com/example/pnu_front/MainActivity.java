@@ -1,7 +1,6 @@
 package com.example.pnu_front;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -11,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,13 +23,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
 
 import com.example.pnu_front.Calender.Calender;
 import com.example.pnu_front.LawMaking.LawMakingActivity;
+import com.example.pnu_front.notification.Notification;
 import com.example.pnu_front.peititon.Petition;
 
 import com.example.pnu_front.profile.Profile;

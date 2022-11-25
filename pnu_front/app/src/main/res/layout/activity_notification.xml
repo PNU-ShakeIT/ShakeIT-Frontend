@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Notification">
-    <?xml version="1.0" encoding="utf-8"?>
+    tools:context=".notification.Notification">
     <View
-        android:id="@+id/calendar_back"
+        android:id="@+id/notification_backbtn"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/backspace_icon"
@@ -107,7 +106,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_notification"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="540dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="13dp"
