@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
-        android:id="@+id/Chatbotbtn"
+        android:id="@+id/notification_Chatbotbtn"
         android:layout_width="45dp"
         android:layout_height="60dp"
         android:layout_marginEnd="48dp"

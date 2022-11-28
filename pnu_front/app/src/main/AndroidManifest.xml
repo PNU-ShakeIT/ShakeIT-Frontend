@@ -46,7 +46,7 @@
         <activity
             android:name=".Chatbot"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize|adjustPan">
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

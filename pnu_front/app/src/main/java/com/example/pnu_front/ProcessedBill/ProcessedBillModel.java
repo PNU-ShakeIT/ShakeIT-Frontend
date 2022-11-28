@@ -15,8 +15,8 @@ public class ProcessedBillModel {
     @SerializedName("bill_name")
     private String bill_name;
 
-    @SerializedName("proposer")
-    private String proposer;
+    @SerializedName("propersor")
+    private String propersor;
 
     @SerializedName("committee_nm")
     private String committee_nm;
@@ -78,11 +78,11 @@ public class ProcessedBillModel {
     }
 
     public String getProposer() {
-        return proposer;
+        return propersor;
     }
 
-    public void setProposer(String proposer) {
-        this.proposer = proposer;
+    public void setProposer(String propersor) {
+        this.propersor = propersor;
     }
 
     public String getCommittee_nm() {
@@ -164,7 +164,7 @@ public class ProcessedBillModel {
                 ", daesu='" + daesu + '\'' +
                 ", bill_num='" + bill_num + '\'' +
                 ", bill_name='" + bill_name + '\'' +
-                ", proposer='" + proposer + '\'' +
+                ", proposer='" + propersor + '\'' +
                 ", committee_nm='" + committee_nm + '\'' +
                 ", url='" + url + '\'' +
                 ", proc_date='" + proc_date + '\'' +

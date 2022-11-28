@@ -80,9 +80,7 @@ public class LawMakingModel {
         this.curr_committee = curr_committee;
     }
 
-    public String getProposer() {
-        return proposer;
-    }
+    public String getProposer() {return proposer;}
 
     public void setProposer(String proposer) {
         this.proposer = proposer;

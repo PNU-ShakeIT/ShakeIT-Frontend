@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,8 +88,10 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
                 return false;
             }
         });
+        final int wide_height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 500, getResources().getDisplayMetrics());
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 220, getResources().getDisplayMetrics());
         ViewGroup.LayoutParams params = processed_list.getLayoutParams();
-        params.height = 1400;
+        params.height = wide_height;
         processed_list.setLayoutParams(params);
         list_detail.setVisibility(View.GONE);
         imageView.setBackgroundResource(R.drawable.up_right);
@@ -109,7 +112,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
             public void onClick(View v) {
                 if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = processed_list.getLayoutParams();
-                    params.height = 1400;
+                    params.height = wide_height;
                     processed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.GONE);
                     imageView.setBackgroundResource(R.drawable.up_right);
@@ -118,7 +121,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
                 else
                 {
                     ViewGroup.LayoutParams params = processed_list.getLayoutParams();
-                    params.height = 600;
+                    params.height = small_height;
                     processed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
@@ -176,6 +179,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
 
     @Override
     public void onClick(int value) {
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 220, getResources().getDisplayMetrics());
         TextView urltmp = findViewById(R.id.processed_urltmp);
         urltmp.setText(result.get(value).getUrl());
         FrameLayout proceed_list = findViewById(R.id.processed_list);
@@ -183,7 +187,7 @@ public class Petition_expiration extends AppCompatActivity implements OnitemClic
         ImageView imageView = findViewById(R.id.processed_listsizebtn);
         TextView status = findViewById(R.id.petition_processed_status);//0일때 평소 상태 1일때 확대 상태
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height =600;
+        params.height =small_height;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);
