@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:forceDarkAllowed="false"
     tools:context=".peititon.Petition_expiration">
     <View
         android:id="@+id/pet_exp_back"
@@ -100,7 +101,7 @@
     <FrameLayout
         android:id="@+id/processed_list"
         android:layout_width="343dp"
-        android:layout_height="600px"
+        android:layout_height="220dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/oval_edge"
         android:elevation="5dp"
@@ -243,6 +244,7 @@
             >
         </TextView>
         <Button
+            android:forceDarkAllowed="false"
             android:id="@+id/processed_list_detail_urlbtn"
             android:layout_width="100dp"
             android:layout_height="49dp"
@@ -251,6 +253,7 @@
             android:layout_marginEnd="19dp"
             android:text="상세보기"
             android:textSize="15dp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:background="@drawable/round_edge"
             >

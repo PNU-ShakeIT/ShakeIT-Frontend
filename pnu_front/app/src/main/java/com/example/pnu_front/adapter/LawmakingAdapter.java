@@ -1,6 +1,7 @@
 package com.example.pnu_front.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,7 @@ public class LawmakingAdapter extends RecyclerView.Adapter<LawmakingAdapter.View
             holder.user.setText(this.LawMakingData.get(position).getProposer());
             holder.association.setText(this.LawMakingData.get(position).getCurr_committee());
             holder.url.setText(this.LawMakingData.get(position).getLink());
+            Log.d("여기사람살아요여기사람살아요여기사람살아요",""+LawMakingData.get(position).getProposer());
         }
 
         @Override

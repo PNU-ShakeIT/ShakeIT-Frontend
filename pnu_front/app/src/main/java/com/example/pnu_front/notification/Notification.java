@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pnu_front.Chatbot;
 import com.example.pnu_front.MainActivity;
 import com.example.pnu_front.ProgressDialog;
 import com.example.pnu_front.R;
@@ -64,7 +66,14 @@ public class Notification extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        ImageView chatbot = findViewById(R.id.notification_Chatbotbtn);
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Notification.this , Chatbot.class);
+                startActivity(i);
+            }
+        });
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -74,7 +83,7 @@ public class Notification extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<NotificationModel>> call, Response<List<NotificationModel>> response) {
                 result = response.body();
-                myadapter = new NotificationAdapter(result);
+                myadapter = new NotificationAdapter(getApplicationContext(),result);
                 recyclerView.setAdapter(myadapter);
             }
 

@@ -202,7 +202,7 @@
         app:cardElevation="5dp"
         android:id="@+id/congress_member_profile"
         android:layout_width="343dp"
-        android:layout_height="240dp"
+        android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/oval_edge"

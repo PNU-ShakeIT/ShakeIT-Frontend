@@ -52,10 +52,11 @@ public class processedadapter extends RecyclerView.Adapter<processedadapter.MyVi
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = processedPetitionData.get(getAdapterPosition()).getId() -1;
+                    int pos = processedPetitionData.get(getAdapterPosition()).getId() -2;
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         mCallback.onClick(pos);
+                        Log.d("1:37","pos:"+pos);
                     }
 
                 }

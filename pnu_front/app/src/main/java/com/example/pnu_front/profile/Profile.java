@@ -2,6 +2,7 @@ package com.example.pnu_front.profile;
 
 import static com.example.pnu_front.R.id.searchView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -108,8 +110,11 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 startActivity(i);
             }
         });
+
+        final int wide_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 420, getResources().getDisplayMetrics());
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 215, getResources().getDisplayMetrics());
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-        params.height = 1400;
+        params.height = wide_height;
         congressmember.setLayoutParams(params);
         memberprofile.setVisibility(View.GONE);
         imageView.setBackgroundResource(R.drawable.up_right);
@@ -117,8 +122,8 @@ public class Profile extends AppCompatActivity implements OnitemClick {
             @Override
             public void onClick(View v) {
                 if(status.getText() == "0") {
-                    ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-                    params.height = 1400;
+                   ViewGroup.LayoutParams params = congressmember.getLayoutParams();
+                    params.height = wide_height;
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.GONE);
                     imageView.setBackgroundResource(R.drawable.up_right);
@@ -127,7 +132,7 @@ public class Profile extends AppCompatActivity implements OnitemClick {
                 else
                 {
                     ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-                    params.height = 600;
+                    params.height = small_height;
                     congressmember.setLayoutParams(params);
                     memberprofile.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
@@ -191,13 +196,17 @@ public class Profile extends AppCompatActivity implements OnitemClick {
            congressmember.setAdapter(myadapter);
         }
     }
-
+    public static int ConvertDPtoPX(Context context, int dp) {
+        float density = context.getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
+    }
     @Override
     public void onClick(int value) {
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 215, getResources().getDisplayMetrics());
         RecyclerView congressmember = findViewById(R.id.congress_member_list);
         FrameLayout memberprofile = findViewById(R.id.congress_member_profile);
         ViewGroup.LayoutParams params = congressmember.getLayoutParams();
-        params.height = 600;
+        params.height = small_height;
         ImageView imageView = findViewById(R.id.Congress_member_listsizebtn);
         congressmember.setLayoutParams(params);
         memberprofile.setVisibility(View.VISIBLE);

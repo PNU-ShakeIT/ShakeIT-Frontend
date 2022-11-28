@@ -109,6 +109,7 @@ public class LawMakingActivity extends AppCompatActivity implements OnitemClick 
                 result = response.body();
                 adapter = new ProcessedBillAdapter(getApplicationContext(), result, LawMakingActivity.this);
                 System.out.println(result.get(8).getUrl());
+                Log.d("왜이래왜이래왜이래왜이래왜이래",""+result);
                 processedBillpt.setAdapter(adapter);
             }
 

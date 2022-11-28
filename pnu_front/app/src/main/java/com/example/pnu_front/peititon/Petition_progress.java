@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -85,8 +86,10 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
                 return false;
             }
         });
+        final int wide_height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 500, getResources().getDisplayMetrics());
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 220, getResources().getDisplayMetrics());
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height = 1400;
+        params.height = wide_height;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.GONE);
         imageView.setBackgroundResource(R.drawable.up_right);
@@ -105,7 +108,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
             public void onClick(View v) {
                 if(status.getText() == "0") {
                     ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-                    params.height = 1400;
+                    params.height = wide_height;
                     proceed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.GONE);
                     imageView.setBackgroundResource(R.drawable.up_right);
@@ -114,7 +117,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
                 else
                 {
                     ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-                    params.height = 600;
+                    params.height = small_height;
                     proceed_list.setLayoutParams(params);
                     list_detail.setVisibility(View.VISIBLE);
                     imageView.setBackgroundResource(R.drawable.down_right);
@@ -169,6 +172,8 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
 
     @Override
     public void onClick(int value) {
+        final int small_height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 220, getResources().getDisplayMetrics());
+
         TextView urltmp = findViewById(R.id.proceed_urltmp);
         urltmp.setText(result.get(value).getUrl());
         FrameLayout proceed_list = findViewById(R.id.proceed_list);
@@ -176,7 +181,7 @@ public class Petition_progress extends AppCompatActivity implements OnitemClick 
         ImageView imageView = findViewById(R.id.proceed_listsizebtn);
         TextView status = findViewById(R.id.petition_proceed_status);//0일때 평소 상태 1일때 확대 상태
         ViewGroup.LayoutParams params = proceed_list.getLayoutParams();
-        params.height =600;
+        params.height =small_height;
         proceed_list.setLayoutParams(params);
         list_detail.setVisibility(View.VISIBLE);
         imageView.setBackgroundResource(R.drawable.down_right);
